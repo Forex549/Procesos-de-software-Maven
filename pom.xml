@@ -11,4 +11,12 @@
         <maven.compiler.target>22</maven.compiler.target>
         <exec.mainClass>com.mycompany.procesossoftware2.ProcesosSoftware2</exec.mainClass>
     </properties>
+    <dependencies>
+        
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.5.2</version>
+        </dependency>
+    </dependencies>
 </project>
