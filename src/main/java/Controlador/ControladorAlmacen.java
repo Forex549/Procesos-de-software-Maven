@@ -81,6 +81,7 @@ public class ControladorAlmacen {
                         
                         habilitarControlesActualizacion(true);
                         
+                        vista.txtCodigo.setText(vista.tblProductos.getValueAt(filaselect, 0).toString());
                         vista.txtNombre.setText(vista.tblProductos.getValueAt(filaselect, 1).toString());
                         vista.txtPrecio.setText(vista.tblProductos.getValueAt(filaselect, 2).toString());
                         vista.txtCantidad.setText(vista.tblProductos.getValueAt(filaselect, 3).toString());
