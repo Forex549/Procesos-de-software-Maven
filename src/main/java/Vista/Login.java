@@ -1,8 +1,9 @@
 
 package Vista;
+import Conexión.Conexión;
 import Modelo.ConexionLogin;
 import java.awt.Color;
-import javax.swing.JOptionPane;
+import java.sql.Connection;
 /**
  *
  * @author MATHIAS
@@ -17,23 +18,87 @@ public class Login extends javax.swing.JPanel {
     public Login(Principal principal) {
         this.principal = principal;
         initComponents();
+        initStyles();
+        addRoundedPanel();
     }
     
-    // Método para realizar el login
-    private void realizarLogin() {
-        String username = jTextFieldUsuario.getText();
-        String password = new String(jPasswordField1.getPassword());
-
-        ConexionLogin conexionLogin = new ConexionLogin();
-        boolean accesoPermitido = conexionLogin.verificarUsuario(username, password);
-
-        if (accesoPermitido) {
-            JOptionPane.showMessageDialog(this, "Login exitoso");
-            // Aquí puedes cambiar de pantalla o redirigir al usuario a la ventana principal
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
-        }
+    private void initStyles(){
+        jTextFieldUsuario.putClientProperty( "JComponent.roundRect", true );
+        jTextFieldPassword.putClientProperty( "JComponent.roundRect", true );
+        jTextFieldUsuario.setColumns(15); // 15 columnas visibles
+        jTextFieldPassword.setColumns(15);
+        jButtonIngresar.putClientProperty( "JButton.buttonType", "roundRect" );
     }
+    
+    private void addRoundedPanel() {    
+        RoundedPanel roundedPanel = new RoundedPanel(30); // Bordes redondeados con radio de 30
+        roundedPanel.setBackground(Color.LIGHT_GRAY); // Fondo gris para el RoundedPanel
+        roundedPanel.setPreferredSize(new java.awt.Dimension(620, 400)); // Tamaño preferido
+
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        java.awt.GridBagConstraints gbc = new java.awt.GridBagConstraints();
+        roundedPanel.setLayout(layout);
+
+        // Posiciona el jLabel1 (imagen) en el centro superior
+        gbc.gridx = 0; 
+        gbc.gridy = 0;
+        gbc.gridwidth = 2; // Ocupa dos columnas para centrar
+        gbc.anchor = java.awt.GridBagConstraints.CENTER;
+        gbc.insets = new java.awt.Insets(10, 0, 20, 0); // Espacio alrededor de la imagen
+        roundedPanel.add(jLabel1, gbc);
+
+        // Agrega la etiqueta de usuario en la siguiente fila
+        gbc.gridwidth = 1; // Restablece a una columna
+        gbc.gridy = 1;
+        gbc.gridx = 0;
+        gbc.anchor = java.awt.GridBagConstraints.EAST;
+        gbc.insets = new java.awt.Insets(10, 10, 10, 5); // Ajuste de espacio para alineación
+        roundedPanel.add(jLabelUsuario, gbc);
+
+        // Campo de texto de usuario al lado de la etiqueta
+        gbc.gridx = 1;
+        gbc.anchor = java.awt.GridBagConstraints.WEST;
+        gbc.insets = new java.awt.Insets(10, 5, 10, 10);
+        roundedPanel.add(jTextFieldUsuario, gbc);
+
+        // Etiqueta de contraseña en la siguiente fila
+        gbc.gridy = 2;
+        gbc.gridx = 0;
+        gbc.anchor = java.awt.GridBagConstraints.EAST;
+        roundedPanel.add(jLabelPassword, gbc);
+
+        // Campo de texto de contraseña al lado de la etiqueta
+        gbc.gridx = 1;
+        gbc.anchor = java.awt.GridBagConstraints.WEST;
+        roundedPanel.add(jTextFieldPassword, gbc);
+
+        // Botón de ingreso en la última fila, centrado
+        gbc.gridy = 3;
+        gbc.gridx = 0;
+        gbc.gridwidth = 2; // Ocupa ambas columnas para centrarse
+        gbc.anchor = java.awt.GridBagConstraints.CENTER;
+        gbc.insets = new java.awt.Insets(20, 0, 10, 0);
+        jButtonIngresar.setPreferredSize(new java.awt.Dimension(120, 40));
+        roundedPanel.add(jButtonIngresar, gbc);
+
+        // Ajuste del layout de jPanel1 para centrar el RoundedPanel
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addComponent(roundedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addComponent(roundedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        // Revalidar y repintar para actualizar la interfaz
+        jPanel1.revalidate();
+        jPanel1.repaint();
+    }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,16 +113,17 @@ public class Login extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        jTextFieldPassword = new javax.swing.JPasswordField();
         jTextFieldUsuario = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(51, 51, 255));
         setPreferredSize(new java.awt.Dimension(1020, 640));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
+        jButtonIngresar.setBackground(new java.awt.Color(51, 51, 255));
         jButtonIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonIngresar.setForeground(new java.awt.Color(51, 255, 255));
         jButtonIngresar.setText("INGRESAR");
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,50 +134,44 @@ public class Login extends javax.swing.JPanel {
         jLabel1.setBackground(new java.awt.Color(153, 255, 255));
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 153));
-        jLabel1.setText("PLUS TECH");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/file.jpg"))); // NOI18N
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jLabelUsuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelUsuario.setForeground(new java.awt.Color(255, 204, 51));
+        jLabelUsuario.setForeground(new java.awt.Color(255, 255, 0));
         jLabelUsuario.setText("USUARIO");
 
         jLabelPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelPassword.setForeground(new java.awt.Color(255, 204, 51));
+        jLabelPassword.setForeground(new java.awt.Color(255, 255, 0));
         jLabelPassword.setText("PASSWORD");
 
-        jSeparator1.setBackground(new java.awt.Color(51, 153, 255));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jTextFieldPassword.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextFieldUsuario.setBackground(new java.awt.Color(204, 204, 204));
-
-        jPasswordField1.setBackground(new java.awt.Color(204, 204, 204));
+        jTextFieldUsuario.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(9, 9, 9)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabelUsuario)
-                                .addGap(58, 58, 58))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabelPassword)
-                                .addGap(38, 38, 38)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldUsuario)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-                        .addGap(15, 15, 15))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,15 +183,14 @@ public class Login extends javax.swing.JPanel {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPassword)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGap(126, 126, 126)
+                .addComponent(jLabel1)
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -139,22 +198,48 @@ public class Login extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
+                .addGap(178, 178, 178)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         // TODO add your handling code here:
-        realizarLogin();
+        // Obtener los valores ingresados
+        String username = jTextFieldUsuario.getText();
+        String password = new String(jTextFieldPassword.getPassword()); // Convertir el char[] a String
+
+        // Crear una instancia de ConexionLogin y de Connection
+        ConexionLogin conexionLogin = new ConexionLogin();
+        Conexión conexion = new Conexión();
+        Connection con = conexion.conectar();
+
+        // Verificar las credenciales
+        if (conexionLogin.verificarUsuario(username, password, con)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingreso exitoso!");
+            // Lógica para avanzar en la aplicación o cambiar de pantalla
+            
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de autenticación", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+
+        // Cerrar la conexión
+        try {
+            if (con != null && !con.isClosed()) {
+                con.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
 
@@ -164,8 +249,7 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPasswordField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }

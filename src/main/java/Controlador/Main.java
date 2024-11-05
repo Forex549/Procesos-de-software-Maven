@@ -2,6 +2,7 @@
 package Controlador;
 import Conexión.Conexión;
 import Vista.Principal;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 /**
  *
  * @author Giancarlo
@@ -14,8 +15,8 @@ public class Main {
     }
     
     public static void main(String[] args) {
-        Conexión con = new Conexión();
-        con.conectar();
+        FlatMaterialLighterIJTheme.setup();
+        
         Main objMain = new Main();
         objMain.mostrarMenu();
     }
