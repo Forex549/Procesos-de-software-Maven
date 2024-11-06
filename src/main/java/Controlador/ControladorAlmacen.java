@@ -36,6 +36,7 @@ public class ControladorAlmacen {
                 String descripcion = vista.txtDescrip.getText();
                 
                 Producto.agregarProducto(precio, cantidad, descripcion, marca, nombre, categoria, con);
+                limpiarCampos();
                 JOptionPane.showMessageDialog(vista, "Se realizó el registro" , "Producto Agregado" , JOptionPane.INFORMATION_MESSAGE);
             
             }else{
