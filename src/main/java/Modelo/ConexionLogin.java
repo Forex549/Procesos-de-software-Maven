@@ -18,7 +18,7 @@ public class ConexionLogin {
         try  {
             
             CallableStatement consulta = con.prepareCall(sql);
-            consulta.setInt(1,Integer.parseInt(username));
+            consulta.setString(1,username);
             consulta.setString(2,password);
            
             // Registra el parámetro de salida (OUT)
