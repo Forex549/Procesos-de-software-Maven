@@ -34,5 +34,17 @@ public class ConexionLogin {
             return false;
         }
     }
+    public boolean esAdmin(String username, String password){
+        boolean res = false;
+        
+        String usuario = "gerar.0509@gmail.com";
+        String contraseña = "contras123";
+        
+        if(username.equals(usuario) && password.equals(contraseña)){
+            res = true;
+        }
+        
+        return res;
+    }   
 }
 

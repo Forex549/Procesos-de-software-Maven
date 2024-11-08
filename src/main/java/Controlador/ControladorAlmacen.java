@@ -158,6 +158,7 @@ public class ControladorAlmacen {
         vista.txtNombre.setText("");
         vista.txtPrecio.setText("");
         vista.txtDescrip.setText("");
+        vista.txtCategoria.setText("");
         ControladorAlmacen.cargarDatos(con, vista.tblProductos);
         this.vista.txtCodigo.requestFocus();
         this.vista.txtCodigo.selectAll();
@@ -178,7 +179,8 @@ public class ControladorAlmacen {
         String consulta = "SELECT * FROM producto"; // Cambia "productos" al nombre de tu tabla
 
         try  {
-            Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(consulta);
             
                  while (rs.next()) {
                 Object[] fila = new Object[7];

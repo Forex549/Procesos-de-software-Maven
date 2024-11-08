@@ -2,6 +2,7 @@
 package Vista;
 import Conexión.Conexión;
 import Modelo.ConexionLogin;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.sql.Connection;
 /**
@@ -10,13 +11,18 @@ import java.sql.Connection;
  */
 public class Login extends javax.swing.JPanel {
 
-    private Principal principal;
+    //private Principal principal;
+    CardLayout cardLayout; //se tuvieron q colocar estos dos como atributo para poder pasarlos ccomo
+    //parametro en el constructor ya que no hay controlador para hcerlo desde el main :D .L.
+    Principal principal;
 
     /**
      * Creates new form Login
      */
-    public Login(Principal principal) {
+    public Login(CardLayout cardloLayout,Principal principal) {
+        this.cardLayout = cardloLayout;
         this.principal = principal;
+        //this.principal = principal;
         initComponents();
         initStyles();
         addRoundedPanel();
@@ -223,11 +229,17 @@ public class Login extends javax.swing.JPanel {
         Connection con = conexion.conectar();
 
         // Verificar las credenciales
-        if (conexionLogin.verificarUsuario(username, password, con)) {
+        if(conexionLogin.esAdmin(username, password)){
+            //Si es admin te mostrar el almacen, falta decorar el almacen
+            cardLayout.show(principal.background, "almacen");
+        }
+        
+        else if (conexionLogin.verificarUsuario(username, password, con)) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingreso exitoso!");
             // Lógica para avanzar en la aplicación o cambiar de pantalla
-            
-        } else {
+        }
+        
+        else {
             javax.swing.JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de autenticación", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
 

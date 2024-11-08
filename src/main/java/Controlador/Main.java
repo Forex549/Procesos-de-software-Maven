@@ -1,13 +1,16 @@
 
 package Controlador;
 import Conexión.Conexión;
-import Vista.Principal;
+import Vista.*;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
+import javax.swing.*;
+import java.awt.*;
 /**
  *
  * @author Giancarlo
  */
 public class Main {
+   
     public Principal principal;
 
     public Main() {
@@ -25,3 +28,5 @@ public class Main {
         principal.setVisible(true);
     }
 }
+
+    

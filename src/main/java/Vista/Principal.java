@@ -24,7 +24,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        mostrarPanel(new Login(this));
+        //mostrarPanel(new Login(this));
         this.setLocationRelativeTo(null);
     }
 
@@ -40,10 +40,7 @@ public class Principal extends javax.swing.JFrame {
         background = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1020, 640));
-
-        background.setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(187, 187, 187));
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -76,6 +73,6 @@ public class Principal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
+    public javax.swing.JPanel background;
     // End of variables declaration//GEN-END:variables
 }
