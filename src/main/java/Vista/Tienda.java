@@ -1,6 +1,7 @@
 package Vista;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.BorderLayout;
 import javax.swing.UIManager;
 
 public class Tienda extends javax.swing.JFrame {
@@ -23,10 +24,10 @@ public class Tienda extends javax.swing.JFrame {
         TiendaInicio ti= new TiendaInicio();
         ti.setSize(1280,590);
         ti.setLocation(0,0);
-       /* content.removeAll();
-        content.add(pl, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();*/
+        PanelInicio.removeAll();
+        PanelInicio.add(ti, BorderLayout.CENTER);
+        PanelInicio.revalidate();
+        PanelInicio.repaint();
     }
 
     @SuppressWarnings("unchecked")
