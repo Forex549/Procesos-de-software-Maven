@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 public class Principal extends javax.swing.JFrame {
     
     public void mostrarPanel(JPanel panel){
-        panel.setSize(1020, 640);
+        panel.setSize(1200, 640);
         panel.setLocation(0, 0);
 
         background.removeAll();
@@ -46,7 +46,7 @@ public class Principal extends javax.swing.JFrame {
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1020, Short.MAX_VALUE)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -39,7 +39,7 @@ public class Login extends javax.swing.JPanel {
     private void addRoundedPanel() {    
         RoundedPanel roundedPanel = new RoundedPanel(30); // Bordes redondeados con radio de 30
         roundedPanel.setBackground(Color.LIGHT_GRAY); // Fondo gris para el RoundedPanel
-        roundedPanel.setPreferredSize(new java.awt.Dimension(620, 400)); // Tamaño preferido
+        roundedPanel.setPreferredSize(new java.awt.Dimension(680, 440)); // Tamaño preferido
 
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         java.awt.GridBagConstraints gbc = new java.awt.GridBagConstraints();
@@ -123,7 +123,7 @@ public class Login extends javax.swing.JPanel {
         jTextFieldUsuario = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(51, 51, 255));
-        setPreferredSize(new java.awt.Dimension(1020, 640));
+        setPreferredSize(new java.awt.Dimension(1200, 640));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
@@ -203,17 +203,17 @@ public class Login extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(178, 178, 178)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(308, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addGap(258, 258, 258))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(94, 94, 94)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
