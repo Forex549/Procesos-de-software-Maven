@@ -1,6 +1,7 @@
 
 package Vista;
-
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
 /**
  *
  * @author Giancarlo
@@ -12,7 +13,57 @@ public class VistaAlmacen extends javax.swing.JPanel {
      */
     public VistaAlmacen() {
         initComponents();
+        decorarVistaAlmacen(); 
     }
+
+   private void decorarVistaAlmacen() {
+    // Fondo azul para el panel principal
+    jPanel1.setBackground(new Color(224, 247, 250));
+    jPanel2.setBackground(new Color(224, 247, 250));
+
+    // Estilos para los botones: fondo azul oscuro y texto blanco
+    btnActualizar.setBackground(new Color(2, 136, 209));
+    btnActualizar.setForeground(Color.WHITE);
+    
+    btnEliminar.setBackground(new Color(2, 136, 209));
+    btnEliminar.setForeground(Color.WHITE);
+    
+    btnAgregar.setBackground(new Color(2, 136, 209));
+    btnAgregar.setForeground(Color.WHITE);
+
+    // Bordes redondeados y color de fondo claro para los campos de texto
+    txtCodigo.putClientProperty("JComponent.roundRect", true);
+    txtCodigo.putClientProperty("JComponent.outline", new Color(55, 71, 79)); // Color de borde oscuro
+    txtCodigo.setBackground(Color.GRAY);
+
+    txtNombre.putClientProperty("JComponent.roundRect", true);
+    txtNombre.putClientProperty("JComponent.outline", new Color(55, 71, 79));
+    txtNombre.setBackground(Color.WHITE);
+
+    txtMarca.putClientProperty("JComponent.roundRect", true);
+    txtMarca.putClientProperty("JComponent.outline", new Color(55, 71, 79));
+    txtMarca.setBackground(Color.WHITE);
+
+    txtPrecio.putClientProperty("JComponent.roundRect", true);
+    txtPrecio.putClientProperty("JComponent.outline", new Color(55, 71, 79));
+    txtPrecio.setBackground(Color.WHITE);
+
+    txtCantidad.putClientProperty("JComponent.roundRect", true);
+    txtCantidad.putClientProperty("JComponent.outline", new Color(55, 71, 79));
+    txtCantidad.setBackground(Color.WHITE);
+
+    txtCategoria.putClientProperty("JComponent.roundRect", true);
+    txtCategoria.putClientProperty("JComponent.outline", new Color(55, 71, 79));
+    txtCategoria.setBackground(Color.WHITE);
+
+    txtDescrip.putClientProperty("JComponent.roundRect", true);
+    txtDescrip.putClientProperty("JComponent.outline", new Color(55, 71, 79));
+    txtDescrip.setBackground(Color.WHITE);
+
+    // Establece borde oscuro en la tabla
+    tblProductos.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(55, 71, 79), 2));
+    jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(55, 71, 79), 2));
+}
 
     /**
      * This method is called from within the constructor to initialize the form.

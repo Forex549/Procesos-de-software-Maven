@@ -193,8 +193,9 @@ public class ControladorAlmacen {
                 fila[6] = rs.getString("descripción");
                 modelo.addRow(fila);
                 
-                tabla.setModel(modelo);
+                
         }  
+                 tabla.setModel(modelo);
         } catch (SQLException e) {
             e.printStackTrace();
         }}
