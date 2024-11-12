@@ -29,7 +29,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jButtonVer" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="btnVer" min="-2" pref="100" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabelFiltro" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -58,7 +58,7 @@
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="scroll" min="-2" pref="449" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButtonVer" min="-2" max="-2" attributes="0"/>
+              <Component id="btnVer" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -136,7 +136,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButtonVer">
+    <Component class="javax.swing.JButton" name="btnVer">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>

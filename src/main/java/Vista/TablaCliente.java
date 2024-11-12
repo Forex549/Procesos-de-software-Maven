@@ -26,8 +26,8 @@ public class TablaCliente extends javax.swing.JPanel {
     jTextFieldFiltro.putClientProperty("JComponent.outline", new Color(55, 71, 79)); // Color de borde oscuro
     jTextFieldFiltro.setBackground(Color.GRAY);
     
-    jButtonVer.setBackground(new Color(2, 136, 209));
-    jButtonVer.setForeground(Color.WHITE);
+    btnVer.setBackground(new Color(2, 136, 209));
+    btnVer.setForeground(Color.WHITE);
     
     // Establece borde oscuro en la tabla
     table.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(55, 71, 79), 2));
@@ -47,7 +47,7 @@ public class TablaCliente extends javax.swing.JPanel {
         jTextFieldFiltro = new javax.swing.JTextField();
         scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jButtonVer = new javax.swing.JButton();
+        btnVer = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setPreferredSize(new java.awt.Dimension(1280, 620));
@@ -88,9 +88,9 @@ public class TablaCliente extends javax.swing.JPanel {
         });
         scroll.setViewportView(table);
 
-        jButtonVer.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonVer.setText("VER");
-        jButtonVer.setPreferredSize(new java.awt.Dimension(76, 32));
+        btnVer.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVer.setText("VER");
+        btnVer.setPreferredSize(new java.awt.Dimension(76, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,7 +101,7 @@ public class TablaCliente extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonVer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelFiltro)
                                 .addGap(18, 18, 18)
@@ -122,7 +122,7 @@ public class TablaCliente extends javax.swing.JPanel {
                 .addGap(42, 42, 42)
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -141,7 +141,7 @@ public class TablaCliente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButtonVer;
+    public javax.swing.JButton btnVer;
     private javax.swing.JLabel jLabelFiltro;
     public javax.swing.JTextField jTextFieldFiltro;
     private javax.swing.JScrollPane scroll;

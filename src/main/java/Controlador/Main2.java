@@ -43,10 +43,11 @@ public class Main2 {
         CardLayout cardLayout2 = new CardLayout();
         // Inicializar las vistas y los controladores
         panelTienda tienda = new panelTienda();
+        Producto1 pd1 = new Producto1();
        
         tienda.panelInicio.setLayout(cardLayout2);
         TablaCliente tablaCliente = new TablaCliente();
-        ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente);
+        ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente,cardLayout2,tienda.panelInicio);
         contro.iniciar_vista();
         JpanelCarrito carrito = new JpanelCarrito();
         Login login = new Login(cardLayout, principal);
@@ -64,6 +65,7 @@ public class Main2 {
         
         tienda.panelInicio.add(tablaCliente,"cliente");
         tienda.panelInicio.add(carrito,"carrito");
+        tienda.panelInicio.add(pd1,"detalles");
 
         // Mostrar el panel de login inicialmente
         cardLayout.show(principal.background, "login");
