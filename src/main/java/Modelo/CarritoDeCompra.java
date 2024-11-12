@@ -1,6 +1,7 @@
 
 package Modelo;
 
+import Conexión.Conexion;
 import java.sql.*;
 
 public class CarritoDeCompra {
@@ -48,5 +49,38 @@ public class CarritoDeCompra {
     public String[] getCabecera() {
         return cabecera;
     }
+   public static void getCarritoUsuario(int idCliente){
+   
+       String query = "SELECT cliente.nombres AS cliente, producto.nombre AS producto, "
+                     + "carrito.cantidad, producto.precio, "
+                     + "(carrito.cantidad * producto.precio) AS subtotal "
+                     + "FROM cliente"
+                     + "JOIN carrito ON cliente.id_cliente = carrito.cliente_id"
+                     + "JOIN producto ON producto.id_producto = carrito.producto_id "
+                     + "WHERE cliente.id_cliente " + idCliente;
+        
+        Conexion conexion = new Conexion();
+        try (Connection conn = conexion.conectar();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(query)){
+           
+            while (rs.next()){
+                String nombreUsuario = rs.getString("cliente");
+                String nombreProducto = rs.getString("producto");
+                int cantidad = rs.getInt("cantidad");
+                float precio = rs.getFloat("precio");
+                float subtotal = rs.getFloat("subtotal");
+                
+                System.out.println("Usuario: " + nombreUsuario);
+                System.out.println("Producto: " + nombreProducto);
+                System.out.println("Cantidad: " + cantidad);
+                System.out.println("Precio unitario: " + precio);
+                System.out.println("Subtotal: " + subtotal);
+                System.out.println("------------------------------------");
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+   }
      
 }
