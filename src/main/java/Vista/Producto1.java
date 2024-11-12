@@ -33,24 +33,24 @@ public class Producto1 extends javax.swing.JPanel {
         //labelNameProduct1.setForeground(Color.white);
     }
     private void textEncabezado(){
-        labelNameProduct1.setText("ALBERTO FUJIMORI");//redescribe el nombre para el producto
+        labelNameProduct1.setText("Teclado Mecanico Gamer Antryx THL MK830, switch Azul, RGB");//redescribe el nombre para el producto
         labelNameProduct1.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 36));//cambia a fuente ArialBlack tamaño 48
         labelNameProduct1.setForeground(Color.white); 
     }
     
     private void imagenProduct1(){
         ImagenProduct1.setText("");
-        ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLogitechG305 500x500.jpg")));
+        ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TecladoMecanicoTKLntryxChromeStormMK830BlueSwitch 500x500.jpg")));
     }
     
     private void textPrice(){
-        labelPrice.setText("S/."+"268.58");//redescribe el nombre para el producto
+        labelPrice.setText("S/."+"212.36");//redescribe el nombre para el producto
         labelPrice.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
         labelPrice.setForeground(java.awt.Color.BLACK); 
     }
     
     private void textDiscount(){
-        labelDiscount.setText("-"+"11"+"%");//redescribe el nombre para el producto
+        labelDiscount.setText("");//redescribe el nombre para el producto
         labelDiscount.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
         labelDiscount.setForeground(java.awt.Color.RED); 
     }
@@ -62,9 +62,19 @@ public class Producto1 extends javax.swing.JPanel {
     }
     
     private void textDescription(){
-        descriptionProduct.setText("Producto chino, ni si quiera aguanta despues de salir de cana\n"+"Dina ctm");//redescribe el nombre para el producto
+        descriptionProduct.setText("Características Factor de forma TKL, tamaño compacto que conserva la funcionalidad 13 efectos\n"
+                + "de iluminación preestablecidos, el usuario puede ajustar el brillo de la luz de fondo, la velocidad\n"
+                + "de respiración, la dirección de la luz de fondo y otros efectos de iluminación 5 zonas de iluminación\n"
+                + "de género de juego configurables, asigna qué teclas quieres iluminar, ideal para: (MOBA, FPS, CF,\n"
+                + "COD, RTS, LOL, Racing, NBA) Todas las teclas con tecnología antighosting, cada pulsación de tecla\n"
+                + "se detecta correctamente Teclas de Doble Inyección Plástica. Las teclas moldeadas por inyección\n"
+                + "de doble disparo ofrecen una retroiluminación uniforme y nítida y una letra que no se raya Macros\n"
+                + "y perfiles de software personalizables Tapa superior de aluminio, mejor estética y más resistente\n"
+                + "12 funciones multimedia y de oficina VIDA ÚTIL DE LAS LLAVES: 50000000 (50 millones) LLAVES:\n"
+                + "88 – INTERFAZ: USB LONGITUD DEL CABLE: 1.8M – PESO: 1140GR – TAMAÑO: 353 x 119 x 32MM\n"
+                + "Compatible con Windows 98 / NT / ME / 2000 / XP / VISTA / 7/8/10");//redescribe el nombre para el producto
         descriptionProduct.setEditable(false);
-        descriptionProduct.setFont(new java.awt.Font("ArialBlack", java.awt.Font.PLAIN, 16));//cambia a fuente ArialBlack tamaño 48
+        descriptionProduct.setFont(new java.awt.Font("ArialBlack", java.awt.Font.PLAIN, 14));//cambia a fuente ArialBlack tamaño 48
         descriptionProduct.setForeground(java.awt.Color.BLACK); 
     }
     
