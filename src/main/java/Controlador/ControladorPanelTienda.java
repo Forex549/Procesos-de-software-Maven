@@ -21,13 +21,17 @@ public class ControladorPanelTienda {
     private panelTienda panel;
     private Connection con;
     private CardLayout cardLayout;
+    private CardLayout cardLayout2;
     private JPanel contenedor;
+    private JPanel contenedor2;
 
-    public ControladorPanelTienda(panelTienda panel, Connection con,JPanel contenedoor,CardLayout cardLayout) {
+    public ControladorPanelTienda(panelTienda panel, Connection con,JPanel contenedoor,CardLayout cardLayout,CardLayout cardLayout2,JPanel contenedor2) {
         this.panel = panel;
         this.con = con;
         this.contenedor = contenedor;
+        this.contenedor2 = contenedor2;
         this.cardLayout = cardLayout;
+        this.cardLayout2 = cardLayout2;
         
        this.panel.btnCarrito.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent e){
@@ -41,11 +45,13 @@ public class ControladorPanelTienda {
        this.panel.btnSalir.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent e){
                
-               cardLayout.show(contenedor, "login");
+               cardLayout2.show(contenedor2, "login");
                
            }
     
        });
+       
+       
     }
     
     

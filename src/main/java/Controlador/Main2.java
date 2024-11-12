@@ -52,7 +52,7 @@ public class Main2 {
         Login login = new Login(cardLayout, principal);
         int ID = login.ID;
         VistaAlmacen almacen = new VistaAlmacen();
-        ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2);
+        ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2,cardLayout,principal.background);//aca maneja dos cardLayout pq trabaja con l panel mas grande y el panel peqeuño
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen,cardLayout,principal.background);
         cont.iniciar_vista();
         
