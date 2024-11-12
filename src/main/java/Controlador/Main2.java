@@ -6,6 +6,7 @@ import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighte
 import java.awt.CardLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import Modelo.*;
 
 public class Main2 {
 
@@ -30,6 +31,7 @@ public class Main2 {
     }
 
     public static void main(String[] args) {
+
         Main2 objMain = new Main2();
         objMain.mostrarMenu();
     }
@@ -37,9 +39,10 @@ public class Main2 {
     private void inicializarComponentes() {
         // Establecer conexión a la base de datos
         Connection con = conectar();
-
+        
         // Inicializar las vistas y los controladores
         Login login = new Login(cardLayout, principal);
+        int ID = login.ID;
         VistaAlmacen almacen = new VistaAlmacen();
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen);
         cont.iniciar_vista();

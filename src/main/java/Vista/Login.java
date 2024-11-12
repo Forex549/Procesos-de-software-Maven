@@ -15,11 +15,15 @@ public class Login extends javax.swing.JPanel {
     CardLayout cardLayout; //se tuvieron q colocar estos dos como atributo para poder pasarlos ccomo
     //parametro en el constructor ya que no hay controlador para hcerlo desde el main :D .L.
     Principal principal;
+    public int ID;
+
+    
 
     /**
      * Creates new form Login
      */
     public Login(CardLayout cardloLayout,Principal principal) {
+        
         this.cardLayout = cardloLayout;
         this.principal = principal;
         //this.principal = principal;
@@ -227,6 +231,7 @@ public class Login extends javax.swing.JPanel {
         ConexionLogin conexionLogin = new ConexionLogin();
         Conexión conexion = new Conexión();
         Connection con = conexion.conectar();
+    
 
         // Verificar las credenciales
         if(conexionLogin.esAdmin(username, password)){
@@ -234,7 +239,8 @@ public class Login extends javax.swing.JPanel {
             cardLayout.show(principal.background, "almacen");
         }
         
-        else if (conexionLogin.verificarUsuario(username, password, con)) {
+        else if (conexionLogin.verificarUsuario(username, password, con,ID)) {
+            
             javax.swing.JOptionPane.showMessageDialog(this, "Ingreso exitoso!");
             // Lógica para avanzar en la aplicación o cambiar de pantalla
         }

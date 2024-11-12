@@ -10,10 +10,10 @@ import java.sql.ResultSet;
 public class ConexionLogin {
     
     // Método para verificar el usuario y la contraseña
-    public boolean verificarUsuario(String username, String password,Connection con) {
+    public boolean verificarUsuario(String username, String password,Connection con,int ID) {
         
         boolean res = false;
-        String sql = "{CALL loguearPersona(?,?,?)}";
+        String sql = "{CALL loguearPersona(?,?,?,?)}";
 
         try  {
             
@@ -23,10 +23,12 @@ public class ConexionLogin {
            
             // Registra el parámetro de salida (OUT)
             consulta.registerOutParameter(3, java.sql.Types.BOOLEAN); // El tercer parámetro es el OUT (resultado)
+            consulta.registerOutParameter(4, java.sql.Types.INTEGER); // ID del cliente
             
             consulta.execute();
             
-            res = consulta.getBoolean(3); 
+            res = consulta.getBoolean(3);
+            ID = consulta.getInt(4);
             return res;
 
         } catch (Exception e) {
@@ -34,6 +36,7 @@ public class ConexionLogin {
             return false;
         }
     }
+    
     public boolean esAdmin(String username, String password){
         boolean res = false;
         
