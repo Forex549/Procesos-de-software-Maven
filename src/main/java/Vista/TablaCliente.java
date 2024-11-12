@@ -22,9 +22,9 @@ public class TablaCliente extends javax.swing.JPanel {
     
     public void initStyles(){
         // Bordes redondeados y color de fondo claro para los campos de texto
-    jTextFieldFiltro.putClientProperty("JComponent.roundRect", true);
-    jTextFieldFiltro.putClientProperty("JComponent.outline", new Color(55, 71, 79)); // Color de borde oscuro
-    jTextFieldFiltro.setBackground(Color.GRAY);
+    txtFiltro.putClientProperty("JComponent.roundRect", true);
+    txtFiltro.putClientProperty("JComponent.outline", new Color(55, 71, 79)); // Color de borde oscuro
+    txtFiltro.setBackground(Color.GRAY);
     
     btnVer.setBackground(new Color(2, 136, 209));
     btnVer.setForeground(Color.WHITE);
@@ -44,10 +44,11 @@ public class TablaCliente extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabelFiltro = new javax.swing.JLabel();
-        jTextFieldFiltro = new javax.swing.JTextField();
+        txtFiltro = new javax.swing.JTextField();
         scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         btnVer = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setPreferredSize(new java.awt.Dimension(1280, 620));
@@ -56,7 +57,7 @@ public class TablaCliente extends javax.swing.JPanel {
         jLabelFiltro.setForeground(new java.awt.Color(255, 255, 0));
         jLabelFiltro.setText("FILTRAR:");
 
-        jTextFieldFiltro.setBackground(new java.awt.Color(204, 204, 204));
+        txtFiltro.setBackground(new java.awt.Color(204, 204, 204));
 
         scroll.setBackground(new java.awt.Color(1, 138, 190));
         scroll.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -92,6 +93,8 @@ public class TablaCliente extends javax.swing.JPanel {
         btnVer.setText("VER");
         btnVer.setPreferredSize(new java.awt.Dimension(76, 32));
 
+        btnBuscar.setText("Buscar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,21 +108,24 @@ public class TablaCliente extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelFiltro)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(718, 718, 718))))
+                                .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(592, 592, 592))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 881, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelFiltro))
-                .addGap(42, 42, 42)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelFiltro)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,10 +147,11 @@ public class TablaCliente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnVer;
     private javax.swing.JLabel jLabelFiltro;
-    public javax.swing.JTextField jTextFieldFiltro;
     private javax.swing.JScrollPane scroll;
     public javax.swing.JTable table;
+    public javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 }

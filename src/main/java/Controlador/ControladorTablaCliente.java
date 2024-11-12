@@ -5,6 +5,7 @@ import Vista.TablaCliente;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,6 +45,55 @@ public class ControladorTablaCliente {
         }
    
         });
+        
+        this.tabla.btnBuscar.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            String texto = tabla.txtFiltro.getText();
+            cargarDatosFiltName(con, tabla, texto);
+            
+        }
+        });
+    }
+    
+    
+    private static void cargarDatosFiltName(Connection con, TablaCliente table,String texto){
+    
+    DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("PRECIO");
+        modelo.addColumn("STOCK");
+        modelo.addColumn("MARCA");
+        modelo.addColumn("CATEGORIA");
+        
+        String sql = "{CALL buscarProductosXNombre(?)}";
+        CallableStatement consulta = null;
+        
+        try{
+            consulta = con.prepareCall(sql);
+            consulta.setString(1, texto); 
+            
+            ResultSet rs = consulta.executeQuery();
+            
+            while (rs.next()) {
+            Object[] fila = new Object[5];
+            fila[0] = rs.getString("Nombre");
+            fila[1] = rs.getFloat("PRECIO");
+            fila[2] = rs.getInt("STOCK");
+            fila[3] = rs.getString("MARCA");
+            fila[4] = rs.getString("CATEGORIA");
+            modelo.addRow(fila);
+        }
+        
+        table.table.setModel(modelo);
+            
+            
+        }catch(SQLException e){
+        
+            e.printStackTrace();
+        }
+        
+    
+    
     }
     
     private static void cargarDatos(Connection con, JTable table) {
