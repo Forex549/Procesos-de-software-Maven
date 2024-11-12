@@ -9,6 +9,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Modelo.Producto;
 import Vista.*;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 /**
  *
  * @author Giancarlo
@@ -18,10 +20,14 @@ public class ControladorAlmacen {
     
     private Connection con;
     private VistaAlmacen vista;
+    private CardLayout cardlayout;
+    private JPanel contenedor;
 
-    public ControladorAlmacen(Connection con,VistaAlmacen vista) {
+    public ControladorAlmacen(Connection con,VistaAlmacen vista,CardLayout cardlayout,JPanel contenedor) {
         this.con = con;
         this.vista = vista;
+        this.cardlayout = cardlayout;
+        this.contenedor = contenedor;
         
         this.vista.btnAgregar.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
@@ -46,6 +52,14 @@ public class ControladorAlmacen {
             
         
         }
+        });
+        
+        this.vista.btnSalir.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+            
+                cardlayout.show(contenedor,"login");
+            
+            }
         });
         
         this.vista.btnEliminar.addActionListener(new ActionListener(){

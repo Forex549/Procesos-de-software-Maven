@@ -53,7 +53,7 @@ public class Main2 {
         int ID = login.ID;
         VistaAlmacen almacen = new VistaAlmacen();
         ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2);
-        ControladorAlmacen cont = new ControladorAlmacen(con, almacen);
+        ControladorAlmacen cont = new ControladorAlmacen(con, almacen,cardLayout,principal.background);
         cont.iniciar_vista();
         
 
