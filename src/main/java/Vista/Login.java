@@ -5,6 +5,7 @@ import Modelo.ConexionLogin;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.sql.Connection;
+import Controlador.*;
 /**
  *
  * @author MATHIAS
@@ -16,6 +17,8 @@ public class Login extends javax.swing.JPanel {
     //parametro en el constructor ya que no hay controlador para hcerlo desde el main :D .L.
     Principal principal;
     Tienda tienda;
+    JpanelCarrito carrito;
+    Connection con;
     public int ID;
 
     
@@ -23,10 +26,12 @@ public class Login extends javax.swing.JPanel {
     /**
      * Creates new form Login
      */
-    public Login(CardLayout cardloLayout,Principal principal) {
+    public Login(CardLayout cardloLayout,Principal principal,JpanelCarrito carrito,Connection con) {
         this.tienda = tienda;
         this.cardLayout = cardloLayout;
         this.principal = principal;
+        this.carrito = carrito;
+        this.con = con;
         //this.principal = principal;
         initComponents();
         initStyles();
@@ -233,15 +238,16 @@ public class Login extends javax.swing.JPanel {
         Conexión conexion = new Conexión();
         Connection con = conexion.conectar();
     
-
+        int idCliente = ConexionLogin.verificarUsuario(username, password, con);
+        ID = idCliente;
         // Verificar las credenciales
         if(conexionLogin.esAdmin(username, password)){
             //Si es admin te mostrar el almacen, falta decorar el almacen
             cardLayout.show(principal.background, "almacen");
         }
         
-        else if (conexionLogin.verificarUsuario(username, password, con,ID)) {
-            
+        else if (idCliente != -1) {
+            ControladorPanelCarrito carrito = new ControladorPanelCarrito(this.carrito,ID,con);
             cardLayout.show(principal.background, "tienda");
             
             //javax.swing.JOptionPane.showMessageDialog(this, "Ingreso exitoso!");

@@ -26,11 +26,11 @@ public class ControladorPanelCarrito {
         
         this.panelCarrito.tblProdCarrito.setAutoCreateRowSorter(true);
         
-        panelCarrito.txtTotal.setText(String.valueOf(ControladorPanelCarrito.cargarDatos(con, panelCarrito.tblProdCarrito)));
+        panelCarrito.txtTotal.setText(String.valueOf(ControladorPanelCarrito.cargarDatos(con, panelCarrito.tblProdCarrito,this.IDCliente)));
 
     }
     
-    private static float cargarDatos(Connection con,JTable tabla){
+    private static float cargarDatos(Connection con,JTable tabla,int IDCliente){
         DefaultTableModel modelo = new DefaultTableModel();
         float total = 0;
         modelo.addColumn("Nombre");

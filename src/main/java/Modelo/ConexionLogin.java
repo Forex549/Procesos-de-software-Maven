@@ -10,9 +10,9 @@ import java.sql.ResultSet;
 public class ConexionLogin {
     
     // Método para verificar el usuario y la contraseña
-    public boolean verificarUsuario(String username, String password,Connection con,int ID) {
+    public static int verificarUsuario(String username, String password,Connection con) {
+        int idCliente = -1;
         
-        boolean res = false;
         String sql = "{CALL loguearPersona(?,?,?,?)}";
 
         try  {
@@ -26,17 +26,18 @@ public class ConexionLogin {
             consulta.registerOutParameter(4, java.sql.Types.INTEGER); // ID del cliente
             
             consulta.execute();
+            boolean isAuthenticated = consulta.getBoolean(3);
             
-            res = consulta.getBoolean(3);
-            ID = consulta.getInt(4);
-            
+           if (isAuthenticated) {
+            idCliente = consulta.getInt(4); // Obtenemos el ID solo si la autenticación fue exitosa
+            } 
 
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            
         }
         
-        return res;
+        return idCliente;
     }
     
     public boolean esAdmin(String username, String password){

@@ -18,11 +18,7 @@ public class Main2 {
     private CardLayout cardLayout;
 
     public Main2() {
-        // Inicialización de la interfaz y configuración de CardLayout
-        principal = new Principal();
-        cardLayout = new CardLayout();
         
-        principal.background.setLayout(cardLayout);
 
         // Configuración del tema
         FlatMaterialLighterIJTheme.setup();
@@ -38,6 +34,14 @@ public class Main2 {
     }
 
     private void inicializarComponentes() {
+        
+        // Inicialización de la interfaz y configuración de CardLayout
+        principal = new Principal();
+        cardLayout = new CardLayout();
+        
+        principal.background.setLayout(cardLayout);
+        
+        
         // Establecer conexión a la base de datos
         Connection con = conectar();
         CardLayout cardLayout2 = new CardLayout();
@@ -50,8 +54,11 @@ public class Main2 {
         ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente,cardLayout2,tienda.panelInicio);
         contro.iniciar_vista();
         JpanelCarrito carrito = new JpanelCarrito();
-        Login login = new Login(cardLayout, principal);
-        int ID = login.ID;
+        Login login = new Login(cardLayout, principal, carrito, con);//se le pasa a carrito y con pq toda la logica del boton esta dentro de vista 
+        //por lo q no hay forma de sacar el ID fuera de la vista
+       
+        //ControladorPanelCarrito conCarr = new ControladorPanelCarrito(carrito, login.ID, con);
+        System.out.println("wasaaa: "+login.ID);
         VistaAlmacen almacen = new VistaAlmacen();
         ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2,cardLayout,principal.background);//aca maneja dos cardLayout pq trabaja con l panel mas grande y el panel peqeuño
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen,cardLayout,principal.background);

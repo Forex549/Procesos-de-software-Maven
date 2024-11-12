@@ -28,7 +28,7 @@ public class ControladorPanelTienda {
     public ControladorPanelTienda(panelTienda panel, Connection con,JPanel contenedoor,CardLayout cardLayout,CardLayout cardLayout2,JPanel contenedor2) {
         this.panel = panel;
         this.con = con;
-        this.contenedor = contenedor;
+        this.contenedor = contenedoor;
         this.contenedor2 = contenedor2;
         this.cardLayout = cardLayout;
         this.cardLayout2 = cardLayout2;
