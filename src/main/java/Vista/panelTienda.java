@@ -5,7 +5,9 @@
 package Vista;
 
 import java.awt.BorderLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -40,9 +42,9 @@ public class panelTienda extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        ButtonInicioSesion = new javax.swing.JButton();
         btnCarrito = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButtonInicio = new javax.swing.JButton();
@@ -61,15 +63,6 @@ public class panelTienda extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(0, 0, 204));
         jPanel2.setPreferredSize(new java.awt.Dimension(1280, 60));
 
-        ButtonInicioSesion.setBackground(new java.awt.Color(0, 0, 204));
-        ButtonInicioSesion.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
-        ButtonInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoInicioSesionAzul25x25.jpg"))); // NOI18N
-        ButtonInicioSesion.setText("INICIAR SESIÓN");
-        ButtonInicioSesion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0, 0)));
-        ButtonInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ButtonInicioSesion.setIconTextGap(10);
-
         btnCarrito.setBackground(new java.awt.Color(0, 0, 204));
         btnCarrito.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         btnCarrito.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,16 +75,26 @@ public class panelTienda extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoPequeño 50x41.jpg"))); // NOI18N
 
+        btnSalir.setBackground(new java.awt.Color(0, 0, 204));
+        btnSalir.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salida (1).png"))); // NOI18N
+        btnSalir.setText("SALIR");
+        btnSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0, 0
+        )));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setIconTextGap(10);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(625, 625, 625)
-                .addComponent(ButtonInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                .addGap(729, 729, 729)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
         );
@@ -101,8 +104,8 @@ public class panelTienda extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ButtonInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(13, 13, 13))
         );
@@ -299,8 +302,8 @@ public class panelTienda extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonInicioSesion;
     public javax.swing.JButton btnCarrito;
+    public javax.swing.JButton btnSalir;
     private javax.swing.JButton jButtonArmaTuPc;
     private javax.swing.JButton jButtonInicio;
     private javax.swing.JButton jButtonMasVendidos;

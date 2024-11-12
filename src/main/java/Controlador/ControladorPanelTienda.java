@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import javax.swing.JPanel;
+import javax.swing.event.AncestorListener;
 
 /**
  *
@@ -31,7 +32,16 @@ public class ControladorPanelTienda {
        this.panel.btnCarrito.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent e){
                
-               cardLayout.show(contenedoor, "carrito");
+               cardLayout.show(contenedor, "carrito");
+               
+           }
+    
+       });
+       
+       this.panel.btnSalir.addActionListener(new ActionListener(){
+           public void actionPerformed(ActionEvent e){
+               
+               cardLayout.show(contenedor, "login");
                
            }
     
