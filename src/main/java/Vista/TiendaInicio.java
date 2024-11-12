@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author USER
@@ -16,7 +19,7 @@ public class TiendaInicio extends javax.swing.JPanel {
     public TiendaInicio() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,8 +104,8 @@ public class TiendaInicio extends javax.swing.JPanel {
         jButton13 = new javax.swing.JButton();
         jSpinner14 = new javax.swing.JSpinner();
         jLabel76 = new javax.swing.JLabel();
-        jButton14 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        ButtonVerMasOferta = new javax.swing.JButton();
+        ButtonVerMasNovedades = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setPreferredSize(new java.awt.Dimension(1280, 620));
@@ -802,13 +805,18 @@ public class TiendaInicio extends javax.swing.JPanel {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verMas.jpg"))); // NOI18N
-        jButton14.setBorder(null);
-        jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonVerMasOferta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verMas.jpg"))); // NOI18N
+        ButtonVerMasOferta.setBorder(null);
+        ButtonVerMasOferta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonVerMasOferta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonVerMasOfertaActionPerformed(evt);
+            }
+        });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verMas.jpg"))); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonVerMasNovedades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/verMas.jpg"))); // NOI18N
+        ButtonVerMasNovedades.setBorder(null);
+        ButtonVerMasNovedades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -828,7 +836,7 @@ public class TiendaInicio extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jButton14)
+                .addComponent(ButtonVerMasOferta)
                 .addGap(65, 65, 65))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
@@ -839,8 +847,8 @@ public class TiendaInicio extends javax.swing.JPanel {
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addGap(33, 33, 33)
+                .addComponent(ButtonVerMasNovedades)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -852,7 +860,7 @@ public class TiendaInicio extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonVerMasOferta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(13, 13, 13)
                 .addComponent(jLabel2)
@@ -862,7 +870,7 @@ public class TiendaInicio extends javax.swing.JPanel {
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5))
+                    .addComponent(ButtonVerMasNovedades))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -910,18 +918,22 @@ public class TiendaInicio extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void ButtonVerMasOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVerMasOfertaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonVerMasOfertaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonVerMasNovedades;
+    private javax.swing.JButton ButtonVerMasOferta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
