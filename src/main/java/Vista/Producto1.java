@@ -56,7 +56,7 @@ public class Producto1 extends javax.swing.JPanel {
     }
     
     private void textOriginalPrice(){
-        labelOriginalPrice.setText("<html><strike>S/."+"322"+"</strike></html>");//redescribe el nombre para el producto
+        labelOriginalPrice.setText("<html><strike>"+""+"</strike></html>");//redescribe el nombre para el producto
         labelOriginalPrice.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
         labelOriginalPrice.setForeground(Color.gray); 
     }
