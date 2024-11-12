@@ -188,6 +188,7 @@ public class ControladorAlmacen {
         modelo.addColumn("Marca");
         modelo.addColumn("Categoria");
         modelo.addColumn("Descripcion");
+        modelo.addColumn("Fecha de actualización");
 
         
         String consulta = "SELECT * FROM producto"; // Cambia "productos" al nombre de tu tabla
@@ -197,7 +198,7 @@ public class ControladorAlmacen {
             ResultSet rs = stmt.executeQuery(consulta);
             
                  while (rs.next()) {
-                Object[] fila = new Object[7];
+                Object[] fila = new Object[8];
                 fila[0] = rs.getInt("id_producto"); // Cambia "id" al nombre de tu columna
                 fila[1] = rs.getString("Nombre"); // Cambia "nombre" al nombre de tu columna
                 fila[2] = rs.getFloat("Precio"); // Cambia "precio" al nombre de tu columna
@@ -205,6 +206,7 @@ public class ControladorAlmacen {
                 fila[4] = rs.getString("Marca");
                 fila[5] = rs.getString("Categoria");
                 fila[6] = rs.getString("descripción");
+                fila[7] = rs.getTimestamp("fecha_actualizacion");
                 modelo.addRow(fila);
                 
                 
