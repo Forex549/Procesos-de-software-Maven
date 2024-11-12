@@ -21,6 +21,7 @@ public class Main2 {
         // Inicialización de la interfaz y configuración de CardLayout
         principal = new Principal();
         cardLayout = new CardLayout();
+        
         principal.background.setLayout(cardLayout);
 
         // Configuración del tema
@@ -39,17 +40,30 @@ public class Main2 {
     private void inicializarComponentes() {
         // Establecer conexión a la base de datos
         Connection con = conectar();
-        
+        CardLayout cardLayout2 = new CardLayout();
         // Inicializar las vistas y los controladores
+        panelTienda tienda = new panelTienda();
+       
+        tienda.panelInicio.setLayout(cardLayout2);
+        TablaCliente tablaCliente = new TablaCliente();
+        ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente);
+        contro.iniciar_vista();
+        JpanelCarrito carrito = new JpanelCarrito();
         Login login = new Login(cardLayout, principal);
         int ID = login.ID;
         VistaAlmacen almacen = new VistaAlmacen();
+        ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2);
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen);
         cont.iniciar_vista();
+        
 
         // Añadir los paneles al contenedor principal
+        principal.background.add(tienda,"tienda");
         principal.background.add(login, "login");
         principal.background.add(almacen, "almacen");
+        
+        tienda.panelInicio.add(tablaCliente,"cliente");
+        tienda.panelInicio.add(carrito,"carrito");
 
         // Mostrar el panel de login inicialmente
         cardLayout.show(principal.background, "login");
