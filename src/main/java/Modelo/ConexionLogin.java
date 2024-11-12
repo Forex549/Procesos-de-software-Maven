@@ -29,12 +29,14 @@ public class ConexionLogin {
             
             res = consulta.getBoolean(3);
             ID = consulta.getInt(4);
-            return res;
+            
 
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+        
+        return res;
     }
     
     public boolean esAdmin(String username, String password){
