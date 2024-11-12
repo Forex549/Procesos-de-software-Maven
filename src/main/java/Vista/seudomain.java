@@ -4,6 +4,7 @@ import Controlador.*;
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import javax.swing.JFrame;
 
 /**
  *
@@ -16,17 +17,16 @@ public class seudomain {
    private static String pass="Tesla5890";
     
     public static void main(String[] args) {
-     
-        Connection con = seudomain.conectar();
-        VistaAlmacen alm = new VistaAlmacen();
-        ControladorAlmacen cont = new ControladorAlmacen(con,alm);
-        cont.iniciar_vista();
-        frame frame = new frame();
-        frame.setLayout(new BorderLayout());
-        frame.add(alm);
-        frame.pack();
-        frame.setVisible(true);
-    }
+    Connection con = seudomain.conectar();
+    TablaCliente tabla = new TablaCliente();
+    ControladorTablaCliente cont = new ControladorTablaCliente(con, tabla);
+    cont.iniciar_vista();
+    frame frame = new frame();
+    frame.setLayout(new BorderLayout());
+    frame.add(tabla);
+    frame.setVisible(true);
+}
+
     
     
     
@@ -45,7 +45,6 @@ public class seudomain {
        return con;
                
     }
-    
     
     
 }

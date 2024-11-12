@@ -22,7 +22,7 @@ public class Tienda extends javax.swing.JFrame {
     }
 
     private void initContent(){
-        ShowJPanel(new TiendaInicio());
+        ShowJPanel(new TablaCliente());
         ShowJPanel(new TiendaNovedades());
         ShowJPanel(new TiendaMasVendido());
         ShowJPanel(new TiendaOferta());//ShowJPanel(new Producto1());
@@ -298,7 +298,7 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonArmaTuPcActionPerformed
 
     private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
-        ShowJPanel(new TiendaInicio());
+        //ShowJPanel(new TablaCliente());
     }//GEN-LAST:event_jButtonInicioActionPerformed
 
     private void jButtonOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOfertaActionPerformed
