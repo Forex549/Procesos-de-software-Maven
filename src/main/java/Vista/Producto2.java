@@ -33,36 +33,40 @@ public class Producto2 extends javax.swing.JPanel {
         //labelNameProduct1.setForeground(Color.white);
     }
     private void textEncabezado(){
-        labelNameProduct1.setText("ALBERTO FUJIMORI");//redescribe el nombre para el producto
+        labelNameProduct1.setText("Mouse Inalámbrico Xtech Galos RF 1600 DPI Negro Azul ");//redescribe el nombre para el producto
         labelNameProduct1.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 36));//cambia a fuente ArialBlack tamaño 48
         labelNameProduct1.setForeground(Color.white); 
     }
     
     private void imagenProduct1(){
         ImagenProduct1.setText("");
-        ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLogitechG305 500x500.jpg")));
+        ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseInalámbricoXtechGalosRF 1600DPINegroAzul 500x500.jpg")));
     }
     
     private void textPrice(){
-        labelPrice.setText("S/."+"268.58");//redescribe el nombre para el producto
+        labelPrice.setText("S/."+"20");//redescribe el nombre para el producto
         labelPrice.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
         labelPrice.setForeground(java.awt.Color.BLACK); 
     }
     
     private void textDiscount(){
-        labelDiscount.setText("-"+"11"+"%");//redescribe el nombre para el producto
+        labelDiscount.setText("-"+"35"+"%");//redescribe el nombre para el producto
         labelDiscount.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
         labelDiscount.setForeground(java.awt.Color.RED); 
     }
     
     private void textOriginalPrice(){
-        labelOriginalPrice.setText("<html><strike>S/."+"322"+"</strike></html>");//redescribe el nombre para el producto
+        labelOriginalPrice.setText("<html><strike>S/."+"27"+"</strike></html>");//redescribe el nombre para el producto
         labelOriginalPrice.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
         labelOriginalPrice.setForeground(Color.gray); 
     }
     
     private void textDescription(){
-        descriptionProduct.setText("Producto chino, ni si quiera aguanta despues de salir de cana\n"+"Dina ctm");//redescribe el nombre para el producto
+        descriptionProduct.setText("El Mouse Inalámbrico Xtech Galos es un dispositivo de alta precisión con una resolución\n"
+                + "de hasta 1600 DPI, ideal para trabajos que requieren agilidad y precisión en el movimiento.\n"
+                + "Funciona mediante conexión RF (Radiofrecuencia) para una experiencia inalámbrica fluida,\n"
+                + "eliminando la necesidad de cables. Su diseño en color negro y azul lo hace atractivo y\n"
+                + "moderno, mientras que su forma ergonómica garantiza comodidad durante largas horas de uso.");//redescribe el nombre para el producto
         descriptionProduct.setEditable(false);
         descriptionProduct.setFont(new java.awt.Font("ArialBlack", java.awt.Font.PLAIN, 16));//cambia a fuente ArialBlack tamaño 48
         descriptionProduct.setForeground(java.awt.Color.BLACK); 

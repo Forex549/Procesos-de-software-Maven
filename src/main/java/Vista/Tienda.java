@@ -29,6 +29,7 @@ public class Tienda extends javax.swing.JFrame {
         ShowJPanel(new TiendaZonaGamer());
         ShowJPanel(new TiendaArmaTuPc());
         ShowJPanel(new Producto1());
+        ShowJPanel(new Producto2());
     }
     
     private void ShowJPanel(JPanel ti){
@@ -287,7 +288,7 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNovedadesActionPerformed
 
     private void jButtonMasVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMasVendidosActionPerformed
-        ShowJPanel(new TiendaMasVendido());
+        ShowJPanel(new Producto2());//ShowJPanel(new TiendaMasVendido());
     }//GEN-LAST:event_jButtonMasVendidosActionPerformed
 
     private void jButtonZonaGamerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZonaGamerActionPerformed
@@ -299,11 +300,11 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonArmaTuPcActionPerformed
 
     private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
-        ShowJPanel(new Producto1());//ShowJPanel(new TablaCliente());
+        //ShowJPanel(new TablaCliente());
     }//GEN-LAST:event_jButtonInicioActionPerformed
 
     private void jButtonOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOfertaActionPerformed
-        ShowJPanel(new TiendaOferta());//ShowJPanel(new Producto1());
+        ShowJPanel(new Producto1());//ShowJPanel(new TiendaOferta());
     }//GEN-LAST:event_jButtonOfertaActionPerformed
 
     /**
