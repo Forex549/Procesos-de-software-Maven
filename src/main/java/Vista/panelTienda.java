@@ -47,7 +47,7 @@ public class panelTienda extends javax.swing.JPanel {
         btnSalir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButtonInicio = new javax.swing.JButton();
+        btnInicio = new javax.swing.JButton();
         jButtonNovedades = new javax.swing.JButton();
         jButtonMasVendidos = new javax.swing.JButton();
         jButtonZonaGamer = new javax.swing.JButton();
@@ -123,13 +123,13 @@ public class panelTienda extends javax.swing.JPanel {
             }
         });
 
-        jButtonInicio.setBackground(new java.awt.Color(0,0,0,0));
-        jButtonInicio.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
-        jButtonInicio.setText("INICIO");
-        jButtonInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonInicio.addActionListener(new java.awt.event.ActionListener() {
+        btnInicio.setBackground(new java.awt.Color(0,0,0,0));
+        btnInicio.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
+        btnInicio.setText("INICIO");
+        btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonInicioActionPerformed(evt);
+                btnInicioActionPerformed(evt);
             }
         });
 
@@ -193,7 +193,7 @@ public class panelTienda extends javax.swing.JPanel {
                 .addGap(16, 16, 16)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonNovedades, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -211,7 +211,7 @@ public class panelTienda extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonNovedades, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonMasVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,9 +276,9 @@ public class panelTienda extends javax.swing.JPanel {
         //
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         //ShowJPanel(new TablaCliente());
-    }//GEN-LAST:event_jButtonInicioActionPerformed
+    }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButtonNovedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovedadesActionPerformed
         ShowJPanel(new TiendaNovedades());
@@ -303,9 +303,9 @@ public class panelTienda extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCarrito;
+    public javax.swing.JButton btnInicio;
     public javax.swing.JButton btnSalir;
     private javax.swing.JButton jButtonArmaTuPc;
-    private javax.swing.JButton jButtonInicio;
     private javax.swing.JButton jButtonMasVendidos;
     private javax.swing.JButton jButtonNovedades;
     private javax.swing.JButton jButtonOferta;

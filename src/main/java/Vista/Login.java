@@ -26,12 +26,8 @@ public class Login extends javax.swing.JPanel {
     /**
      * Creates new form Login
      */
-    public Login(CardLayout cardloLayout,Principal principal,JpanelCarrito carrito,Connection con) {
-        this.tienda = tienda;
-        this.cardLayout = cardloLayout;
-        this.principal = principal;
-        this.carrito = carrito;
-        this.con = con;
+    public Login() {
+       
         //this.principal = principal;
         initComponents();
         initStyles();
@@ -43,7 +39,7 @@ public class Login extends javax.swing.JPanel {
         jTextFieldPassword.putClientProperty( "JComponent.roundRect", true );
         jTextFieldUsuario.setColumns(15); // 15 columnas visibles
         jTextFieldPassword.setColumns(15);
-        jButtonIngresar.putClientProperty( "JButton.buttonType", "roundRect" );
+        btnIngresar.putClientProperty( "JButton.buttonType", "roundRect" );
     }
     
     private void addRoundedPanel() {    
@@ -94,8 +90,8 @@ public class Login extends javax.swing.JPanel {
         gbc.gridwidth = 2; // Ocupa ambas columnas para centrarse
         gbc.anchor = java.awt.GridBagConstraints.CENTER;
         gbc.insets = new java.awt.Insets(20, 0, 10, 0);
-        jButtonIngresar.setPreferredSize(new java.awt.Dimension(120, 40));
-        roundedPanel.add(jButtonIngresar, gbc);
+        btnIngresar.setPreferredSize(new java.awt.Dimension(120, 40));
+        roundedPanel.add(btnIngresar, gbc);
 
         // Ajuste del layout de jPanel1 para centrar el RoundedPanel
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -125,7 +121,7 @@ public class Login extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButtonIngresar = new javax.swing.JButton();
+        btnIngresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
@@ -137,13 +133,13 @@ public class Login extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
-        jButtonIngresar.setBackground(new java.awt.Color(51, 51, 255));
-        jButtonIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonIngresar.setForeground(new java.awt.Color(51, 255, 255));
-        jButtonIngresar.setText("INGRESAR");
-        jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresar.setBackground(new java.awt.Color(51, 51, 255));
+        btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnIngresar.setForeground(new java.awt.Color(51, 255, 255));
+        btnIngresar.setText("INGRESAR");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIngresarActionPerformed(evt);
+                btnIngresarActionPerformed(evt);
             }
         });
 
@@ -175,7 +171,7 @@ public class Login extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +197,7 @@ public class Login extends javax.swing.JPanel {
                     .addComponent(jLabelPassword)
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
-                .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(126, 126, 126)
@@ -227,56 +223,19 @@ public class Login extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        // TODO add your handling code here:
-        // Obtener los valores ingresados
-        String username = jTextFieldUsuario.getText();
-        String password = new String(jTextFieldPassword.getPassword()); // Convertir el char[] a String
-
-        // Crear una instancia de ConexionLogin y de Connection
-        ConexionLogin conexionLogin = new ConexionLogin();
-        Conexión conexion = new Conexión();
-        Connection con = conexion.conectar();
-    
-        int idCliente = ConexionLogin.verificarUsuario(username, password, con);
-        ID = idCliente;
-        // Verificar las credenciales
-        if(conexionLogin.esAdmin(username, password)){
-            //Si es admin te mostrar el almacen, falta decorar el almacen
-            cardLayout.show(principal.background, "almacen");
-        }
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         
-        else if (idCliente != -1) {
-            ControladorPanelCarrito carrito = new ControladorPanelCarrito(this.carrito,ID,con);
-            cardLayout.show(principal.background, "tienda");
-            
-            //javax.swing.JOptionPane.showMessageDialog(this, "Ingreso exitoso!");
-            // Lógica para avanzar en la aplicación o cambiar de pantalla
-        }
-        
-        else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error de autenticación", javax.swing.JOptionPane.ERROR_MESSAGE);
-        }
 
-        // Cerrar la conexión
-        try {
-            if (con != null && !con.isClosed()) {
-                con.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }//GEN-LAST:event_jButtonIngresarActionPerformed
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonIngresar;
+    public javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jTextFieldPassword;
-    private javax.swing.JTextField jTextFieldUsuario;
+    public javax.swing.JPasswordField jTextFieldPassword;
+    public javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }

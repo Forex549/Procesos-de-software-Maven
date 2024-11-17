@@ -40,7 +40,7 @@ public class ConexionLogin {
         return idCliente;
     }
     
-    public boolean esAdmin(String username, String password){
+    public static boolean esAdmin(String username, String password){
         boolean res = false;
         
         String usuario = "gerar.0509@gmail.com";

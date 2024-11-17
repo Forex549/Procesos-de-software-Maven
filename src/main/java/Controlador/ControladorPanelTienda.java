@@ -51,6 +51,15 @@ public class ControladorPanelTienda {
     
        });
        
+       this.panel.btnInicio.addActionListener(new ActionListener(){
+           public void actionPerformed(ActionEvent e){
+           
+           cardLayout.show(contenedor,"cliente");
+           
+           }
+       
+       });
+       
        
     }
     

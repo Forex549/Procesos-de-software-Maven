@@ -35,44 +35,54 @@ public class Main2 {
 
     private void inicializarComponentes() {
         
-        // Inicialización de la interfaz y configuración de CardLayout
-        principal = new Principal();
-        cardLayout = new CardLayout();
+        // Establecer conexión a la base de datos
+        Connection con = conectar();
         
+        //se crean los cardlayout
+        cardLayout = new CardLayout(); //el de aca es para cambiar entre los paneles granddes (de toda la pantalla) 
+        CardLayout cardLayout2 = new CardLayout();// el de aca para cambiar los paneles de la parte d abajo de la vista usuario
+        
+        
+        //Se crea el frame que contendra TODOS los paneles
+        principal = new Principal();
+        
+
+        // Inicializar las vistas 
+        panelTienda tienda = new panelTienda();
+        Producto1 pd1 = new Producto1();
+        TablaCliente tablaCliente = new TablaCliente();
+        JpanelCarrito carrito = new JpanelCarrito();
+        VistaAlmacen almacen = new VistaAlmacen();
+        Login login = new Login();
+        
+        //se desgina cada cardlayout a su respectivo contenedor
+        tienda.panelInicio.setLayout(cardLayout2);
         principal.background.setLayout(cardLayout);
         
         
-        // Establecer conexión a la base de datos
-        Connection con = conectar();
-        CardLayout cardLayout2 = new CardLayout();
-        // Inicializar las vistas y los controladores
-        panelTienda tienda = new panelTienda();
-        Producto1 pd1 = new Producto1();
-       
-        tienda.panelInicio.setLayout(cardLayout2);
-        TablaCliente tablaCliente = new TablaCliente();
+        //se incializan todos los controladores
         ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente,cardLayout2,tienda.panelInicio);
         contro.iniciar_vista();
-        JpanelCarrito carrito = new JpanelCarrito();
-        Login login = new Login(cardLayout, principal, carrito, con);//se le pasa a carrito y con pq toda la logica del boton esta dentro de vista 
-        //por lo q no hay forma de sacar el ID fuera de la vista
-       
-        //ControladorPanelCarrito conCarr = new ControladorPanelCarrito(carrito, login.ID, con);
-        System.out.println("wasaaa: "+login.ID);
-        VistaAlmacen almacen = new VistaAlmacen();
         ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2,cardLayout,principal.background);//aca maneja dos cardLayout pq trabaja con l panel mas grande y el panel peqeuño
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen,cardLayout,principal.background);
         cont.iniciar_vista();
+        ControladorPanelCarrito conCarr = new ControladorPanelCarrito(carrito, con);//depende de id
+        controladorLogin contLog = new controladorLogin(login, cardLayout, con,principal,conCarr);
+        System.out.println("wasaaa: "+login.ID);//lo de aca es solo pa verificar si se setea el ID
+        
         
 
-        // Añadir los paneles al contenedor principal
+        
+        //Se añaden los paneles al contenedor principal
         principal.background.add(tienda,"tienda");
         principal.background.add(login, "login");
         principal.background.add(almacen, "almacen");
         
+        //se añaden los paneles al contenedor de la vista cliente(el cuadro de abajo)
         tienda.panelInicio.add(tablaCliente,"cliente");
         tienda.panelInicio.add(carrito,"carrito");
         tienda.panelInicio.add(pd1,"detalles");
+        
 
         // Mostrar el panel de login inicialmente
         cardLayout.show(principal.background, "login");

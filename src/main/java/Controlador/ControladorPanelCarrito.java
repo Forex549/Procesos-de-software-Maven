@@ -16,12 +16,12 @@ import javax.swing.*;
 public class ControladorPanelCarrito {
     
     private JpanelCarrito panelCarrito;
-    private static int IDCliente;
+    private int IDCliente;
     private Connection con;
 
-    public ControladorPanelCarrito(JpanelCarrito panelCarrito, int IDCliente,Connection con) {
+    public ControladorPanelCarrito(JpanelCarrito panelCarrito,Connection con) {
         this.panelCarrito = panelCarrito;
-        this.IDCliente = IDCliente;
+        
         this.con = con;
         
         this.panelCarrito.tblProdCarrito.setAutoCreateRowSorter(true);
@@ -72,6 +72,12 @@ public class ControladorPanelCarrito {
     
     }
     
-    
-    
+    public void setID(int ID) {
+        this.IDCliente = ID;
+        //ya q el ID está seteado puedes inicializar o actualizar componentes que dependan del id
+        //cad ves q se incie sesion se setea de neuvo el id y se cargan los datos
+        float total = ControladorPanelCarrito.cargarDatos(con, panelCarrito.tblProdCarrito, IDCliente);
+        panelCarrito.txtTotal.setText(String.valueOf(total));
+    }
+       
 }
