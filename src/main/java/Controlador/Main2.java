@@ -49,7 +49,7 @@ public class Main2 {
 
         // Inicializar las vistas 
         panelTienda tienda = new panelTienda();
-        Producto1 pd1 = new Producto1();
+        VistaInfo pd1 = new VistaInfo();
         TablaCliente tablaCliente = new TablaCliente();
         JpanelCarrito carrito = new JpanelCarrito();
         VistaAlmacen almacen = new VistaAlmacen();
@@ -61,7 +61,8 @@ public class Main2 {
         
         
         //se incializan todos los controladores
-        ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente,cardLayout2,tienda.panelInicio);
+        ControladorVistaInfo contInfo = new ControladorVistaInfo(pd1, cardLayout2, con);
+        ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente,cardLayout2,tienda.panelInicio,contInfo,pd1);
         contro.iniciar_vista();
         ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2,cardLayout,principal.background);//aca maneja dos cardLayout pq trabaja con l panel mas grande y el panel peqeuño
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen,cardLayout,principal.background);

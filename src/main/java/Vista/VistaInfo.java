@@ -13,55 +13,44 @@ import java.awt.Color;
  *
  * @author USER
  */
-public class Producto1 extends javax.swing.JPanel {
+public class VistaInfo extends javax.swing.JPanel {
     
-    public Producto1() {
+    public VistaInfo() {
         
         initComponents();
         initStyles();
-        textEncabezado();
+        //textEncabezado();
         imagenProduct1();
-        textPrice();
-        textDiscount();
-        textOriginalPrice();
-        textDescription();
+        //textPrice();
+        //textDescription();
         
     }
     
     private void initStyles(){
-        //labelNameProduct1.putClientProperty("FlatLaf.style", "font: 200% $light.font");
-        //labelNameProduct1.setForeground(Color.white);
+        labelNameProduct1.putClientProperty("FlatLaf.style", "font: 200% $light.font");
+        labelNameProduct1.setForeground(Color.white);
     }
-    private void textEncabezado(){
+    /*private void textEncabezado(){
         labelNameProduct1.setText("Teclado Mecanico Gamer Antryx THL MK830, switch Azul, RGB");//redescribe el nombre para el producto
         labelNameProduct1.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 36));//cambia a fuente ArialBlack tamaño 48
         labelNameProduct1.setForeground(Color.white); 
-    }
+    }*/
     
     private void imagenProduct1(){
         ImagenProduct1.setText("");
         ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TecladoMecanicoTKLntryxChromeStormMK830BlueSwitch 500x500.jpg")));
     }
     
-    private void textPrice(){
+    /*private void textPrice(){
         labelPrice.setText("S/."+"212.36");//redescribe el nombre para el producto
         labelPrice.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
         labelPrice.setForeground(java.awt.Color.BLACK); 
-    }
+    }*/
     
-    private void textDiscount(){
-        labelDiscount.setText("");//redescribe el nombre para el producto
-        labelDiscount.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
-        labelDiscount.setForeground(java.awt.Color.RED); 
-    }
     
-    private void textOriginalPrice(){
-        labelOriginalPrice.setText("<html><strike>"+""+"</strike></html>");//redescribe el nombre para el producto
-        labelOriginalPrice.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
-        labelOriginalPrice.setForeground(Color.gray); 
-    }
     
-    private void textDescription(){
+    
+    /*private void textDescription(){
         descriptionProduct.setText("Características Factor de forma TKL, tamaño compacto que conserva la funcionalidad 13 efectos\n"
                 + "de iluminación preestablecidos, el usuario puede ajustar el brillo de la luz de fondo, la velocidad\n"
                 + "de respiración, la dirección de la luz de fondo y otros efectos de iluminación 5 zonas de iluminación\n"
@@ -76,7 +65,7 @@ public class Producto1 extends javax.swing.JPanel {
         descriptionProduct.setEditable(false);
         descriptionProduct.setFont(new java.awt.Font("ArialBlack", java.awt.Font.PLAIN, 14));//cambia a fuente ArialBlack tamaño 48
         descriptionProduct.setForeground(java.awt.Color.BLACK); 
-    }
+    }*/
     
     
     
@@ -96,8 +85,6 @@ public class Producto1 extends javax.swing.JPanel {
         ImagenProduct1 = new javax.swing.JLabel();
         PanelFondoDescripcion = new javax.swing.JPanel();
         labelPrice = new javax.swing.JLabel();
-        labelDiscount = new javax.swing.JLabel();
-        labelOriginalPrice = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionProduct = new javax.swing.JTextArea();
         SpinnerP1 = new javax.swing.JSpinner();
@@ -136,10 +123,6 @@ public class Producto1 extends javax.swing.JPanel {
 
         labelPrice.setText("Price$");
 
-        labelDiscount.setText("discount%");
-
-        labelOriginalPrice.setText("originalPrice$");
-
         jScrollPane1.setBackground(new java.awt.Color(0, 204, 204));
         jScrollPane1.setBorder(null);
 
@@ -172,14 +155,8 @@ public class Producto1 extends javax.swing.JPanel {
             .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelDiscount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(539, 539, 539))
+                .addGap(605, 605, 605))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelOriginalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(LabelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,12 +177,8 @@ public class Producto1 extends javax.swing.JPanel {
             PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelDiscount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelOriginalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -262,11 +235,9 @@ public class Producto1 extends javax.swing.JPanel {
     private javax.swing.JPanel PanelFondoNombreProducto;
     private javax.swing.JPanel PanelMadre;
     private javax.swing.JSpinner SpinnerP1;
-    private javax.swing.JTextArea descriptionProduct;
+    public javax.swing.JTextArea descriptionProduct;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelDiscount;
-    private javax.swing.JLabel labelNameProduct1;
-    private javax.swing.JLabel labelOriginalPrice;
-    private javax.swing.JLabel labelPrice;
+    public javax.swing.JLabel labelNameProduct1;
+    public javax.swing.JLabel labelPrice;
     // End of variables declaration//GEN-END:variables
 }
