@@ -25,10 +25,10 @@ public class Tienda extends javax.swing.JFrame {
         ShowJPanel(new TablaCliente());
         ShowJPanel(new TiendaNovedades());
         ShowJPanel(new TiendaMasVendido());
-        ShowJPanel(new TiendaOferta());//ShowJPanel(new Producto1());
+        ShowJPanel(new TiendaOferta());//ShowJPanel(new VistaInfo());
         ShowJPanel(new TiendaZonaGamer());
         ShowJPanel(new TiendaArmaTuPc());
-        ShowJPanel(new Producto1());
+        ShowJPanel(new VistaInfo());
         ShowJPanel(new Producto2());
     }
     
@@ -304,7 +304,7 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonInicioActionPerformed
 
     private void jButtonOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOfertaActionPerformed
-        ShowJPanel(new Producto1());//ShowJPanel(new TiendaOferta());
+        ShowJPanel(new VistaInfo());//ShowJPanel(new TiendaOferta());
     }//GEN-LAST:event_jButtonOfertaActionPerformed
 
     /**

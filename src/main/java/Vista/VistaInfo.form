@@ -98,6 +98,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="nameProduct1"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -119,16 +122,9 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Component id="labelPrice" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="labelDiscount" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="539" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="605" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelOriginalPrice" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       <Component id="LabelCantidad" min="-2" pref="134" max="-2" attributes="0"/>
@@ -155,13 +151,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelPrice" alignment="3" max="32767" attributes="0"/>
-                          <Component id="labelDiscount" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelOriginalPrice" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="labelPrice" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="149" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -182,16 +173,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Price$"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelDiscount">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="discount%"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelOriginalPrice">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="originalPrice$"/>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <Properties>
@@ -228,6 +212,9 @@
                       <Color blue="cc" green="cc" red="0" type="rgb"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
