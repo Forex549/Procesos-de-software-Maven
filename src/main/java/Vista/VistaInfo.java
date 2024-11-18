@@ -19,10 +19,10 @@ public class VistaInfo extends javax.swing.JPanel {
         
         initComponents();
         initStyles();
-        //textEncabezado();
+        textEncabezado();
         imagenProduct1();
-        //textPrice();
-        //textDescription();
+        textPrice();
+        textDescription();
         
     }
     
@@ -30,27 +30,27 @@ public class VistaInfo extends javax.swing.JPanel {
         labelNameProduct1.putClientProperty("FlatLaf.style", "font: 200% $light.font");
         labelNameProduct1.setForeground(Color.white);
     }
-    /*private void textEncabezado(){
+    private void textEncabezado(){
         labelNameProduct1.setText("Teclado Mecanico Gamer Antryx THL MK830, switch Azul, RGB");//redescribe el nombre para el producto
         labelNameProduct1.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 36));//cambia a fuente ArialBlack tamaño 48
         labelNameProduct1.setForeground(Color.white); 
-    }*/
+    }
     
     private void imagenProduct1(){
         ImagenProduct1.setText("");
         ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TecladoMecanicoTKLntryxChromeStormMK830BlueSwitch 500x500.jpg")));
     }
     
-    /*private void textPrice(){
+    private void textPrice(){
         labelPrice.setText("S/."+"212.36");//redescribe el nombre para el producto
         labelPrice.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 24));//cambia a fuente ArialBlack tamaño 48
         labelPrice.setForeground(java.awt.Color.BLACK); 
-    }*/
+    }
     
     
     
     
-    /*private void textDescription(){
+    private void textDescription(){
         descriptionProduct.setText("Características Factor de forma TKL, tamaño compacto que conserva la funcionalidad 13 efectos\n"
                 + "de iluminación preestablecidos, el usuario puede ajustar el brillo de la luz de fondo, la velocidad\n"
                 + "de respiración, la dirección de la luz de fondo y otros efectos de iluminación 5 zonas de iluminación\n"
@@ -65,7 +65,7 @@ public class VistaInfo extends javax.swing.JPanel {
         descriptionProduct.setEditable(false);
         descriptionProduct.setFont(new java.awt.Font("ArialBlack", java.awt.Font.PLAIN, 14));//cambia a fuente ArialBlack tamaño 48
         descriptionProduct.setForeground(java.awt.Color.BLACK); 
-    }*/
+    }
     
     
     
