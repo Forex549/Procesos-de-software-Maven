@@ -92,7 +92,7 @@ public class VistaInfo extends javax.swing.JPanel {
         ButtonCarrito = new javax.swing.JToggleButton();
         LabelImagenRelleno = new javax.swing.JLabel();
 
-        PanelMadre.setBackground(new java.awt.Color(0, 204, 204));
+        PanelMadre.setBackground(new java.awt.Color(30, 158, 201));
 
         PanelFondoNombreProducto.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -123,10 +123,10 @@ public class VistaInfo extends javax.swing.JPanel {
 
         labelPrice.setText("Price$");
 
-        jScrollPane1.setBackground(new java.awt.Color(0, 204, 204));
+        jScrollPane1.setBackground(new java.awt.Color(30, 158, 201));
         jScrollPane1.setBorder(null);
 
-        descriptionProduct.setBackground(new java.awt.Color(0, 204, 204));
+        descriptionProduct.setBackground(new java.awt.Color(30, 158, 201));
         descriptionProduct.setColumns(20);
         descriptionProduct.setForeground(new java.awt.Color(0, 204, 204));
         descriptionProduct.setRows(5);
@@ -146,7 +146,7 @@ public class VistaInfo extends javax.swing.JPanel {
         ButtonCarrito.setText("AGREGAR AL CARRO");
         ButtonCarrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        LabelImagenRelleno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gato80x80.jpg"))); // NOI18N
+        LabelImagenRelleno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gatoSinFondo80x80.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelFondoDescripcionLayout = new javax.swing.GroupLayout(PanelFondoDescripcion);
         PanelFondoDescripcion.setLayout(PanelFondoDescripcionLayout);
