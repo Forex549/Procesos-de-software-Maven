@@ -131,11 +131,11 @@ public class Login extends javax.swing.JPanel {
         setBackground(new java.awt.Color(51, 51, 255));
         setPreferredSize(new java.awt.Dimension(1200, 640));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(33, 92, 112));
 
-        btnIngresar.setBackground(new java.awt.Color(51, 51, 255));
+        btnIngresar.setBackground(new java.awt.Color(33, 92, 112));
         btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnIngresar.setForeground(new java.awt.Color(51, 255, 255));
+        btnIngresar.setForeground(new java.awt.Color(94, 188, 214));
         btnIngresar.setText("INGRESAR");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,10 +156,6 @@ public class Login extends javax.swing.JPanel {
         jLabelPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 0));
         jLabelPassword.setText("PASSWORD");
-
-        jTextFieldPassword.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldUsuario.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -65,22 +65,22 @@ public class Tienda extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(33, 92, 112));
         jPanel2.setPreferredSize(new java.awt.Dimension(1280, 60));
 
-        ButtonInicioSesion.setBackground(new java.awt.Color(0, 0, 204));
+        ButtonInicioSesion.setBackground(new java.awt.Color(33, 92, 112));
         ButtonInicioSesion.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         ButtonInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoInicioSesionAzul25x25.jpg"))); // NOI18N
+        ButtonInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoInicioSesion 25x25.png"))); // NOI18N
         ButtonInicioSesion.setText("INICIAR SESIÓN");
         ButtonInicioSesion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0, 0)));
         ButtonInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonInicioSesion.setIconTextGap(10);
 
-        ButtonCarrito.setBackground(new java.awt.Color(0, 0, 204));
+        ButtonCarrito.setBackground(new java.awt.Color(33, 92, 112));
         ButtonCarrito.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         ButtonCarrito.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carritoAzul25x25.jpg"))); // NOI18N
+        ButtonCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrito25x25.png"))); // NOI18N
         ButtonCarrito.setText("VER CARRITO");
         ButtonCarrito.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0, 0
         )));
@@ -114,10 +114,10 @@ public class Tienda extends javax.swing.JFrame {
                 .addGap(13, 13, 13))
         );
 
-        jPanel3.setBackground(new java.awt.Color(0, 255, 0));
+        jPanel3.setBackground(new java.awt.Color(234, 119, 18));
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 40));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 255, 0));
+        jComboBox1.setBackground(new java.awt.Color(234, 119, 18));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "INICIO", "NOVEDADES", "OFERTA", "MÁS VENDIDOS", "ZONA  GAMER", "ARMA TU PC", "QUIENES SOMOS", "SERVICIO AL CLIENTE" }));
         jComboBox1.setSelectedItem(PanelInicio);
         jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 0)));
@@ -228,7 +228,7 @@ public class Tienda extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        PanelInicio.setBackground(new java.awt.Color(0, 204, 204));
+        PanelInicio.setBackground(new java.awt.Color(30, 158, 201));
         PanelInicio.setPreferredSize(new java.awt.Dimension(1280, 620));
 
         javax.swing.GroupLayout PanelInicioLayout = new javax.swing.GroupLayout(PanelInicio);

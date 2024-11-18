@@ -29,7 +29,7 @@ public class TiendaZonaGamer extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(30, 158, 201));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sloganZonaGamer.jpg"))); // NOI18N
 
