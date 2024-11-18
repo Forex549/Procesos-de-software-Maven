@@ -29,7 +29,7 @@ public class TiendaMasVendido extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(30, 158, 201));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sloganMasVendidos.jpg"))); // NOI18N
 

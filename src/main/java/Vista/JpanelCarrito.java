@@ -36,7 +36,7 @@ public class JpanelCarrito extends javax.swing.JPanel {
         txtTotal = new javax.swing.JTextPane();
         btnEliminar = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(30, 158, 201));
+        setBackground(new java.awt.Color(0, 242, 242));
         setPreferredSize(new java.awt.Dimension(1280, 620));
 
         tblProdCarrito.setModel(new javax.swing.table.DefaultTableModel(

@@ -31,7 +31,7 @@ public class TiendaNovedades extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1280, 620));
 
-        jPanel1.setBackground(new java.awt.Color(30, 158, 201));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sloganNovedoso.jpg"))); // NOI18N
 
