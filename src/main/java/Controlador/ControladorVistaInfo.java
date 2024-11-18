@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.concurrent.Callable;
 import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
 /**
  *
  * @author Giancarlo
@@ -49,7 +50,8 @@ public class ControladorVistaInfo {
             
             }
         });
-    }
+        
+     }
     
     public void configurarInfo(int ID,VistaInfo vista){
     
@@ -74,6 +76,10 @@ public class ControladorVistaInfo {
         this.vista.descriptionProduct.setText(descripcion);
         this.vista.labelNameProduct1.setText(nombre);
         this.vista.labelPrice.setText(String.valueOf(precio));
+        
+        
+        SpinnerNumberModel modelo = new SpinnerNumberModel(0, 0, cantidad, 1);
+        this.vista.comboCantidad.setModel(modelo);
         
             System.out.println("pfecio: "+precio);
             System.out.println("cantidad: "+cantidad);
