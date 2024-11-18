@@ -23,12 +23,14 @@ public class controladorLogin {
     Connection con;
     public int ID;
     private ControladorPanelCarrito conCarr;
+    private ControladorVistaInfo contInfo;
 
-    public controladorLogin(Login login, CardLayout cardLayout, Connection con,Principal principal,ControladorPanelCarrito conCarr) {
+    public controladorLogin(Login login, CardLayout cardLayout, Connection con,Principal principal,ControladorPanelCarrito conCarr,ControladorVistaInfo contInfo) {
         this.login = login;
         this.cardLayout = cardLayout;
         this.principal = principal;
         this.con = con;
+        this.contInfo = contInfo;
         this.conCarr = conCarr;//se pasa por parametro controlaodr carrito ya q este necesita el id del usuario, y se debe setear
         //dentro de la accion del boton
         
@@ -51,6 +53,7 @@ public class controladorLogin {
 
                 else if (idCliente != -1) {
                     System.out.println("codigo: "+idCliente);
+                    contInfo.setIDUsuario(idCliente);
                     conCarr.setID(idCliente);
                     //ControladorPanelCarrito carrito = new ControladorPanelCarrito(controladorLogin.this.carrito,ID,con);
                     cardLayout.show(principal.background, "tienda");

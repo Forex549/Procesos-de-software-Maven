@@ -30,14 +30,16 @@ public class ControladorTablaCliente {
     private JPanel contenedor;
     private ControladorVistaInfo contInfo;
     private VistaInfo vistInfo;
+    private ControladorVistaInfo conInfo;
     
-    public ControladorTablaCliente(Connection con, TablaCliente tabla,CardLayout cardLayout,JPanel detalles,ControladorVistaInfo contInfo,VistaInfo vistInfo){
+    public ControladorTablaCliente(Connection con, TablaCliente tabla,CardLayout cardLayout,JPanel detalles,ControladorVistaInfo contInfo,VistaInfo vistInfo,ControladorVistaInfo conInfo){
         this.con = con;
         this.tabla = tabla;
         this.cardLayout = cardLayout;
         this.detalles = detalles;
         this.contInfo = contInfo;
         this.vistInfo = vistInfo;
+        this.conInfo = conInfo;
     }
     
     public void iniciar_vista(){
@@ -56,6 +58,7 @@ public class ControladorTablaCliente {
                     codigoVer = (int)tabla.table.getValueAt(filaVer, 0);
                     System.out.println("codigo: "+codigoVer);  
                     contInfo.configurarInfo(codigoVer, vistInfo);
+                    contInfo.setIDProducto(codigoVer);
                     cardLayout.show(detalles,"detalles");
                 }else{
                 

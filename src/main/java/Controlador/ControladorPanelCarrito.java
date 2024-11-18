@@ -26,7 +26,7 @@ public class ControladorPanelCarrito {
         
         this.panelCarrito.tblProdCarrito.setAutoCreateRowSorter(true);
         
-        panelCarrito.txtTotal.setText(String.valueOf(ControladorPanelCarrito.cargarDatos(con, panelCarrito.tblProdCarrito,this.IDCliente)));
+        //panelCarrito.txtTotal.setText(String.valueOf(ControladorPanelCarrito.cargarDatos(con, panelCarrito.tblProdCarrito,this.IDCliente)));
 
     }
     

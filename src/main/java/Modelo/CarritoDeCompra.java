@@ -8,17 +8,21 @@ public class CarritoDeCompra {
     
     private final String[] cabecera = {"ID", "Nombre", "Cantidad", "Precio unitario", "Total"};
     
-    public static void agregarAlCarrito (int productoID, int cantidad, Connection con){
-        String consulta = "{CALL agregarAlCarrito(?.?)}";
+    public static boolean agregarAlCarrito (int productoID, int cantidad, Connection con,int cliente_id){
+        boolean res = false;
+        String consulta = "{CALL agregarACarrito(?,?,?)}"; //funcional
         try {
             CallableStatement procedimiento = con.prepareCall(consulta);
-            procedimiento.setInt(1, productoID);
-            procedimiento.setInt(2, cantidad);
+            procedimiento.setInt(1, cantidad);
+            procedimiento.setInt(2, cliente_id);
+            procedimiento.setInt(3,productoID);
             procedimiento.execute();
             
+            res = true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return res;
     }
     
     public static void eliminarDelCarrito(int productoID, Connection con) {
@@ -49,7 +53,7 @@ public class CarritoDeCompra {
     public String[] getCabecera() {
         return cabecera;
     }
-   public static void getCarritoUsuario(int idCliente){
+   public static void getCarritoUsuario(int idCliente){ //FUNCIONAL
    
        String query = "SELECT cliente.nombres AS cliente, producto.nombre AS producto, "
                      + "carrito.cantidad, producto.precio, "
