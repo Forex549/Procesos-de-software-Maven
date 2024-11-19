@@ -87,6 +87,13 @@ public class ControladorVistaInfo {
         
         SpinnerNumberModel modelo = new SpinnerNumberModel(0, 0, cantidad, 1);
         this.vista.comboCantidad.setModel(modelo);
+        this.vista.btnAgregarCarr.setEnabled(true);
+        
+        if(cantidad ==0){
+            this.vista.btnAgregarCarr.setEnabled(false);
+            SpinnerNumberModel modelo2 = new SpinnerNumberModel(0, 0, cantidad, 0);
+        this.vista.comboCantidad.setModel(modelo2);
+        }
         
             System.out.println("pfecio: "+precio);
             System.out.println("cantidad: "+cantidad);
