@@ -53,13 +53,13 @@ public class Pedidos extends javax.swing.JPanel {
 
         tblProdCarrito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Producto", "Codigo", "Cantidad", "Subtotal"
+                "ID", "FECHA", "ESTADO", "MONTO", "CLIENTE"
             }
         ));
         tblProdCarrito.addComponentListener(new java.awt.event.ComponentAdapter() {
