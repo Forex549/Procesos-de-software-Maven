@@ -120,7 +120,7 @@ public class ControladorAlmacen {
                             Producto.Actualizar(id, precio, cantidad, descripcion, marca, nombre, categoria, con);
                             
                             habilitarControlesActualizacion(false);
-                            limpiarCampos();
+                            limpiarCampos();                           
                             JOptionPane.showMessageDialog(vista,"Actualizacion exitosa", "Actualizar Producto" , JOptionPane.INFORMATION_MESSAGE );
                         }
                         else{

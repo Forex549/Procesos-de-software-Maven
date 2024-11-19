@@ -13,9 +13,9 @@ public class VistaAlmacen extends javax.swing.JPanel {
      */
     public VistaAlmacen() {
         initComponents();
-        decorarVistaAlmacen(); 
+        decorarVistaAlmacen();
     }
-
+    
    private void decorarVistaAlmacen() {
     // Fondo azul para el panel principal
     jPanel1.setBackground(new Color(224, 247, 250));
@@ -126,7 +126,9 @@ public class VistaAlmacen extends javax.swing.JPanel {
         jLabel7.setText("categoria");
 
         txtDescrip.setColumns(20);
-        txtDescrip.setRows(5);
+        txtDescrip.setLineWrap(true);
+        txtDescrip.setRows(10);
+        txtDescrip.setToolTipText("");
         jScrollPane2.setViewportView(txtDescrip);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -196,7 +198,7 @@ public class VistaAlmacen extends javax.swing.JPanel {
                                     .addComponent(txtPrecio)
                                     .addComponent(txtCantidad)
                                     .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58))))
         );
@@ -248,7 +250,7 @@ public class VistaAlmacen extends javax.swing.JPanel {
                             .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(72, 72, 72))))
         );
