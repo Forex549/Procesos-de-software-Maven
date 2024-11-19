@@ -54,7 +54,7 @@
                   </Group>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="429" max="32767" attributes="0"/>
+              <EmptySpace pref="405" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -225,6 +225,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Boleta"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton4ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -324,7 +327,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1302" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1278" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

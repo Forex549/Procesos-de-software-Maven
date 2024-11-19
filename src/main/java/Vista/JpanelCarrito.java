@@ -148,27 +148,7 @@ public class JpanelCarrito extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void btnPagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagarMouseClicked
-     // Verificar si hay productos en el carrito
-    if (tblProdCarrito.getRowCount() == 0) {
-        javax.swing.JOptionPane.showMessageDialog(this, "El carrito está vacío. Agrega productos antes de pagar.");
-        return;
-    }
 
-    // Confirmar la acción de pago
-    int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "¿Deseas proceder con el pago?", "Confirmar pago", javax.swing.JOptionPane.YES_NO_OPTION);
-    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
-        // Lógica para redirigir a la ventana de Ventas
-        Ventas ventanaVentas = new Ventas(); // Cambiar "Ventas" al nombre real de tu clase de ventas
-        javax.swing.JFrame frame = (javax.swing.JFrame) javax.swing.SwingUtilities.getWindowAncestor(this);
-        
-        // Cambiar contenido del JFrame principal
-        frame.getContentPane().removeAll();
-        frame.getContentPane().add(ventanaVentas);
-        frame.revalidate();
-        frame.repaint();
-
-        javax.swing.JOptionPane.showMessageDialog(this, "Redirigiendo a la sección de Ventas...");
-    }
     }//GEN-LAST:event_btnPagarMouseClicked
 
 

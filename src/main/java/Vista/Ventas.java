@@ -1,7 +1,9 @@
 package Vista;
 
-import javax.swing.JFrame;
-
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -12,22 +14,68 @@ import javax.swing.JFrame;
  * @author Ronnie Herrera
  */
 public class Ventas extends javax.swing.JPanel {
+    
+    private DefaultTableModel carritoModel;
 
-    /**
-     * Creates new form NewJPanel
-     */
-    public Ventas(JpanelCarrito aThis) {
+    public Ventas() {
         initComponents();
+        setupListeners();
+        inicializarTablaCarrito();
     }
+     private void inicializarTablaCarrito() {
+         carritoModel = new DefaultTableModel(
+                new Object[][]{}, // Datos iniciales
+                new String[]{"Producto", "Código", "Cantidad", "Subtotal"} // Columnas
+        );
+        tblProdCarrito.setModel(carritoModel);
 
-    Ventas(JFrame frame) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // Cargar datos de prueba
+        carritoModel.addRow(new Object[]{"Teclado Mecánico", "P001", 2, 120.0});
+        carritoModel.addRow(new Object[]{"Mouse Gamer", "P002", 1, 50.0});
+        actualizarTotal();
     }
-
-    Ventas() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void actualizarTotal() {
+        double total = 0.0;
+        for (int i = 0; i < carritoModel.getRowCount(); i++) {
+            total += (double) carritoModel.getValueAt(i, 3); // Columna Subtotal
+        }
+        txtTotal.setText(String.format("S/ %.2f", total));
     }
+     private void setupListeners() {
+    jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                procesarVenta();
+            }
+        });
+    }
+       private void procesarVenta() {
+        // Validación de términos y condiciones
+        if (!jCheckBox1.isSelected() || !jCheckBox2.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Debe aceptar los términos y condiciones.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
+        // Obtener medio de pago seleccionado
+        String medioPago = Byape.isSelected() ? "Yape" : (Btrans.isSelected() ? "Transferencia" : "No seleccionado");
+        if (medioPago.equals("No seleccionado")) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un medio de pago.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Obtener tipo de comprobante seleccionado
+        String comprobante = jRadioButton3.isSelected() ? "Factura" : (jRadioButton4.isSelected() ? "Boleta" : "No seleccionado");
+        if (comprobante.equals("No seleccionado")) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un tipo de comprobante.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Confirmación de la venta
+        JOptionPane.showMessageDialog(this,
+                String.format("Venta procesada con éxito.\nMedio de pago: %s\nComprobante: %s\nTotal: %s",
+                        medioPago, comprobante, txtTotal.getText()),
+                "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,6 +166,11 @@ public class Ventas extends javax.swing.JPanel {
         });
 
         jRadioButton4.setText("Boleta");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Comprobante");
@@ -205,7 +258,7 @@ public class Ventas extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1302, Short.MAX_VALUE)
+            .addGap(0, 1278, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +308,7 @@ public class Ventas extends javax.swing.JPanel {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1))
-                .addContainerGap(429, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,15 +343,31 @@ public class Ventas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ByapeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ByapeActionPerformed
-        // TODO add your handling code here:
+         // Acción para el pago mediante Yape
+    JOptionPane.showMessageDialog(null, "Pago a través de Yape procesado.");
     }//GEN-LAST:event_ByapeActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
+         if (jRadioButton3.isSelected()) {
+        JOptionPane.showMessageDialog(null, "Has seleccionado factura.");
+    }
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- 
+    /**if (jCheckBox1.isSelected() && jCheckBox2.isSelected()) {
+        // Suponiendo que el IDCliente está previamente configurado
+        // Llamamos al método setID para actualizar los datos y calcular el total
+        int idCliente = 123;  // Reemplaza con el ID del cliente, por ejemplo, tomado del login
+        setID(idCliente);
+
+        // Obtener el total actualizado del carrito
+        float total = Float.parseFloat(panelCarrito.txtTotal.getText()); // Obtener el valor total calculado
+        panelCarrito.txtTotal.setText(String.format("%.2f", total));  // Mostrar el total con dos decimales
+        
+        JOptionPane.showMessageDialog(null, "Pago procesado con éxito.");
+    } else {
+        JOptionPane.showMessageDialog(null, "Por favor, acepta los términos y condiciones y proporciona tu correo.");
+    }**/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jRadioButton3ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jRadioButton3ComponentHidden
@@ -306,12 +375,25 @@ public class Ventas extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton3ComponentHidden
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
+      // Acción para aceptar el uso del correo en la compra
+    if (jCheckBox1.isSelected()) {
+        JOptionPane.showMessageDialog(null, "Has aceptado usar tu correo para la compra.");
+    }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
+         // Acción para aceptar los términos y condiciones
+    if (jCheckBox2.isSelected()) {
+        JOptionPane.showMessageDialog(null, "Has aceptado los términos y condiciones.");
+    }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+         // Acción para seleccionar la boleta como tipo de comprobante
+    if (jRadioButton4.isSelected()) {
+        JOptionPane.showMessageDialog(null, "Has seleccionado boleta.");
+    }
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -337,4 +419,5 @@ public class Ventas extends javax.swing.JPanel {
     public javax.swing.JTable tblProdCarrito;
     public javax.swing.JTextPane txtTotal;
     // End of variables declaration//GEN-END:variables
+
 }
