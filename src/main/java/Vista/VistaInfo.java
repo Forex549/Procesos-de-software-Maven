@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Vista;
 
+import Modelo.Product;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 
@@ -18,28 +15,28 @@ public class VistaInfo extends javax.swing.JPanel {
     public VistaInfo() {
         
         initComponents();
-        initStyles();
+        //initStyles();
         //textEncabezado();
-        imagenProduct1();
+        //imagenProduct1();
         //textPrice();
         //textDescription();
         
     }
     
-    private void initStyles(){
+    /*private void initStyles(){
         labelNameProduct1.putClientProperty("FlatLaf.style", "font: 200% $light.font");
         labelNameProduct1.setForeground(Color.white);
-    }
+    }*/
     /*private void textEncabezado(){
         labelNameProduct1.setText("Teclado Mecanico Gamer Antryx THL MK830, switch Azul, RGB");//redescribe el nombre para el producto
         labelNameProduct1.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 36));//cambia a fuente ArialBlack tamaño 48
         labelNameProduct1.setForeground(Color.white); 
     }*/
     
-    private void imagenProduct1(){
+    /*private void imagenProduct1(){
         ImagenProduct1.setText("");
         ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TecladoMecanicoTKLntryxChromeStormMK830BlueSwitch 500x500.jpg")));
-    }
+    }*/
     
     /*private void textPrice(){
         labelPrice.setText("S/."+"212.36");//redescribe el nombre para el producto
@@ -67,7 +64,12 @@ public class VistaInfo extends javax.swing.JPanel {
         descriptionProduct.setForeground(java.awt.Color.BLACK); 
     }*/
     
-    
+    /*public void mostrarProducto(Product product) {
+    labelNameProduct1.setText(product.getNombre());
+    labelPrice.setText("S/." + String.format("%.2f", product.getPrecio()));
+    descriptionProduct.setText(product.getDescripcion());
+    ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource(product.getImagenPath())));
+}*/
     
 
     /**

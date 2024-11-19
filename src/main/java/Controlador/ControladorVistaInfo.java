@@ -4,6 +4,7 @@
  */
 package Controlador;
 import Modelo.CarritoDeCompra;
+import Modelo.Product;
 import Vista.*;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.util.concurrent.Callable;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import Vista.VistaInfo;
 /**
  *
  * @author Giancarlo
@@ -50,8 +52,13 @@ public class ControladorVistaInfo {
             
             }
         });
-        
+           
      }
+    
+    /*public void mostrarDetallesProducto(Product product) {
+        VistaInfo.mostrarProduct(product);
+        cardLayout.show(vistaInfo.getParent(), "detalles"); // Cambia al panel de detalles
+    }*/
     
     public void configurarInfo(int ID,VistaInfo vista){
     
@@ -98,6 +105,9 @@ public class ControladorVistaInfo {
     public void setIDProducto(int ID){
         this.IDProducto = ID;
     }
+    
+    
+    
     
     
 }
