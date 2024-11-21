@@ -47,7 +47,19 @@ public class ControladorPanelCarrito {
     }
     
     private void abrirVentas() {
+// Crear una nueva instancia de la ventana de ventas
+    Ventas ventanaVentas = new Ventas();
 
+    // Crear el controlador asociado a la ventana de ventas
+    ControladorVentas controladorVentas = new ControladorVentas(ventanaVentas);
+
+    // Crear un JFrame para mostrar la ventana de ventas
+    JFrame frameVentas = new JFrame("Ventas");
+    frameVentas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    frameVentas.setContentPane(ventanaVentas);
+    frameVentas.pack();
+    frameVentas.setLocationRelativeTo(null); // Centrar la ventana
+    frameVentas.setVisible(true);
 }
 
 private void mostrarMensaje(String mensaje, String titulo, int tipoMensaje) {
