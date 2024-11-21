@@ -1,5 +1,6 @@
 
 package Controlador;
+import Vista.Ventas;
 import Conexión.Conexion;
 import Vista.*;
 import Modelo.*;
@@ -28,6 +29,7 @@ public class ControladorPanelCarrito {
         
         this.panelCarrito.tblProdCarrito.setAutoCreateRowSorter(true);
         
+            // Listener para eliminar producto
         this.panelCarrito.btnEliminar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -35,8 +37,24 @@ public class ControladorPanelCarrito {
             }
         });
         //panelCarrito.txtTotal.setText(String.valueOf(ControladorPanelCarrito.cargarDatos(con, panelCarrito.tblProdCarrito,this.IDCliente)));
+            // Listener para botón Pagar
+         this.panelCarrito.btnPagar.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            abrirVentas();
+        }
+    });
     }
     
+    private void abrirVentas() {
+
+}
+
+private void mostrarMensaje(String mensaje, String titulo, int tipoMensaje) {
+    JOptionPane.showMessageDialog(panelCarrito, mensaje, titulo, tipoMensaje);
+}
+
+
     private void eliminarProducto(){
         String idProductoText = panelCarrito.IdTField.getText();
         if (idProductoText.isEmpty()){
