@@ -48,7 +48,7 @@ public class controladorLogin {
                 int idCliente = ConexionLogin.verificarUsuario(username, password, con);
                 ID = idCliente;
  
-                if(ConexionLogin.esAdmin(username, password)){
+                if(ConexionLogin.esAdmin(username, password,con)){
                     //Si es admin te mostrar el almacen, falta decorar el almacen
                     cardLayout.show(principal.background, "almacen");
                 }

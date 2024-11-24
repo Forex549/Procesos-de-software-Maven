@@ -6,6 +6,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLClientInfoException;
 
 public class ConexionLogin {
     
@@ -40,16 +41,28 @@ public class ConexionLogin {
         return idCliente;
     }
     
-    public static boolean esAdmin(String username, String password){
+    public static boolean esAdmin(String username, String password,Connection con){
         boolean res = false;
         
-        String usuario = "gerar.0509@gmail.com";
-        String contraseña = "contras123";
+        String sql = "{CALL esAdmin(?,?,?)}";
         
-        if(username.equals(usuario) && password.equals(contraseña)){
-            res = true;
+        
+        try{
+        CallableStatement consulta = con.prepareCall(sql);
+        consulta.setString(2, username);
+        consulta.setString(3, password);
+        
+        consulta.registerOutParameter(1, java.sql.Types.BOOLEAN);
+        
+        consulta.execute();
+        
+        res = consulta.getBoolean(1);
+        
+        
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        
+
         return res;
     }   
 }
