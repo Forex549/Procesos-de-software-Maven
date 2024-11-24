@@ -79,7 +79,7 @@ public class ControladorTablaCliente {
     }
     
     
-    private static void cargarDatosFiltName(Connection con, TablaCliente table,String texto){
+    public static void cargarDatosFiltName(Connection con, TablaCliente table,String texto){
     
     DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
@@ -119,7 +119,7 @@ public class ControladorTablaCliente {
     
     }
     
-    private static void cargarDatos(Connection con, JTable table) {
+    public static void cargarDatos(Connection con, JTable table) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("codigo");
         modelo.addColumn("Nombre");

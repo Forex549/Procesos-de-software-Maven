@@ -24,8 +24,9 @@ public class controladorLogin {
     public int ID;
     private ControladorPanelCarrito conCarr;
     private ControladorVistaInfo contInfo;
+    private TablaCliente tablaCliente;
 
-    public controladorLogin(Login login, CardLayout cardLayout, Connection con,Principal principal,ControladorPanelCarrito conCarr,ControladorVistaInfo contInfo) {
+    public controladorLogin(Login login, CardLayout cardLayout, Connection con,Principal principal,ControladorPanelCarrito conCarr,ControladorVistaInfo contInfo,TablaCliente tablaCliente) {
         this.login = login;
         this.cardLayout = cardLayout;
         this.principal = principal;
@@ -33,14 +34,15 @@ public class controladorLogin {
         this.contInfo = contInfo;
         this.conCarr = conCarr;//se pasa por parametro controlaodr carrito ya q este necesita el id del usuario, y se debe setear
         //dentro de la accion del boton
+        this.tablaCliente = tablaCliente;
         
         
         this.login.btnIngresar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 
                 // Obtener los valores ingresados
-                String username = login.jTextFieldUsuario.getText();
-                String password = new String(login.jTextFieldPassword.getPassword()); // Convertir el char[] a String
+                String username = login.jTextFieldUsuario.getText().trim();
+                String password = new String(login.jTextFieldPassword.getPassword()).trim(); // Convertir el char[] a String
                 
                 
                 int idCliente = ConexionLogin.verificarUsuario(username, password, con);
@@ -56,6 +58,7 @@ public class controladorLogin {
                     contInfo.setIDUsuario(idCliente);
                     conCarr.setID(idCliente);
                     //ControladorPanelCarrito carrito = new ControladorPanelCarrito(controladorLogin.this.carrito,ID,con);
+                    ControladorTablaCliente.cargarDatos(con, tablaCliente.table);
                     cardLayout.show(principal.background, "tienda");
 
                     //javax.swing.JOptionPane.showMessageDialog(this, "Ingreso exitoso!");

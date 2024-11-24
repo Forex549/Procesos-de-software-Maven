@@ -65,11 +65,11 @@ public class Main2 {
         ControladorVistaInfo contInfo = new ControladorVistaInfo(pd1, cardLayout2, con,conCarr);
         ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente,cardLayout2,tienda.panelInicio,contInfo,pd1,contInfo);
         contro.iniciar_vista();
-        ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2,cardLayout,principal.background);//aca maneja dos cardLayout pq trabaja con l panel mas grande y el panel peqeuño
+        ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2,cardLayout,principal.background,tablaCliente);//aca maneja dos cardLayout pq trabaja con l panel mas grande y el panel peqeuño
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen,cardLayout,principal.background);
         cont.iniciar_vista();
         
-        controladorLogin contLog = new controladorLogin(login, cardLayout, con,principal,conCarr,contInfo);
+        controladorLogin contLog = new controladorLogin(login, cardLayout, con,principal,conCarr,contInfo,tablaCliente);
         System.out.println("wasaaa: "+login.ID);//lo de aca es solo pa verificar si se setea el ID
         
         

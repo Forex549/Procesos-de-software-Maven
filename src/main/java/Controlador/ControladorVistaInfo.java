@@ -40,16 +40,23 @@ public class ControladorVistaInfo {
             
                 int cantidad = (Integer)vista.comboCantidad.getValue();
                 
-                if(CarritoDeCompra.agregarAlCarrito(IDProducto, cantidad, con, IDUsuario)){
+                if(cantidad > 0){
+                
+                    if(CarritoDeCompra.agregarAlCarrito(IDProducto, cantidad, con, IDUsuario)){
                     
                     conCarr.setID(IDUsuario);
                     JOptionPane.showMessageDialog(vista, "Producto agregado al carrito exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else{
+                    }
+                        else{
                 
                     JOptionPane.showMessageDialog(vista, "Error al agregar el producto al carrito.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                 }
-            
+                
+                else{
+                    JOptionPane.showMessageDialog(vista, "Debes seleccionar la cantidad que deseas agregar", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
            
@@ -83,6 +90,7 @@ public class ControladorVistaInfo {
         this.vista.descriptionProduct.setText(descripcion);
         this.vista.labelNameProduct1.setText(nombre);
         this.vista.labelPrice.setText(String.valueOf(precio));
+        this.vista.lblStock.setText(String.valueOf(cantidad));
         
         
         SpinnerNumberModel modelo = new SpinnerNumberModel(0, 0, cantidad, 1);
@@ -90,6 +98,8 @@ public class ControladorVistaInfo {
         this.vista.btnAgregarCarr.setEnabled(true);
         
         if(cantidad ==0){
+            this.vista.lblStock.setText("ESTE PRODUCTO NO ESTA DISPONIBLE AHORA MISMO");
+            this.vista.stock.setText("");
             this.vista.btnAgregarCarr.setEnabled(false);
             SpinnerNumberModel modelo2 = new SpinnerNumberModel(0, 0, cantidad, 0);
         this.vista.comboCantidad.setModel(modelo2);

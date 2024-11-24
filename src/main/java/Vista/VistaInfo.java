@@ -94,6 +94,8 @@ public class VistaInfo extends javax.swing.JPanel {
         btnAgregarCarr = new javax.swing.JToggleButton();
         LabelImagenRelleno = new javax.swing.JLabel();
         labelPrice1 = new javax.swing.JLabel();
+        stock = new javax.swing.JLabel();
+        lblStock = new javax.swing.JLabel();
 
         PanelMadre.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -117,7 +119,7 @@ public class VistaInfo extends javax.swing.JPanel {
             .addGroup(PanelFondoNombreProductoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelNameProduct1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         ImagenProduct1.setText("jLabel1");
@@ -145,7 +147,7 @@ public class VistaInfo extends javax.swing.JPanel {
         comboCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
 
         LabelCantidad.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        LabelCantidad.setText("Cantidad");
+        LabelCantidad.setText("Cantidad Selececionada:");
 
         btnAgregarCarr.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarCarr.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
@@ -159,16 +161,14 @@ public class VistaInfo extends javax.swing.JPanel {
         labelPrice1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelPrice1.setText("S/.");
 
+        stock.setText("Stock:");
+
+        lblStock.setText("jLabel2");
+
         javax.swing.GroupLayout PanelFondoDescripcionLayout = new javax.swing.GroupLayout(PanelFondoDescripcion);
         PanelFondoDescripcion.setLayout(PanelFondoDescripcionLayout);
         PanelFondoDescripcionLayout.setHorizontalGroup(
             PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(LabelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
             .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(labelPrice1)
@@ -182,11 +182,23 @@ public class VistaInfo extends javax.swing.JPanel {
                         .addComponent(btnAgregarCarr, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
-                        .addComponent(LabelImagenRelleno)
-                        .addGap(270, 270, 270))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35))))
+            .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
+                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(LabelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addGap(285, 285, 285)
+                        .addComponent(LabelImagenRelleno)
+                        .addGap(71, 71, 71)
+                        .addComponent(stock)
+                        .addGap(31, 31, 31)
+                        .addComponent(lblStock)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelFondoDescripcionLayout.setVerticalGroup(
             PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,17 +207,25 @@ public class VistaInfo extends javax.swing.JPanel {
                 .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelPrice1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LabelCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboCantidad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelImagenRelleno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAgregarCarr, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LabelCantidad)
+                            .addComponent(comboCantidad))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LabelImagenRelleno)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(btnAgregarCarr, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(stock)
+                            .addComponent(lblStock))
+                        .addGap(98, 98, 98))))
         );
 
         javax.swing.GroupLayout PanelMadreLayout = new javax.swing.GroupLayout(PanelMadre);
@@ -257,5 +277,7 @@ public class VistaInfo extends javax.swing.JPanel {
     public javax.swing.JLabel labelNameProduct1;
     public javax.swing.JLabel labelPrice;
     public javax.swing.JLabel labelPrice1;
+    public javax.swing.JLabel lblStock;
+    public javax.swing.JLabel stock;
     // End of variables declaration//GEN-END:variables
 }
