@@ -14,9 +14,9 @@ public class Producto {
             "MARCA","PRECIO", "CANTIDAD"
     };
     
-    public static void agregarProducto(float precio,int stock,String descripcion,String marca,String nombre,String categoria,Connection con){
+    public static void agregarProducto(float precio,int stock,String descripcion,String marca,String nombre,String categoria,Connection con,String imagen){
     
-         String consulta = "{CALL agregarProducto(?,?,?,?,?,?)}";
+         String consulta = "{CALL agregarProducto(?,?,?,?,?,?,?)}";
          
         
          
@@ -32,6 +32,7 @@ public class Producto {
                 procedimiento.setString(4, categoria);
                 procedimiento.setFloat(5, precio);
                 procedimiento.setString(6,descripcion);
+                procedimiento.setString(7,imagen);
                 
                 procedimiento.execute();
                 
@@ -62,9 +63,9 @@ public class Producto {
    
     }
     
-    public static void Actualizar(int ID, float precio,int stock,String descripcion,String marca,String nombre,String categoria,Connection con){
+    public static void Actualizar(int ID, float precio,int stock,String descripcion,String marca,String nombre,String categoria,Connection con,String imagen){
     
-        String consulta = "{CALL actualizarProducto(?,?,?,?,?,?,?)}";
+        String consulta = "{CALL actualizarProducto(?,?,?,?,?,?,?,?)}";
         
         try{
             CallableStatement procedimiento = null;
@@ -77,6 +78,7 @@ public class Producto {
             procedimiento.setString(5,marca);
             procedimiento.setString(6,nombre);
             procedimiento.setString(7,categoria);
+            procedimiento.setString(8,imagen);
             
             procedimiento.execute();
         

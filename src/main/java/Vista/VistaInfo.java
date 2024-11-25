@@ -35,8 +35,8 @@ public class VistaInfo extends javax.swing.JPanel {
     
     /*private void imagenProduct1(){
         ImagenProduct1.setText("");
-        ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TecladoMecanicoTKLntryxChromeStormMK830BlueSwitch 500x500.jpg")));
-    }*/
+        ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLogitechG305 500x500.jpg")));
+    } */
     
     /*private void textPrice(){
         labelPrice.setText("S/."+"212.36");//redescribe el nombre para el producto
@@ -264,7 +264,7 @@ public class VistaInfo extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ImagenProduct1;
+    public javax.swing.JLabel ImagenProduct1;
     private javax.swing.JLabel LabelCantidad;
     private javax.swing.JLabel LabelImagenRelleno;
     private javax.swing.JPanel PanelFondoDescripcion;

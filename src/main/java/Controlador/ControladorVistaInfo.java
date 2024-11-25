@@ -69,7 +69,7 @@ public class ControladorVistaInfo {
     
     public void configurarInfo(int ID,VistaInfo vista){
     
-        String sql = "{CALL obtenerInfo(?,?,?,?,?)}";
+        String sql = "{CALL obtenerInfo(?,?,?,?,?,?)}";
         
         try{
         CallableStatement consulta = con.prepareCall(sql);
@@ -79,6 +79,7 @@ public class ControladorVistaInfo {
         consulta.registerOutParameter(3, java.sql.Types.FLOAT);
         consulta.registerOutParameter(4, java.sql.Types.INTEGER);
         consulta.registerOutParameter(5, java.sql.Types.VARCHAR);
+        consulta.registerOutParameter(6, java.sql.Types.VARCHAR);
         
         consulta.execute();
         
@@ -86,11 +87,14 @@ public class ControladorVistaInfo {
         float precio = consulta.getFloat(3);
         int cantidad = consulta.getInt(4);
         String nombre =consulta.getString(5);
+        String imagen = consulta.getString(6);
         
         this.vista.descriptionProduct.setText(descripcion);
         this.vista.labelNameProduct1.setText(nombre);
         this.vista.labelPrice.setText(String.valueOf(precio));
         this.vista.lblStock.setText(String.valueOf(cantidad));
+        this.vista.ImagenProduct1.setText("");
+        this.vista.ImagenProduct1.setIcon(new javax.swing.ImageIcon("productos_imagenes/" + imagen));
         
         
         SpinnerNumberModel modelo = new SpinnerNumberModel(0, 0, cantidad, 1);
