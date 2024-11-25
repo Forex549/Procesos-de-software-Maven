@@ -64,6 +64,23 @@ public class ConexionLogin {
         }
 
         return res;
-    }   
+    }
+    public static boolean registrarCliente(String nombres, String apellidos, String correo, String telefono, String direccion, String password, Connection con) {
+        String sql = "{CALL crearUsuario(?,?,?,?,?,?)}";
+        try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setString(1, nombres);
+            pstmt.setString(2, apellidos);
+            pstmt.setString(3, correo);
+            pstmt.setString(4, telefono);
+            pstmt.setString(5, direccion);
+            pstmt.setString(6, password);
+            pstmt.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
 

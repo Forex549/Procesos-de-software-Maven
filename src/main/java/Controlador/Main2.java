@@ -54,6 +54,7 @@ public class Main2 {
         JpanelCarrito carrito = new JpanelCarrito();
         VistaAlmacen almacen = new VistaAlmacen();
         Login login = new Login();
+        RegistrarCliente registrar = new RegistrarCliente();
         
         //se desgina cada cardlayout a su respectivo contenedor
         tienda.panelInicio.setLayout(cardLayout2);
@@ -68,6 +69,7 @@ public class Main2 {
         ControladorPanelTienda conTienda = new ControladorPanelTienda(tienda, con,tienda.panelInicio,cardLayout2,cardLayout,principal.background,tablaCliente);//aca maneja dos cardLayout pq trabaja con l panel mas grande y el panel peqeuño
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen,cardLayout,principal.background);
         cont.iniciar_vista();
+        ControladorRegistroCliente conRegistro = new ControladorRegistroCliente(registrar, cardLayout, con, principal);
         
         controladorLogin contLog = new controladorLogin(login, cardLayout, con,principal,conCarr,contInfo,tablaCliente);
         System.out.println("wasaaa: "+login.ID);//lo de aca es solo pa verificar si se setea el ID
@@ -78,6 +80,7 @@ public class Main2 {
         //Se añaden los paneles al contenedor principal
         principal.background.add(tienda,"tienda");
         principal.background.add(login, "login");
+        principal.background.add(registrar, "registro");
         principal.background.add(almacen, "almacen");
         
         //se añaden los paneles al contenedor de la vista cliente(el cuadro de abajo)

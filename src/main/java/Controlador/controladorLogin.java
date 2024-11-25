@@ -8,6 +8,8 @@ import Modelo.ConexionLogin;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 /**
  *
@@ -71,10 +73,21 @@ public class controladorLogin {
             }
    
         });
+        
+        // Configurar el clic en el panel de registro
+        this.login.jPanelRegistro.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirRegistro();
+            }
+        });
     }
     
-    
-    
+    // Método para mostrar la vista de registro
+    private void abrirRegistro() {
+        // Cambiar a la vista de registro usando CardLayout
+        cardLayout.show(principal.background, "registro");
+    }
     
     
 }
