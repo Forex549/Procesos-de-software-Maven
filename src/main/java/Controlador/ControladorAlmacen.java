@@ -224,7 +224,8 @@ public class ControladorAlmacen{
                 this.vista.txtMarca.getText().length()!= 0 &&
                 this.vista.txtPrecio.getText().length()!= 0 &&
                 this.vista.txtCantidad.getText().length()!= 0 &&
-                this.vista.txtDescrip.getText().length()!=0
+                this.vista.txtDescrip.getText().length()!=0 &&
+                this.vista.txtImagen.getText().length()!=0
         ){
             resultado = true;
         }
