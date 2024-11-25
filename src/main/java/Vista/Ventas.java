@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -16,12 +18,26 @@ import java.awt.event.ActionListener;
  * @author Ronnie Herrera
  */
 public class Ventas extends javax.swing.JPanel { 
+    private int IDCliente;
+    private Connection con;
 
-
-    public Ventas() {
+    // Constructor modificado para recibir los parámetros IDCliente y con
+    public Ventas(int IDCliente, Connection con) {
         initComponents();
-        new ControladorVentas(this); 
+        this.IDCliente = IDCliente;
+        this.con = con;
+        // Instanciar el controlador con los parámetros
+        new ControladorVentas(this, IDCliente, con);
+        
+                
+            MedioPago.add(jRadioButtonyape);
+            MedioPago.add(jRadioButtonTranferencia);
+
+            Comprobante.add(jRadioButtonFactura);
+            Comprobante.add(jRadioButtonBoleta);
+        
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,9 +47,10 @@ public class Ventas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Bmedio = new javax.swing.ButtonGroup();
+        Comprobante = new javax.swing.ButtonGroup();
+        MedioPago = new javax.swing.ButtonGroup();
         jScrollPane2 = new javax.swing.JScrollPane();
-        campoTotal = new javax.swing.JTextPane();
+        txtTotal = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         jRadioButtonyape = new javax.swing.JRadioButton();
         jRadioButtonTranferencia = new javax.swing.JRadioButton();
@@ -50,14 +67,14 @@ public class Ventas extends javax.swing.JPanel {
         jCheckBoxTerminosCondiciones = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jLabelTablaProductos = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaProductos = new javax.swing.JTable();
         botonConfirmar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProdCarrito = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(204, 255, 255));
         setToolTipText("");
 
-        jScrollPane2.setViewportView(campoTotal);
+        jScrollPane2.setViewportView(txtTotal);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -215,25 +232,25 @@ public class Ventas extends javax.swing.JPanel {
         jLabelTablaProductos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabelTablaProductos.setText("Resumen de compra");
 
-        tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Producto", "Codigo", "Cantidad", "Subtotal"
-            }
-        ));
-        jScrollPane1.setViewportView(tablaProductos);
-
         botonConfirmar.setText("Confirmar ");
         botonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonConfirmarActionPerformed(evt);
             }
         });
+
+        tblProdCarrito.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Producto", "Codigo", "Cantidad", "Subtotal"
+            }
+        ));
+        jScrollPane1.setViewportView(tblProdCarrito);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -249,23 +266,19 @@ public class Ventas extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelTablaProductos)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabelTotal)
+                                .addGap(26, 26, 26)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(248, 248, 248)
+                                .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(55, 55, 55)
-                                        .addComponent(jLabelTotal)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(106, 106, 106)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(173, 173, 173)
-                                        .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,25 +294,26 @@ public class Ventas extends javax.swing.JPanel {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTablaProductos)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTotal))
-                        .addContainerGap(82, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))))
+                        .addGap(58, 58, 58))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelTotal))
+                        .addContainerGap(82, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(662, 662, 662)
@@ -342,12 +356,12 @@ public class Ventas extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup Bmedio;
+    public javax.swing.ButtonGroup Comprobante;
+    public javax.swing.ButtonGroup MedioPago;
     public javax.swing.JButton botonCancelar;
     public javax.swing.JButton botonConfirmar;
-    public javax.swing.JTextPane campoTotal;
     public javax.swing.JCheckBox jCheckBoxTerminosCondiciones;
-    private javax.swing.JCheckBox jCheckBoxUsarMiCuenta;
+    public javax.swing.JCheckBox jCheckBoxUsarMiCuenta;
     private javax.swing.JLabel jLabelCorreo;
     private javax.swing.JLabel jLabelElijeComprobante;
     private javax.swing.JLabel jLabelMetodoPago;
@@ -357,13 +371,14 @@ public class Ventas extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButtonBoleta;
-    private javax.swing.JRadioButton jRadioButtonFactura;
-    private javax.swing.JRadioButton jRadioButtonTranferencia;
-    private javax.swing.JRadioButton jRadioButtonyape;
+    public javax.swing.JRadioButton jRadioButtonBoleta;
+    public javax.swing.JRadioButton jRadioButtonFactura;
+    public javax.swing.JRadioButton jRadioButtonTranferencia;
+    public javax.swing.JRadioButton jRadioButtonyape;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable tablaProductos;
+    public javax.swing.JTable tblProdCarrito;
+    public javax.swing.JTextPane txtTotal;
     // End of variables declaration//GEN-END:variables
 
   
