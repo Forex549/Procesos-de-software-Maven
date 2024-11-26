@@ -55,6 +55,7 @@ public class Main2 {
         VistaAlmacen almacen = new VistaAlmacen();
         Login login = new Login();
         RegistrarCliente registrar = new RegistrarCliente();
+        Ventas ventas = new Ventas();
         
         //se desgina cada cardlayout a su respectivo contenedor
         tienda.panelInicio.setLayout(cardLayout2);
@@ -62,7 +63,7 @@ public class Main2 {
         
         
         //se incializan todos los controladores
-        ControladorPanelCarrito conCarr = new ControladorPanelCarrito(carrito, con);//depende de id
+        ControladorPanelCarrito conCarr = new ControladorPanelCarrito(carrito, con,cardLayout2,tienda.panelInicio,ventas);//depende de id
         ControladorVistaInfo contInfo = new ControladorVistaInfo(pd1, cardLayout2, con,conCarr);
         ControladorTablaCliente contro = new ControladorTablaCliente(con, tablaCliente,cardLayout2,tienda.panelInicio,contInfo,pd1,contInfo);
         contro.iniciar_vista();
@@ -70,8 +71,11 @@ public class Main2 {
         ControladorAlmacen cont = new ControladorAlmacen(con, almacen,cardLayout,principal.background);
         cont.iniciar_vista();
         ControladorRegistroCliente conRegistro = new ControladorRegistroCliente(registrar, cardLayout, con, principal);
+        ControladorVentas conVent = new ControladorVentas(ventas,con,cardLayout2,conCarr);
         
-        controladorLogin contLog = new controladorLogin(login, cardLayout, con,principal,conCarr,contInfo,tablaCliente);
+        controladorLogin contLog = new controladorLogin(login, cardLayout, con,principal,conCarr,contInfo,tablaCliente,conVent);
+        
+        
         System.out.println("wasaaa: "+login.ID);//lo de aca es solo pa verificar si se setea el ID
         
         
@@ -87,6 +91,7 @@ public class Main2 {
         tienda.panelInicio.add(tablaCliente,"cliente");
         tienda.panelInicio.add(carrito,"carrito");
         tienda.panelInicio.add(pd1,"detalles");
+        tienda.panelInicio.add(ventas,"ventas");
         
 
         // Mostrar el panel de login inicialmente

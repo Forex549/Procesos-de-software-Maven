@@ -1,6 +1,8 @@
 package Controlador;
 
+import Modelo.CarritoDeCompra;
 import Vista.Ventas;
+import java.awt.CardLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,8 +20,26 @@ public class ControladorVentas {
     private Ventas vista;
     private int IDCliente;
     private Connection con;
+    private CardLayout cardLayout2;
+    private ControladorPanelCarrito conCarr;
     
-    private void actualizarCarrito() {
+    
+    public ControladorVentas(Ventas vista/*, int IDCliente*/, Connection con,CardLayout cardLayout2,ControladorPanelCarrito conCarr) {
+        this.vista = vista;
+        this.IDCliente = IDCliente;
+        this.con = con;
+        this.cardLayout2 = cardLayout2;
+        this.conCarr = conCarr;
+        
+        this.vista.botonConfirmar.addActionListener(e -> confirmarVenta());
+        this.vista.botonCancelar.addActionListener(e -> cancelarVenta());
+        this.vista.jCheckBoxTerminosCondiciones.addActionListener(e -> actualizarBotonConfirmar());
+        
+        actualizarBotonConfirmar();
+        //actualizarCarrito();
+    }
+    
+    private void actualizarCarrito() { //duda si aun es necesario
         if (vista.tblProdCarrito != null) { 
             // Carga los datos en la tabla dentro del panel Ventas
             float total = ControladorVentas.cargarDatos(con, vista.tblProdCarrito, IDCliente);
@@ -30,7 +50,7 @@ public class ControladorVentas {
         }
     }
  
-     private static float cargarDatos(Connection con, JTable tabla, int IDCliente) {
+     public static float cargarDatos(Connection con, JTable tabla, int IDCliente) {
         DefaultTableModel modelo = new DefaultTableModel();
         float total = 0;
         modelo.addColumn("ID");
@@ -65,18 +85,7 @@ public class ControladorVentas {
         return total;
     }
     
-    public ControladorVentas(Ventas vista, int IDCliente, Connection con) {
-        this.vista = vista;
-        this.IDCliente = IDCliente;
-        this.con = con;
-        
-        this.vista.botonConfirmar.addActionListener(e -> confirmarVenta());
-        this.vista.botonCancelar.addActionListener(e -> cancelarVenta());
-        this.vista.jCheckBoxTerminosCondiciones.addActionListener(e -> actualizarBotonConfirmar());
-        
-        actualizarBotonConfirmar();
-        actualizarCarrito();
-    }
+    
 
    public void cancelarVenta() {
         vista.txtTotal.setText("");
@@ -125,6 +134,8 @@ public class ControladorVentas {
             }
 
             con.commit();
+            
+            conCarr.setID(IDCliente);
             JOptionPane.showMessageDialog(vista, "Venta confirmada exitosamente.");
             actualizarCarrito();
         } catch (SQLException e) {
@@ -180,9 +191,15 @@ public class ControladorVentas {
     // Método que habilita o deshabilita el botón de confirmar dependiendo de si se aceptan los términos
     private void actualizarBotonConfirmar() {
         if (vista.jCheckBoxTerminosCondiciones.isSelected() && vista.jCheckBoxUsarMiCuenta.isSelected()) {
-            vista.botonConfirmar.setEnabled(true);
+            vista.botonConfirmar.setEnabled(true);} 
+        else if(vista.jCheckBoxUsarMiCuenta.isSelected() && vista.jCheckBoxTerminosCondiciones.isSelected()){
+                    vista.botonConfirmar.setEnabled(true);
         } else {
             vista.botonConfirmar.setEnabled(false);
         }
+    }
+
+    public void setIDCliente(int IDCliente) {
+        this.IDCliente = IDCliente;
     }
 }

@@ -4,6 +4,7 @@ import Vista.Ventas;
 import Conexión.Conexion;
 import Vista.*;
 import Modelo.*;
+import java.awt.CardLayout;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,11 +22,16 @@ public class ControladorPanelCarrito {
     private JpanelCarrito panelCarrito;
     private int IDCliente;
     private Connection con;
+    private CardLayout cardLayout2;
+    private JPanel contenedor;
+    private Ventas ventas;
 
-    public ControladorPanelCarrito(JpanelCarrito panelCarrito,Connection con) {
+    public ControladorPanelCarrito(JpanelCarrito panelCarrito,Connection con,CardLayout cardLayout2,JPanel contenedor,Ventas ventas) {
         this.panelCarrito = panelCarrito;
-        
         this.con = con;
+        this.cardLayout2 = cardLayout2;
+        this.contenedor = contenedor;
+        this.ventas = ventas;
         
         this.panelCarrito.tblProdCarrito.setAutoCreateRowSorter(true);
         
@@ -41,25 +47,27 @@ public class ControladorPanelCarrito {
          this.panelCarrito.btnPagar.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            abrirVentas();
+            float total = ControladorVentas.cargarDatos(con, ventas.tblProdCarrito, IDCliente);
+            ventas.txtTotal.setText(String.valueOf(total));
+            cardLayout2.show(contenedor, "ventas");
         }
     });
     }
     
     private void abrirVentas() {
 // Crear una nueva instancia de la ventana de ventas
-    Ventas ventanaVentas = new Ventas(IDCliente, con);
+    //Ventas ventanaVentas = new Ventas(IDCliente, con);
 
      // Crear el controlador asociado a la ventana de ventas
-   ControladorVentas controladorVentas = new ControladorVentas(ventanaVentas, IDCliente, con);
+   //ControladorVentas controladorVentas = new ControladorVentas(ventanaVentas, IDCliente, con);
 
     // Crear un JFrame para mostrar la ventana de ventas
-    JFrame frameVentas = new JFrame("Ventas");
+    /*JFrame frameVentas = new JFrame("Ventas");
     frameVentas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     frameVentas.setContentPane(ventanaVentas);
     frameVentas.pack();
     frameVentas.setLocationRelativeTo(null); // Centrar la ventana
-    frameVentas.setVisible(true);
+    frameVentas.setVisible(true);*/
 }
 
 private void mostrarMensaje(String mensaje, String titulo, int tipoMensaje) {
@@ -67,7 +75,7 @@ private void mostrarMensaje(String mensaje, String titulo, int tipoMensaje) {
 }
 
 
-    private void eliminarProducto(){
+    private void eliminarProducto(){//se nos paso la funcion
         String idProductoText = panelCarrito.IdTField.getText();
         if (idProductoText.isEmpty()){
             JOptionPane.showMessageDialog(panelCarrito, "Porfavor ingrese el ID del Producto", "Error", JOptionPane.ERROR);

@@ -22,12 +22,12 @@ public class Ventas extends javax.swing.JPanel {
     private Connection con;
 
     // Constructor modificado para recibir los parámetros IDCliente y con
-    public Ventas(int IDCliente, Connection con) {
+    public Ventas(/*int IDCliente, Connection con*/) {
         initComponents();
-        this.IDCliente = IDCliente;
-        this.con = con;
+        /*this.IDCliente = IDCliente;
+        this.con = con;*/
         // Instanciar el controlador con los parámetros
-        new ControladorVentas(this, IDCliente, con);
+        //new ControladorVentas(this, IDCliente, con);
         
                 
             MedioPago.add(jRadioButtonyape);

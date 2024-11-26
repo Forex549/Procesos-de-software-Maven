@@ -18,17 +18,18 @@ import java.sql.Connection;
 public class controladorLogin {
     
     private Login login;
-    CardLayout cardLayout;
-    Principal principal;
-    Tienda tienda;
-    JpanelCarrito carrito;
-    Connection con;
+    private CardLayout cardLayout;
+    private Principal principal;
+    private Tienda tienda;
+    private JpanelCarrito carrito;
+    private Connection con;
     public int ID;
     private ControladorPanelCarrito conCarr;
     private ControladorVistaInfo contInfo;
     private TablaCliente tablaCliente;
+    private ControladorVentas conVent;
 
-    public controladorLogin(Login login, CardLayout cardLayout, Connection con,Principal principal,ControladorPanelCarrito conCarr,ControladorVistaInfo contInfo,TablaCliente tablaCliente) {
+    public controladorLogin(Login login, CardLayout cardLayout, Connection con,Principal principal,ControladorPanelCarrito conCarr,ControladorVistaInfo contInfo,TablaCliente tablaCliente,ControladorVentas conVent) {
         this.login = login;
         this.cardLayout = cardLayout;
         this.principal = principal;
@@ -37,6 +38,7 @@ public class controladorLogin {
         this.conCarr = conCarr;//se pasa por parametro controlaodr carrito ya q este necesita el id del usuario, y se debe setear
         //dentro de la accion del boton
         this.tablaCliente = tablaCliente;
+        this.conVent = conVent;
         
         
         this.login.btnIngresar.addActionListener(new ActionListener(){
@@ -59,6 +61,8 @@ public class controladorLogin {
                     System.out.println("codigo: "+idCliente);
                     contInfo.setIDUsuario(idCliente);
                     conCarr.setID(idCliente);
+                    conVent.setIDCliente(idCliente);
+                    
                     //ControladorPanelCarrito carrito = new ControladorPanelCarrito(controladorLogin.this.carrito,ID,con);
                     ControladorTablaCliente.cargarDatos(con, tablaCliente.table);
                     cardLayout.show(principal.background, "tienda");
