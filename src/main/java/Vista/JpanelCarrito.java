@@ -59,10 +59,12 @@ public class JpanelCarrito extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setText("CARRITO");
 
+
         jPanel1.setBackground(new java.awt.Color(31, 158, 201));
 
         btnPagar.setBackground(new java.awt.Color(31, 158, 201));
         btnPagar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+
         btnPagar.setForeground(new java.awt.Color(255, 255, 0));
         btnPagar.setText("Pagar");
         btnPagar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -81,6 +83,7 @@ public class JpanelCarrito extends javax.swing.JPanel {
 
         jScrollPane2.setViewportView(txtTotal);
 
+
         btnEliminar.setBackground(new java.awt.Color(31, 158, 201));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 0));
@@ -88,6 +91,7 @@ public class JpanelCarrito extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel3.setText("Código:");
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,6 +117,7 @@ public class JpanelCarrito extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -120,6 +125,7 @@ public class JpanelCarrito extends javax.swing.JPanel {
                             .addComponent(IdTField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

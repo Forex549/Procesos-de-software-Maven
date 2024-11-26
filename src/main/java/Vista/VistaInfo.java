@@ -158,12 +158,14 @@ public class VistaInfo extends javax.swing.JPanel {
         labelPrice1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelPrice1.setText("S/.");
 
+
         stock.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         stock.setForeground(new java.awt.Color(255, 255, 0));
         stock.setText("Stock:");
 
         lblStock.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblStock.setForeground(new java.awt.Color(255, 255, 255));
+
         lblStock.setText("jLabel2");
 
         javax.swing.GroupLayout PanelFondoDescripcionLayout = new javax.swing.GroupLayout(PanelFondoDescripcion);

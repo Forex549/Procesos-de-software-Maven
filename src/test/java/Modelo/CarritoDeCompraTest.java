@@ -57,7 +57,7 @@ public class CarritoDeCompraTest {
     /**
      * Test of agregarAlCarrito method, of class CarritoDeCompra.
      */
-    
+
     private static String url="jdbc:mysql://35.247.214.45:3306/bdprocesos";
     private static String user="root";
     private static String pass="Tesla5890";
@@ -81,13 +81,14 @@ public class CarritoDeCompraTest {
     Connection cone = CarritoDeCompraTest.conectar();
     
     
+
     @org.junit.jupiter.api.Test
     public void testAgregarAlCarrito() {
         System.out.println("agregarAlCarrito");
         int productoID = 0;
         int cantidad = 0;
         Connection con = cone;
-        int cliente_id = 0;
+
         boolean expResult = false;
         boolean result = CarritoDeCompra.agregarAlCarrito(productoID, cantidad, con, cliente_id);
         assertEquals(expResult, result);

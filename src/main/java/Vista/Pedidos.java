@@ -57,7 +57,9 @@ public class Pedidos extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblProdCarrito);
 
+
         jPanel4.setBackground(new java.awt.Color(234, 121, 19));
+
 
         jLabelCurso.setBackground(new java.awt.Color(151, 202, 219));
         jLabelCurso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -66,11 +68,13 @@ public class Pedidos extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
         jLabel1.setText("Lista de pedidos");
 
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -80,6 +84,7 @@ public class Pedidos extends javax.swing.JPanel {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
@@ -88,6 +93,7 @@ public class Pedidos extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel1)))
                 .addGap(0, 12, Short.MAX_VALUE))
+
         );
 
         jButtonBuscar1.setBackground(new java.awt.Color(234, 121, 19));
@@ -105,8 +111,10 @@ public class Pedidos extends javax.swing.JPanel {
             }
         });
 
+
         jButtonBuscar3.setBackground(new java.awt.Color(234, 121, 19));
         jButtonBuscar3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
         jButtonBuscar3.setForeground(new java.awt.Color(0, 27, 72));
         jButtonBuscar3.setText("Eliminar");
         jButtonBuscar3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,10 +149,12 @@ public class Pedidos extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
+
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
+
         );
     }// </editor-fold>//GEN-END:initComponents
 

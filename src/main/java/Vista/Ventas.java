@@ -76,10 +76,12 @@ public class Ventas extends javax.swing.JPanel {
 
         jScrollPane2.setViewportView(txtTotal);
 
+
         jLabelTotal.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabelTotal.setText("Total:");
 
         jPanel2.setBackground(new java.awt.Color(95, 189, 214));
+
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -92,10 +94,12 @@ public class Ventas extends javax.swing.JPanel {
             .addGap(0, 120, Short.MAX_VALUE)
         );
 
+
         jPanel3.setBackground(new java.awt.Color(95, 189, 214));
 
         botonConfirmar.setBackground(new java.awt.Color(234, 121, 19));
         botonConfirmar.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+
         botonConfirmar.setText("Confirmar ");
         botonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +125,9 @@ public class Ventas extends javax.swing.JPanel {
         );
 
         jPanel4.setBackground(new java.awt.Color(234, 121, 19));
+
+        jLabelTablaProductos.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabelTablaProductos.setText("Resumen de compra");
 
         jLabelTablaProductos.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabelTablaProductos.setText("Resumen de compra");
@@ -212,8 +219,10 @@ public class Ventas extends javax.swing.JPanel {
             }
         });
 
+
         botonCancelar.setBackground(new java.awt.Color(234, 121, 19));
         botonCancelar.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+
         botonCancelar.setText("Cancelar ");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
