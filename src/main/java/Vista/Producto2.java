@@ -96,7 +96,6 @@ public class Producto2 extends javax.swing.JPanel {
         descriptionProduct = new javax.swing.JTextArea();
         SpinnerP1 = new javax.swing.JSpinner();
         LabelCantidad = new javax.swing.JLabel();
-        ButtonCarrito = new javax.swing.JToggleButton();
         LabelImagenRelleno = new javax.swing.JLabel();
 
         PanelMadre.setBackground(new java.awt.Color(0, 204, 204));
@@ -151,12 +150,6 @@ public class Producto2 extends javax.swing.JPanel {
         LabelCantidad.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         LabelCantidad.setText("Cantidad");
 
-        ButtonCarrito.setBackground(new java.awt.Color(0, 0, 0));
-        ButtonCarrito.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        ButtonCarrito.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonCarrito.setText("AGREGAR AL CARRO");
-        ButtonCarrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         LabelImagenRelleno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gato80x80.jpg"))); // NOI18N
 
         javax.swing.GroupLayout PanelFondoDescripcionLayout = new javax.swing.GroupLayout(PanelFondoDescripcion);
@@ -182,13 +175,8 @@ public class Producto2 extends javax.swing.JPanel {
                 .addGap(159, 159, 159))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
-                        .addComponent(ButtonCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
-                        .addComponent(LabelImagenRelleno)
-                        .addGap(270, 270, 270))))
+                .addComponent(LabelImagenRelleno)
+                .addGap(270, 270, 270))
         );
         PanelFondoDescripcionLayout.setVerticalGroup(
             PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,9 +195,7 @@ public class Producto2 extends javax.swing.JPanel {
                     .addComponent(SpinnerP1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelImagenRelleno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ButtonCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addGap(79, 79, 79))
         );
 
         javax.swing.GroupLayout PanelMadreLayout = new javax.swing.GroupLayout(PanelMadre);
@@ -248,7 +234,6 @@ public class Producto2 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton ButtonCarrito;
     private javax.swing.JLabel ImagenProduct1;
     private javax.swing.JLabel LabelCantidad;
     private javax.swing.JLabel LabelImagenRelleno;

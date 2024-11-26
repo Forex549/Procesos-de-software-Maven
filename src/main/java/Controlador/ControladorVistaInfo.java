@@ -97,7 +97,7 @@ public class ControladorVistaInfo {
         this.vista.btnAgregarCarr.setEnabled(true);
         
         if(cantidad ==0){
-            this.vista.lblStock.setText("ESTE PRODUCTO NO ESTA DISPONIBLE AHORA MISMO");
+            this.vista.lblStock.setText("AGOTADO");
             this.vista.stock.setText("");
             this.vista.btnAgregarCarr.setEnabled(false);
             SpinnerNumberModel modelo2 = new SpinnerNumberModel(0, 0, cantidad, 0);

@@ -158,14 +158,12 @@ public class VistaInfo extends javax.swing.JPanel {
         labelPrice1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelPrice1.setText("S/.");
 
-
         stock.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         stock.setForeground(new java.awt.Color(255, 255, 0));
         stock.setText("Stock:");
 
         lblStock.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblStock.setForeground(new java.awt.Color(255, 255, 255));
-
         lblStock.setText("jLabel2");
 
         javax.swing.GroupLayout PanelFondoDescripcionLayout = new javax.swing.GroupLayout(PanelFondoDescripcion);
@@ -239,14 +237,15 @@ public class VistaInfo extends javax.swing.JPanel {
             .addGroup(PanelMadreLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(ImagenProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(PanelFondoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(PanelFondoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelMadreLayout.setVerticalGroup(
             PanelMadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMadreLayout.createSequentialGroup()
                 .addComponent(PanelFondoNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelMadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ImagenProduct1)
                     .addComponent(PanelFondoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
