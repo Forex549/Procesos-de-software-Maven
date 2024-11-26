@@ -110,16 +110,13 @@ public class VistaInfo extends javax.swing.JPanel {
         PanelFondoNombreProductoLayout.setHorizontalGroup(
             PanelFondoNombreProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelFondoNombreProductoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelNameProduct1)
+                .addGap(20, 20, 20)
+                .addComponent(labelNameProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelFondoNombreProductoLayout.setVerticalGroup(
             PanelFondoNombreProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelFondoNombreProductoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelNameProduct1)
-                .addContainerGap(10, Short.MAX_VALUE))
+            .addComponent(labelNameProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         ImagenProduct1.setText("jLabel1");
@@ -242,8 +239,8 @@ public class VistaInfo extends javax.swing.JPanel {
         PanelMadreLayout.setVerticalGroup(
             PanelMadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMadreLayout.createSequentialGroup()
-                .addComponent(PanelFondoNombreProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(27, 27, 27)
+                .addComponent(PanelFondoNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(PanelMadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ImagenProduct1)
                     .addComponent(PanelFondoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
