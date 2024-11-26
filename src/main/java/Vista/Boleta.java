@@ -29,7 +29,7 @@ public class Boleta extends javax.swing.JPanel {
 
         jPanelHoja = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblProdCarrito = new javax.swing.JTable();
+        tblProdPedido = new javax.swing.JTable();
         jLabelDetalleCompra = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         txtTotalFormaPago = new javax.swing.JTextPane();
@@ -55,13 +55,13 @@ public class Boleta extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         txtTotalCorreo = new javax.swing.JTextPane();
         jLabelNumeroPedido = new javax.swing.JLabel();
-        jButtonBuscar = new javax.swing.JButton();
+        jButtonDescargar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
 
         jPanelHoja.setBackground(new java.awt.Color(255, 255, 255));
 
-        tblProdCarrito.setModel(new javax.swing.table.DefaultTableModel(
+        tblProdPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -72,7 +72,7 @@ public class Boleta extends javax.swing.JPanel {
                 "ID", "Producto", "Codigo", "Cantidad", "Subtotal"
             }
         ));
-        jScrollPane1.setViewportView(tblProdCarrito);
+        jScrollPane1.setViewportView(tblProdPedido);
 
         jLabelDetalleCompra.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabelDetalleCompra.setText("Detale de Compra:");
@@ -254,18 +254,18 @@ public class Boleta extends javax.swing.JPanel {
                 .addGap(10, 10, 10))
         );
 
-        jButtonBuscar.setBackground(new java.awt.Color(204, 255, 255));
-        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonBuscar.setForeground(new java.awt.Color(0, 27, 72));
-        jButtonBuscar.setText("Descargar");
-        jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonDescargar.setBackground(new java.awt.Color(204, 255, 255));
+        jButtonDescargar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonDescargar.setForeground(new java.awt.Color(0, 27, 72));
+        jButtonDescargar.setText("Descargar");
+        jButtonDescargar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonBuscarMouseClicked(evt);
+                jButtonDescargarMouseClicked(evt);
             }
         });
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDescargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
+                jButtonDescargarActionPerformed(evt);
             }
         });
 
@@ -279,21 +279,21 @@ public class Boleta extends javax.swing.JPanel {
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
                 .addGap(325, 325, 325)
-                .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonDescargar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonDescargar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelHoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
+    private void jButtonDescargarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDescargarMouseClicked
         /*ODO add your handling code here:
         String apellido = jTextApellido.getText();
         String nombre = jTextNombre.getText();
@@ -314,16 +314,16 @@ public class Boleta extends javax.swing.JPanel {
             });
         }
         alumnos.clear();*/
-    }//GEN-LAST:event_jButtonBuscarMouseClicked
+    }//GEN-LAST:event_jButtonDescargarMouseClicked
 
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+    private void jButtonDescargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDescargarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
+    }//GEN-LAST:event_jButtonDescargarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextPane JTextPanelDNI;
-    private javax.swing.JButton jButtonBuscar;
+    public javax.swing.JButton jButtonDescargar;
     private javax.swing.JLabel jLabel1FormaPago;
     private javax.swing.JLabel jLabelCorreo;
     private javax.swing.JLabel jLabelDNI;
@@ -345,7 +345,7 @@ public class Boleta extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPaneDireccion;
-    public javax.swing.JTable tblProdCarrito;
+    public javax.swing.JTable tblProdPedido;
     public javax.swing.JTextPane txtTotal;
     public javax.swing.JTextPane txtTotal5;
     public javax.swing.JTextPane txtTotalCorreo;

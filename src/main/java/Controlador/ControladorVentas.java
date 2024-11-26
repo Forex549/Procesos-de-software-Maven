@@ -1,6 +1,8 @@
 package Controlador;
 
 import Modelo.CarritoDeCompra;
+//import Controlador.CarritoDeCompra;
+import Vista.Boleta;
 import Vista.Ventas;
 import java.awt.CardLayout;
 import java.sql.Connection;
@@ -93,67 +95,91 @@ public class ControladorVentas {
     }
 
 
-    public void confirmarVenta() {
-        String medioPago = vista.jRadioButtonyape.isSelected() ? "Yape" : 
-                          vista.jRadioButtonTranferencia.isSelected() ? "Transferencia" : "";
+public void confirmarVenta() {
+    String medioPago = vista.jRadioButtonyape.isSelected() ? "Yape" : 
+                       vista.jRadioButtonTranferencia.isSelected() ? "Transferencia" : "";
 
-        String comprobante = vista.jRadioButtonFactura.isSelected() ? "Factura" : 
-                            vista.jRadioButtonBoleta.isSelected() ? "Boleta" : "";
+    String comprobante = vista.jRadioButtonFactura.isSelected() ? "Factura" : 
+                         vista.jRadioButtonBoleta.isSelected() ? "Boleta" : "";
 
-        if (medioPago.isEmpty() || comprobante.isEmpty()) {
-            JOptionPane.showMessageDialog(vista, "Debe seleccionar medio de pago y comprobante.");
-            return;
-        }
+    if (medioPago.isEmpty() || comprobante.isEmpty()) {
+        JOptionPane.showMessageDialog(vista, "Debe seleccionar medio de pago y comprobante.");
+        return;
+    }
 
-        try {
-            con.setAutoCommit(false);
+    try {
+        con.setAutoCommit(false);
 
-            // Reducción de stock y limpieza de carrito
-            String consultaCarrito = "SELECT producto_id, cantidad FROM carrito WHERE cliente_id = ?";
-            try (PreparedStatement psCarrito = con.prepareStatement(consultaCarrito)) {
-                psCarrito.setInt(1, IDCliente);
-                ResultSet rs = psCarrito.executeQuery();
+        // Reducción de stock y limpieza de carrito
+        String consultaCarrito = "SELECT producto_id, cantidad FROM carrito WHERE cliente_id = ?";
+        try (PreparedStatement psCarrito = con.prepareStatement(consultaCarrito)) {
+            psCarrito.setInt(1, IDCliente);
+            ResultSet rs = psCarrito.executeQuery();
 
-                while (rs.next()) {
-                    int idProducto = rs.getInt("producto_id");
-                    int cantidad = rs.getInt("cantidad");
+            while (rs.next()) {
+                int idProducto = rs.getInt("producto_id");
+                int cantidad = rs.getInt("cantidad");
 
-                    String actualizarStock = "UPDATE producto SET stock = stock - ? WHERE id_producto = ?";
-                    try (PreparedStatement psStock = con.prepareStatement(actualizarStock)) {
-                        psStock.setInt(1, cantidad);
-                        psStock.setInt(2, idProducto);
-                        psStock.executeUpdate();
-                    }
+                String actualizarStock = "UPDATE producto SET stock = stock - ? WHERE id_producto = ?";
+                try (PreparedStatement psStock = con.prepareStatement(actualizarStock)) {
+                    psStock.setInt(1, cantidad);
+                    psStock.setInt(2, idProducto);
+                    psStock.executeUpdate();
                 }
             }
+        }
 
-            String limpiarCarrito = "DELETE FROM carrito WHERE cliente_id = ?";
-            try (PreparedStatement psLimpiar = con.prepareStatement(limpiarCarrito)) {
-                psLimpiar.setInt(1, IDCliente);
-                psLimpiar.executeUpdate();
-            }
+        String limpiarCarrito = "DELETE FROM carrito WHERE cliente_id = ?";
+        try (PreparedStatement psLimpiar = con.prepareStatement(limpiarCarrito)) {
+            psLimpiar.setInt(1, IDCliente);
+            psLimpiar.executeUpdate();
+        }
 
-            con.commit();
-            
-            conCarr.setID(IDCliente);
-            JOptionPane.showMessageDialog(vista, "Venta confirmada exitosamente.");
-            actualizarCarrito();
+        con.commit();
+        
+        // Aquí se llama a la función para abrir la ventana de la boleta
+        //abrirVistaBoleta();
+        
+        conCarr.setID(IDCliente);
+        actualizarCarrito();
+    } catch (SQLException e) {
+        try {
+            con.rollback();
+            JOptionPane.showMessageDialog(vista, "Error al procesar la venta. Se han revertido los cambios.");
+        } catch (SQLException rollbackEx) {
+            rollbackEx.printStackTrace();
+        }
+        e.printStackTrace();
+    } finally {
+        try {
+            con.setAutoCommit(true);
         } catch (SQLException e) {
-            try {
-                con.rollback();
-                JOptionPane.showMessageDialog(vista, "Error al procesar la venta. Se han revertido los cambios.");
-            } catch (SQLException rollbackEx) {
-                rollbackEx.printStackTrace();
-            }
             e.printStackTrace();
-        } finally {
-            try {
-                con.setAutoCommit(true);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
     }
+}
+/*
+private void abrirVistaBoleta() {
+    // Crear una nueva instancia de la vista de la boleta
+    Boleta ventanaBoleta = new Boleta();
+
+    // Asegúrate de tener la conexión y el IDCliente disponibles
+    Connection con = // Tu conexión a la base de datos;
+    int IDCliente = // El ID del cliente que deseas pasar;
+
+    // Crear el controlador asociado a la ventana de la boleta
+    ControladorBoleta controladorBoleta = new ControladorBoleta(ventanaBoleta, con, IDCliente);
+
+    // Crear un JFrame para mostrar la ventana de la boleta
+    JFrame frameBoleta = new JFrame("Boleta de Venta");
+    frameBoleta.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    frameBoleta.setContentPane(ventanaBoleta);
+    frameBoleta.pack();
+    frameBoleta.setLocationRelativeTo(null); // Centrar la ventana
+    frameBoleta.setVisible(true);
+}
+
+*/
 
 
  private void actualizarTotal() { 
