@@ -53,10 +53,10 @@ public class TablaCliente extends javax.swing.JPanel {
         btnVer = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 204, 204));
+        setBackground(new java.awt.Color(95, 189, 214));
         setPreferredSize(new java.awt.Dimension(1280, 620));
 
-        jLabelFiltro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelFiltro.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabelFiltro.setForeground(new java.awt.Color(255, 255, 0));
         jLabelFiltro.setText("FILTRAR:");
 
@@ -92,11 +92,13 @@ public class TablaCliente extends javax.swing.JPanel {
         });
         scroll.setViewportView(table);
 
-        btnVer.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVer.setBackground(new java.awt.Color(234, 121, 19));
+        btnVer.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnVer.setText("VER");
         btnVer.setPreferredSize(new java.awt.Dimension(76, 32));
 
-        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscar.setBackground(new java.awt.Color(234, 121, 19));
+        btnBuscar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btnBuscar.setText("BUSCAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -122,10 +124,11 @@ public class TablaCliente extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelFiltro)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelFiltro)))
                 .addGap(18, 18, 18)
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)

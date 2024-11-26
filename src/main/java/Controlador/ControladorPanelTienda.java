@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Vista.TablaCliente;
 import Vista.panelTienda;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -24,14 +25,16 @@ public class ControladorPanelTienda {
     private CardLayout cardLayout2;
     private JPanel contenedor;
     private JPanel contenedor2;
+    private TablaCliente tablaCliente;
 
-    public ControladorPanelTienda(panelTienda panel, Connection con,JPanel contenedoor,CardLayout cardLayout,CardLayout cardLayout2,JPanel contenedor2) {
+    public ControladorPanelTienda(panelTienda panel, Connection con,JPanel contenedoor,CardLayout cardLayout,CardLayout cardLayout2,JPanel contenedor2,TablaCliente tablaCliente) {
         this.panel = panel;
         this.con = con;
         this.contenedor = contenedoor;
         this.contenedor2 = contenedor2;
         this.cardLayout = cardLayout;
         this.cardLayout2 = cardLayout2;
+        this.tablaCliente = tablaCliente;
         
        this.panel.btnCarrito.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent e){
@@ -53,7 +56,7 @@ public class ControladorPanelTienda {
        
        this.panel.btnInicio.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent e){
-           
+           ControladorTablaCliente.cargarDatos(con, tablaCliente.table);
            cardLayout.show(contenedor,"cliente");
            
            }

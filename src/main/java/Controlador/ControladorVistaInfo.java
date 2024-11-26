@@ -4,6 +4,7 @@
  */
 package Controlador;
 import Modelo.CarritoDeCompra;
+import Modelo.Product;
 import Vista.*;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.util.concurrent.Callable;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import Vista.VistaInfo;
 /**
  *
  * @author Giancarlo
@@ -38,24 +40,31 @@ public class ControladorVistaInfo {
             
                 int cantidad = (Integer)vista.comboCantidad.getValue();
                 
-                if(CarritoDeCompra.agregarAlCarrito(IDProducto, cantidad, con, IDUsuario)){
+                if(cantidad > 0){
+                
+                    if(CarritoDeCompra.agregarAlCarrito(IDProducto, cantidad, con, IDUsuario)){
                     
                     conCarr.setID(IDUsuario);
                     JOptionPane.showMessageDialog(vista, "Producto agregado al carrito exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else{
+                    }
+                        else{
                 
                     JOptionPane.showMessageDialog(vista, "Error al agregar el producto al carrito.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                 }
-            
+                
+                else{
+                    JOptionPane.showMessageDialog(vista, "Debes seleccionar la cantidad que deseas agregar", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
-        
+           
      }
-    
+
     public void configurarInfo(int ID,VistaInfo vista){
     
-        String sql = "{CALL obtenerInfo(?,?,?,?,?)}";
+        String sql = "{CALL obtenerInfo(?,?,?,?,?,?)}";
         
         try{
         CallableStatement consulta = con.prepareCall(sql);
@@ -65,6 +74,7 @@ public class ControladorVistaInfo {
         consulta.registerOutParameter(3, java.sql.Types.FLOAT);
         consulta.registerOutParameter(4, java.sql.Types.INTEGER);
         consulta.registerOutParameter(5, java.sql.Types.VARCHAR);
+        consulta.registerOutParameter(6, java.sql.Types.VARCHAR);
         
         consulta.execute();
         
@@ -72,19 +82,28 @@ public class ControladorVistaInfo {
         float precio = consulta.getFloat(3);
         int cantidad = consulta.getInt(4);
         String nombre =consulta.getString(5);
+        String imagen = consulta.getString(6);
         
         this.vista.descriptionProduct.setText(descripcion);
         this.vista.labelNameProduct1.setText(nombre);
         this.vista.labelPrice.setText(String.valueOf(precio));
+        this.vista.lblStock.setText(String.valueOf(cantidad));
+        this.vista.ImagenProduct1.setText("");
+        this.vista.ImagenProduct1.setIcon(new javax.swing.ImageIcon("productos_imagenes/" + imagen));
         
         
         SpinnerNumberModel modelo = new SpinnerNumberModel(0, 0, cantidad, 1);
         this.vista.comboCantidad.setModel(modelo);
+        this.vista.btnAgregarCarr.setEnabled(true);
         
-            System.out.println("pfecio: "+precio);
-            System.out.println("cantidad: "+cantidad);
-            System.out.println("descr: "+descripcion);
-            System.out.println("nombre: "+nombre);
+        if(cantidad ==0){
+            this.vista.lblStock.setText("ESTE PRODUCTO NO ESTA DISPONIBLE AHORA MISMO");
+            this.vista.stock.setText("");
+            this.vista.btnAgregarCarr.setEnabled(false);
+            SpinnerNumberModel modelo2 = new SpinnerNumberModel(0, 0, cantidad, 0);
+        this.vista.comboCantidad.setModel(modelo2);
+        }
+        
         }
         catch(SQLException e){
             e.printStackTrace();
@@ -98,6 +117,9 @@ public class ControladorVistaInfo {
     public void setIDProducto(int ID){
         this.IDProducto = ID;
     }
+    
+    
+    
     
     
 }

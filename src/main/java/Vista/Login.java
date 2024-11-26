@@ -84,7 +84,7 @@ public class Login extends javax.swing.JPanel {
         gbc.anchor = java.awt.GridBagConstraints.WEST;
         roundedPanel.add(jTextFieldPassword, gbc);
 
-        // Botón de ingreso en la última fila, centrado
+        // Botón de ingreso en la penúltima fila, centrado
         gbc.gridy = 3;
         gbc.gridx = 0;
         gbc.gridwidth = 2; // Ocupa ambas columnas para centrarse
@@ -92,6 +92,14 @@ public class Login extends javax.swing.JPanel {
         gbc.insets = new java.awt.Insets(20, 0, 10, 0);
         btnIngresar.setPreferredSize(new java.awt.Dimension(120, 40));
         roundedPanel.add(btnIngresar, gbc);
+        
+        //Panel para registrar
+        gbc.gridy = 4;
+        gbc.gridx = 0;
+        gbc.gridwidth = 2; // Ocupa ambas columnas para centrarse
+        gbc.anchor = java.awt.GridBagConstraints.CENTER;
+        gbc.insets = new java.awt.Insets(20, 0, 10, 0);
+        roundedPanel.add(jPanelRegistro, gbc);
 
         // Ajuste del layout de jPanel1 para centrar el RoundedPanel
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -127,6 +135,8 @@ public class Login extends javax.swing.JPanel {
         jLabelPassword = new javax.swing.JLabel();
         jTextFieldPassword = new javax.swing.JPasswordField();
         jTextFieldUsuario = new javax.swing.JTextField();
+        jPanelRegistro = new javax.swing.JPanel();
+        jLabelRegistro = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 255));
         setPreferredSize(new java.awt.Dimension(1200, 640));
@@ -161,6 +171,37 @@ public class Login extends javax.swing.JPanel {
 
         jTextFieldUsuario.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanelRegistro.setBackground(java.awt.Color.lightGray);
+        jPanelRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelRegistroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelRegistroMouseExited(evt);
+            }
+        });
+
+        jLabelRegistro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelRegistro.setForeground(new java.awt.Color(255, 255, 0));
+        jLabelRegistro.setText("REGISTRATE AQUI");
+
+        javax.swing.GroupLayout jPanelRegistroLayout = new javax.swing.GroupLayout(jPanelRegistro);
+        jPanelRegistro.setLayout(jPanelRegistroLayout);
+        jPanelRegistroLayout.setHorizontalGroup(
+            jPanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRegistroLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabelRegistro)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+        jPanelRegistroLayout.setVerticalGroup(
+            jPanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRegistroLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabelRegistro)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -184,25 +225,33 @@ public class Login extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(174, 174, 174))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelUsuario)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPassword)
-                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabel1)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelUsuario)
+                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelPassword)
+                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(55, 55, 55)
+                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jPanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -219,7 +268,7 @@ public class Login extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -228,13 +277,23 @@ public class Login extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnIngresarActionPerformed
 
+    private void jPanelRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRegistroMouseEntered
+        jPanelRegistro.setBackground(new Color(51,51,255));
+    }//GEN-LAST:event_jPanelRegistroMouseEntered
+
+    private void jPanelRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelRegistroMouseExited
+        jPanelRegistro.setBackground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_jPanelRegistroMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelRegistro;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanelRegistro;
     public javax.swing.JPasswordField jTextFieldPassword;
     public javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables

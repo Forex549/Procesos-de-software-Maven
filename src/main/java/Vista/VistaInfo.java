@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Vista;
 
+import Modelo.Product;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 
@@ -18,28 +15,28 @@ public class VistaInfo extends javax.swing.JPanel {
     public VistaInfo() {
         
         initComponents();
-        initStyles();
+        //initStyles();
         //textEncabezado();
-        imagenProduct1();
+        //imagenProduct1();
         //textPrice();
         //textDescription();
         
     }
     
-    private void initStyles(){
+    /*private void initStyles(){
         labelNameProduct1.putClientProperty("FlatLaf.style", "font: 200% $light.font");
         labelNameProduct1.setForeground(Color.white);
-    }
+    }*/
     /*private void textEncabezado(){
         labelNameProduct1.setText("Teclado Mecanico Gamer Antryx THL MK830, switch Azul, RGB");//redescribe el nombre para el producto
         labelNameProduct1.setFont(new java.awt.Font("ArialBlack", java.awt.Font.BOLD, 36));//cambia a fuente ArialBlack tamaño 48
         labelNameProduct1.setForeground(Color.white); 
     }*/
     
-    private void imagenProduct1(){
+    /*private void imagenProduct1(){
         ImagenProduct1.setText("");
-        ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TecladoMecanicoTKLntryxChromeStormMK830BlueSwitch 500x500.jpg")));
-    }
+        ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLogitechG305 500x500.jpg")));
+    } */
     
     /*private void textPrice(){
         labelPrice.setText("S/."+"212.36");//redescribe el nombre para el producto
@@ -67,7 +64,12 @@ public class VistaInfo extends javax.swing.JPanel {
         descriptionProduct.setForeground(java.awt.Color.BLACK); 
     }*/
     
-    
+    /*public void mostrarProducto(Product product) {
+    labelNameProduct1.setText(product.getNombre());
+    labelPrice.setText("S/." + String.format("%.2f", product.getPrecio()));
+    descriptionProduct.setText(product.getDescripcion());
+    ImagenProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource(product.getImagenPath())));
+}*/
     
 
     /**
@@ -91,12 +93,15 @@ public class VistaInfo extends javax.swing.JPanel {
         LabelCantidad = new javax.swing.JLabel();
         btnAgregarCarr = new javax.swing.JToggleButton();
         LabelImagenRelleno = new javax.swing.JLabel();
+        labelPrice1 = new javax.swing.JLabel();
+        stock = new javax.swing.JLabel();
+        lblStock = new javax.swing.JLabel();
 
         PanelMadre.setBackground(new java.awt.Color(0, 204, 204));
 
         PanelFondoNombreProducto.setBackground(new java.awt.Color(0, 0, 0));
 
-        labelNameProduct1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        labelNameProduct1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         labelNameProduct1.setForeground(new java.awt.Color(255, 255, 255));
         labelNameProduct1.setText("nameProduct1");
 
@@ -105,30 +110,31 @@ public class VistaInfo extends javax.swing.JPanel {
         PanelFondoNombreProductoLayout.setHorizontalGroup(
             PanelFondoNombreProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelFondoNombreProductoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelNameProduct1)
+                .addGap(20, 20, 20)
+                .addComponent(labelNameProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelFondoNombreProductoLayout.setVerticalGroup(
             PanelFondoNombreProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelFondoNombreProductoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelNameProduct1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(labelNameProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         ImagenProduct1.setText("jLabel1");
 
         PanelFondoDescripcion.setBackground(new java.awt.Color(0,0,0,0));
 
+        labelPrice.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labelPrice.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelPrice.setText("Price$");
 
         jScrollPane1.setBackground(new java.awt.Color(0, 204, 204));
         jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         descriptionProduct.setBackground(new java.awt.Color(0, 204, 204));
         descriptionProduct.setColumns(20);
-        descriptionProduct.setForeground(new java.awt.Color(0, 204, 204));
+        descriptionProduct.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        descriptionProduct.setLineWrap(true);
         descriptionProduct.setRows(5);
         descriptionProduct.setBorder(null);
         descriptionProduct.setDisabledTextColor(new java.awt.Color(0, 204, 204));
@@ -138,7 +144,7 @@ public class VistaInfo extends javax.swing.JPanel {
         comboCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
 
         LabelCantidad.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        LabelCantidad.setText("Cantidad");
+        LabelCantidad.setText("Cantidad Selececionada:");
 
         btnAgregarCarr.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarCarr.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
@@ -148,47 +154,79 @@ public class VistaInfo extends javax.swing.JPanel {
 
         LabelImagenRelleno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gato80x80.jpg"))); // NOI18N
 
+        labelPrice1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labelPrice1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelPrice1.setText("S/.");
+
+        stock.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        stock.setForeground(new java.awt.Color(255, 255, 0));
+        stock.setText("Stock:");
+
+        lblStock.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblStock.setForeground(new java.awt.Color(255, 255, 255));
+        lblStock.setText("jLabel2");
+
         javax.swing.GroupLayout PanelFondoDescripcionLayout = new javax.swing.GroupLayout(PanelFondoDescripcion);
         PanelFondoDescripcion.setLayout(PanelFondoDescripcionLayout);
         PanelFondoDescripcionLayout.setHorizontalGroup(
             PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(24, 24, 24)
+                .addComponent(labelPrice1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(605, 605, 605))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(286, 286, 286))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(LabelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
                         .addComponent(btnAgregarCarr, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
+            .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
+                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(LabelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addGap(285, 285, 285)
                         .addComponent(LabelImagenRelleno)
-                        .addGap(270, 270, 270))))
+                        .addGap(71, 71, 71)
+                        .addComponent(stock)
+                        .addGap(31, 31, 31)
+                        .addComponent(lblStock)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelFondoDescripcionLayout.setVerticalGroup(
             PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LabelCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboCantidad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelImagenRelleno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAgregarCarr, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelPrice1))
+                .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LabelCantidad)
+                            .addComponent(comboCantidad))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LabelImagenRelleno)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(btnAgregarCarr, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoDescripcionLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PanelFondoDescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(stock)
+                            .addComponent(lblStock))
+                        .addGap(98, 98, 98))))
         );
 
         javax.swing.GroupLayout PanelMadreLayout = new javax.swing.GroupLayout(PanelMadre);
@@ -199,14 +237,14 @@ public class VistaInfo extends javax.swing.JPanel {
             .addGroup(PanelMadreLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(ImagenProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(PanelFondoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         PanelMadreLayout.setVerticalGroup(
             PanelMadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMadreLayout.createSequentialGroup()
-                .addComponent(PanelFondoNombreProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(27, 27, 27)
+                .addComponent(PanelFondoNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(PanelMadreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ImagenProduct1)
                     .addComponent(PanelFondoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -227,7 +265,7 @@ public class VistaInfo extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ImagenProduct1;
+    public javax.swing.JLabel ImagenProduct1;
     private javax.swing.JLabel LabelCantidad;
     private javax.swing.JLabel LabelImagenRelleno;
     private javax.swing.JPanel PanelFondoDescripcion;
@@ -239,5 +277,8 @@ public class VistaInfo extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel labelNameProduct1;
     public javax.swing.JLabel labelPrice;
+    public javax.swing.JLabel labelPrice1;
+    public javax.swing.JLabel lblStock;
+    public javax.swing.JLabel stock;
     // End of variables declaration//GEN-END:variables
 }

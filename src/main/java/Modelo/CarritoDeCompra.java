@@ -25,14 +25,13 @@ public class CarritoDeCompra {
         return res;
     }
     
-    public static void eliminarDelCarrito(int productoID, Connection con) {
-        String consulta = "{CALL eliminarDelCarrito(?)}";
-        
+    public static void eliminarDelCarrito(int productoID, int clienteID, Connection con) {
+        String consulta = "{CALL eliminarProductoCarrito(?,?)}";
         try {
             CallableStatement procedimiento = con.prepareCall(consulta);
             procedimiento.setInt(1, productoID);
-            procedimiento.execute();   
-            
+            procedimiento.setInt(2, clienteID);
+            procedimiento.execute();
         } catch (SQLException e){
             e.printStackTrace();
         }

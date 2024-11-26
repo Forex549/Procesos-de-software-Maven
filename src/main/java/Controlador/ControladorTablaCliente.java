@@ -43,7 +43,7 @@ public class ControladorTablaCliente {
     }
     
     public void iniciar_vista(){
-        //this.tabla.table.setAutoCreateRowSorter(true);//pa poder ordenar las filas y columnas mas facil con solo cliks
+        this.tabla.table.setAutoCreateRowSorter(true);//pa poder ordenar las filas y columnas mas facil con solo cliks
         cargarDatos(con, tabla.table);
         
         this.tabla.btnVer.addActionListener(new ActionListener(){
@@ -79,7 +79,7 @@ public class ControladorTablaCliente {
     }
     
     
-    private static void cargarDatosFiltName(Connection con, TablaCliente table,String texto){
+    public static void cargarDatosFiltName(Connection con, TablaCliente table,String texto){
     
     DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
@@ -99,11 +99,11 @@ public class ControladorTablaCliente {
             
             while (rs.next()) {
             Object[] fila = new Object[5];
-            fila[0] = rs.getString("Nombre");
-            fila[1] = rs.getFloat("PRECIO");
-            fila[2] = rs.getInt("STOCK");
-            fila[3] = rs.getString("MARCA");
-            fila[4] = rs.getString("CATEGORIA");
+            fila[0] = rs.getString("nombre");
+            fila[1] = rs.getFloat("precio");
+            fila[2] = rs.getInt("stock");
+            fila[3] = rs.getString("marca");
+            fila[4] = rs.getString("categoria");
             modelo.addRow(fila);
         }
         
@@ -119,7 +119,7 @@ public class ControladorTablaCliente {
     
     }
     
-    private static void cargarDatos(Connection con, JTable table) {
+    public static void cargarDatos(Connection con, JTable table) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("codigo");
         modelo.addColumn("Nombre");
@@ -129,7 +129,7 @@ public class ControladorTablaCliente {
         modelo.addColumn("CATEGORIA");
 
         
-        String consulta = "SELECT * FROM producto"; // Cambia "productos" al nombre de tu tabla
+        String consulta = "SELECT * FROM producto";
 
         try  {
             Statement stmt = con.createStatement();
@@ -137,10 +137,10 @@ public class ControladorTablaCliente {
             
                  while (rs.next()) {
                 Object[] fila = new Object[6];
-                fila[0] = rs.getInt("id_producto");
-                fila[1] = rs.getString("nombre"); // Cambia "nombre" al nombre de tu columna
-                fila[2] = rs.getFloat("precio"); // Cambia "precio" al nombre de tu columna
-                fila[3] = rs.getInt("stock"); // Cambia "stock" al nombre de tu columna
+                fila[0] = rs.getInt("id_producto");//lo q esta en parentesis son los nombres de las columnas en la bd
+                fila[1] = rs.getString("nombre"); 
+                fila[2] = rs.getFloat("precio"); 
+                fila[3] = rs.getInt("stock"); 
                 fila[4] = rs.getString("marca");
                 fila[5] = rs.getString("categoria");
                 modelo.addRow(fila);

@@ -8,6 +8,8 @@ import Modelo.ConexionLogin;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 /**
  *
@@ -16,16 +18,18 @@ import java.sql.Connection;
 public class controladorLogin {
     
     private Login login;
-    CardLayout cardLayout;
-    Principal principal;
-    Tienda tienda;
-    JpanelCarrito carrito;
-    Connection con;
+    private CardLayout cardLayout;
+    private Principal principal;
+    private Tienda tienda;
+    private JpanelCarrito carrito;
+    private Connection con;
     public int ID;
     private ControladorPanelCarrito conCarr;
     private ControladorVistaInfo contInfo;
+    private TablaCliente tablaCliente;
+    private ControladorVentas conVent;
 
-    public controladorLogin(Login login, CardLayout cardLayout, Connection con,Principal principal,ControladorPanelCarrito conCarr,ControladorVistaInfo contInfo) {
+    public controladorLogin(Login login, CardLayout cardLayout, Connection con,Principal principal,ControladorPanelCarrito conCarr,ControladorVistaInfo contInfo,TablaCliente tablaCliente,ControladorVentas conVent) {
         this.login = login;
         this.cardLayout = cardLayout;
         this.principal = principal;
@@ -33,33 +37,39 @@ public class controladorLogin {
         this.contInfo = contInfo;
         this.conCarr = conCarr;//se pasa por parametro controlaodr carrito ya q este necesita el id del usuario, y se debe setear
         //dentro de la accion del boton
+        this.tablaCliente = tablaCliente;
+        this.conVent = conVent;
         
         
         this.login.btnIngresar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 
-                // Obtener los valores ingresados
-                String username = login.jTextFieldUsuario.getText();
-                String password = new String(login.jTextFieldPassword.getPassword()); // Convertir el char[] a String
+                //obtener los valores ingresados
+                String username = login.jTextFieldUsuario.getText().trim();
+                String password = new String(login.jTextFieldPassword.getPassword()).trim(); // Convertir el char[] a String
                 
                 
                 int idCliente = ConexionLogin.verificarUsuario(username, password, con);
                 ID = idCliente;
  
-                if(ConexionLogin.esAdmin(username, password)){
-                    //Si es admin te mostrar el almacen, falta decorar el almacen
+                if(ConexionLogin.esAdmin(username, password,con)){
+                    //Si es admin te mostrar el almacen
                     cardLayout.show(principal.background, "almacen");
+                    login.jTextFieldUsuario.setText("");
+                    login.jTextFieldPassword.setText("");
                 }
 
                 else if (idCliente != -1) {
-                    System.out.println("codigo: "+idCliente);
+                    
                     contInfo.setIDUsuario(idCliente);
                     conCarr.setID(idCliente);
-                    //ControladorPanelCarrito carrito = new ControladorPanelCarrito(controladorLogin.this.carrito,ID,con);
+                    conVent.setIDCliente(idCliente);
+                    
+                    ControladorTablaCliente.cargarDatos(con, tablaCliente.table);
                     cardLayout.show(principal.background, "tienda");
+                    login.jTextFieldUsuario.setText("");
+                    login.jTextFieldPassword.setText("");
 
-                    //javax.swing.JOptionPane.showMessageDialog(this, "Ingreso exitoso!");
-                    // Lógica para avanzar en la aplicación o cambiar de pantalla
                 }
 
                 else {
@@ -68,10 +78,21 @@ public class controladorLogin {
             }
    
         });
+        
+        //Configurar el clic en el panel de registro
+        this.login.jPanelRegistro.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirRegistro();
+            }
+        });
     }
     
-    
-    
+    // método para mostrar la vista de registro
+    private void abrirRegistro() {
+        // Cambiar a la vista de registro 
+        cardLayout.show(principal.background, "registro");
+    }
     
     
 }

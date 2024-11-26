@@ -60,10 +60,10 @@ public class panelTienda extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(33, 91, 111));
         jPanel2.setPreferredSize(new java.awt.Dimension(1280, 60));
 
-        btnCarrito.setBackground(new java.awt.Color(0, 0, 204));
+        btnCarrito.setBackground(new java.awt.Color(33, 91, 111));
         btnCarrito.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         btnCarrito.setForeground(new java.awt.Color(255, 255, 255));
         btnCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carritoAzul25x25.jpg"))); // NOI18N
@@ -75,7 +75,7 @@ public class panelTienda extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoPequeño 50x41.jpg"))); // NOI18N
 
-        btnSalir.setBackground(new java.awt.Color(0, 0, 204));
+        btnSalir.setBackground(new java.awt.Color(33, 91, 111));
         btnSalir.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salida (1).png"))); // NOI18N
@@ -110,10 +110,10 @@ public class panelTienda extends javax.swing.JPanel {
                 .addGap(13, 13, 13))
         );
 
-        jPanel3.setBackground(new java.awt.Color(0, 255, 0));
+        jPanel3.setBackground(new java.awt.Color(234, 121, 19));
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 40));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 255, 0));
+        jComboBox1.setBackground(new java.awt.Color(234, 121, 19));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "INICIO", "NOVEDADES", "OFERTA", "MÁS VENDIDOS", "ZONA  GAMER", "ARMA TU PC", "QUIENES SOMOS", "SERVICIO AL CLIENTE" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 0)));
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -223,7 +223,7 @@ public class panelTienda extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelInicio.setBackground(new java.awt.Color(0, 204, 204));
+        panelInicio.setBackground(new java.awt.Color(95, 189, 214));
         panelInicio.setPreferredSize(new java.awt.Dimension(1280, 620));
 
         javax.swing.GroupLayout panelInicioLayout = new javax.swing.GroupLayout(panelInicio);
@@ -281,23 +281,23 @@ public class panelTienda extends javax.swing.JPanel {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButtonNovedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovedadesActionPerformed
-        ShowJPanel(new TiendaNovedades());
+        //ShowJPanel(new TiendaNovedades());
     }//GEN-LAST:event_jButtonNovedadesActionPerformed
 
     private void jButtonMasVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMasVendidosActionPerformed
-        ShowJPanel(new TiendaMasVendido());
+        //ShowJPanel(new TiendaMasVendido());
     }//GEN-LAST:event_jButtonMasVendidosActionPerformed
 
     private void jButtonZonaGamerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZonaGamerActionPerformed
-        ShowJPanel(new TiendaZonaGamer());
+        //ShowJPanel(new TiendaZonaGamer());
     }//GEN-LAST:event_jButtonZonaGamerActionPerformed
 
     private void jButtonArmaTuPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArmaTuPcActionPerformed
-        ShowJPanel(new TiendaArmaTuPc());
+        //ShowJPanel(new TiendaArmaTuPc());
     }//GEN-LAST:event_jButtonArmaTuPcActionPerformed
 
     private void jButtonOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOfertaActionPerformed
-        ShowJPanel(new TiendaOferta());//ShowJPanel(new Producto1());
+        //ShowJPanel(new TiendaOferta());//ShowJPanel(new Producto1());
     }//GEN-LAST:event_jButtonOfertaActionPerformed
 
 

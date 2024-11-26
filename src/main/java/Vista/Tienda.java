@@ -74,7 +74,7 @@ public class Tienda extends javax.swing.JFrame {
         ButtonInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoInicioSesionAzul25x25.jpg"))); // NOI18N
         ButtonInicioSesion.setText("INICIAR SESIÓN");
         ButtonInicioSesion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0, 0)));
-        ButtonInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ButtonInicioSesion.setIconTextGap(10);
 
         ButtonCarrito.setBackground(new java.awt.Color(0, 0, 204));
@@ -84,8 +84,13 @@ public class Tienda extends javax.swing.JFrame {
         ButtonCarrito.setText("VER CARRITO");
         ButtonCarrito.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0, 0
         )));
-        ButtonCarrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonCarrito.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ButtonCarrito.setIconTextGap(10);
+        ButtonCarrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCarritoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoPequeño 50x41.jpg"))); // NOI18N
 
@@ -121,7 +126,7 @@ public class Tienda extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "INICIO", "NOVEDADES", "OFERTA", "MÁS VENDIDOS", "ZONA  GAMER", "ARMA TU PC", "QUIENES SOMOS", "SERVICIO AL CLIENTE" }));
         jComboBox1.setSelectedItem(PanelInicio);
         jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 0)));
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -131,7 +136,7 @@ public class Tienda extends javax.swing.JFrame {
         jButtonInicio.setBackground(new java.awt.Color(0,0,0,0));
         jButtonInicio.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jButtonInicio.setText("INICIO");
-        jButtonInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInicioActionPerformed(evt);
@@ -142,7 +147,7 @@ public class Tienda extends javax.swing.JFrame {
         jButtonNovedades.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jButtonNovedades.setText("NOVEDADES");
         jButtonNovedades.setToolTipText("");
-        jButtonNovedades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonNovedades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonNovedades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonNovedadesActionPerformed(evt);
@@ -153,7 +158,7 @@ public class Tienda extends javax.swing.JFrame {
         jButtonMasVendidos.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jButtonMasVendidos.setText("MÁS VENDIDOS");
         jButtonMasVendidos.setToolTipText("");
-        jButtonMasVendidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonMasVendidos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonMasVendidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonMasVendidosActionPerformed(evt);
@@ -163,7 +168,7 @@ public class Tienda extends javax.swing.JFrame {
         jButtonZonaGamer.setBackground(new java.awt.Color(0,0,0,0));
         jButtonZonaGamer.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jButtonZonaGamer.setText("ZONA GAMER");
-        jButtonZonaGamer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonZonaGamer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonZonaGamer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonZonaGamerActionPerformed(evt);
@@ -173,7 +178,7 @@ public class Tienda extends javax.swing.JFrame {
         jButtonArmaTuPc.setBackground(new java.awt.Color(0,0,0,0));
         jButtonArmaTuPc.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jButtonArmaTuPc.setText("ARMA TU PC");
-        jButtonArmaTuPc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonArmaTuPc.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonArmaTuPc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonArmaTuPcActionPerformed(evt);
@@ -183,7 +188,7 @@ public class Tienda extends javax.swing.JFrame {
         jButtonOferta.setBackground(new java.awt.Color(0,0,0,0));
         jButtonOferta.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jButtonOferta.setText("OFERTA");
-        jButtonOferta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonOferta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonOferta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOfertaActionPerformed(evt);
@@ -284,19 +289,19 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButtonNovedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovedadesActionPerformed
-        ShowJPanel(new TiendaNovedades());
+       // ShowJPanel(new TiendaNovedades());
     }//GEN-LAST:event_jButtonNovedadesActionPerformed
 
     private void jButtonMasVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMasVendidosActionPerformed
-        ShowJPanel(new Producto2());//ShowJPanel(new TiendaMasVendido());
+        //ShowJPanel(new Producto2());//ShowJPanel(new TiendaMasVendido());
     }//GEN-LAST:event_jButtonMasVendidosActionPerformed
 
     private void jButtonZonaGamerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZonaGamerActionPerformed
-        ShowJPanel(new TiendaZonaGamer());
+        //ShowJPanel(new TiendaZonaGamer());
     }//GEN-LAST:event_jButtonZonaGamerActionPerformed
 
     private void jButtonArmaTuPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArmaTuPcActionPerformed
-        ShowJPanel(new TiendaArmaTuPc());
+        //ShowJPanel(new TiendaArmaTuPc());
     }//GEN-LAST:event_jButtonArmaTuPcActionPerformed
 
     private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
@@ -304,8 +309,12 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonInicioActionPerformed
 
     private void jButtonOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOfertaActionPerformed
-        ShowJPanel(new VistaInfo());//ShowJPanel(new TiendaOferta());
+        //ShowJPanel(new VistaInfo());//ShowJPanel(new TiendaOferta());
     }//GEN-LAST:event_jButtonOfertaActionPerformed
+
+    private void ButtonCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCarritoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCarritoActionPerformed
 
     /**
      * @param args the command line arguments
