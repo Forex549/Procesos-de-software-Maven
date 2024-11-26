@@ -281,23 +281,23 @@ public class panelTienda extends javax.swing.JPanel {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButtonNovedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovedadesActionPerformed
-        ShowJPanel(new TiendaNovedades());
+        //ShowJPanel(new TiendaNovedades());
     }//GEN-LAST:event_jButtonNovedadesActionPerformed
 
     private void jButtonMasVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMasVendidosActionPerformed
-        ShowJPanel(new TiendaMasVendido());
+        //ShowJPanel(new TiendaMasVendido());
     }//GEN-LAST:event_jButtonMasVendidosActionPerformed
 
     private void jButtonZonaGamerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZonaGamerActionPerformed
-        ShowJPanel(new TiendaZonaGamer());
+        //ShowJPanel(new TiendaZonaGamer());
     }//GEN-LAST:event_jButtonZonaGamerActionPerformed
 
     private void jButtonArmaTuPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArmaTuPcActionPerformed
-        ShowJPanel(new TiendaArmaTuPc());
+        //ShowJPanel(new TiendaArmaTuPc());
     }//GEN-LAST:event_jButtonArmaTuPcActionPerformed
 
     private void jButtonOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOfertaActionPerformed
-        ShowJPanel(new TiendaOferta());//ShowJPanel(new Producto1());
+        //ShowJPanel(new TiendaOferta());//ShowJPanel(new Producto1());
     }//GEN-LAST:event_jButtonOfertaActionPerformed
 
 
