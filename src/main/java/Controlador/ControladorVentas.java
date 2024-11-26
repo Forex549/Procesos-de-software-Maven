@@ -2,6 +2,7 @@ package Controlador;
 
 import Vista.Ventas;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,7 +30,7 @@ public class ControladorVentas {
         }
     }
  
-    private static float cargarDatos(Connection con, JTable tabla, int IDCliente) {
+     private static float cargarDatos(Connection con, JTable tabla, int IDCliente) {
         DefaultTableModel modelo = new DefaultTableModel();
         float total = 0;
         modelo.addColumn("ID");
@@ -38,13 +39,12 @@ public class ControladorVentas {
         modelo.addColumn("Cantidad");
         modelo.addColumn("subtotal");
 
-        String query = "SELECT cliente.nombres AS cliente, producto.nombre AS producto, "
+        String query = "SELECT producto.nombre AS producto, "
                      + "carrito.producto_id AS id_producto, carrito.cantidad, producto.precio, "
                      + "(carrito.cantidad * producto.precio) AS subtotal "
-                     + "FROM cliente "
-                     + "JOIN carrito ON cliente.id_cliente = carrito.cliente_id "
+                     + "FROM carrito "
                      + "JOIN producto ON producto.id_producto = carrito.producto_id "
-                     + "WHERE cliente.id_cliente = " + IDCliente;
+                     + "WHERE carrito.cliente_id = " + IDCliente;
 
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
@@ -70,74 +70,116 @@ public class ControladorVentas {
         this.IDCliente = IDCliente;
         this.con = con;
         
-        // Asociamos los eventos de los botones
         this.vista.botonConfirmar.addActionListener(e -> confirmarVenta());
         this.vista.botonCancelar.addActionListener(e -> cancelarVenta());
         this.vista.jCheckBoxTerminosCondiciones.addActionListener(e -> actualizarBotonConfirmar());
         
-        // Actualizamos el estado inicial del botón "Confirmar"
         actualizarBotonConfirmar();
-
-        // Cargar el carrito al inicializar el controlador
         actualizarCarrito();
     }
 
-    public void cancelarVenta() {
-        // Lógica para cancelar la venta
-        System.out.println("Venta cancelada.");
-        // Limpiar campos
+   public void cancelarVenta() {
         vista.txtTotal.setText("");
-        // Aquí puedes agregar más lógica para resetear la interfaz
+        System.out.println("Venta cancelada.");
     }
+
 
     public void confirmarVenta() {
-        // Obtener medio de pago seleccionado
-        String medioPago = "";
-        if (vista.jRadioButtonyape.isSelected()) {
-            medioPago = "Yape";
-        } else if (vista.jRadioButtonTranferencia.isSelected()) {
-            medioPago = "Transferencia";
+        String medioPago = vista.jRadioButtonyape.isSelected() ? "Yape" : 
+                          vista.jRadioButtonTranferencia.isSelected() ? "Transferencia" : "";
+
+        String comprobante = vista.jRadioButtonFactura.isSelected() ? "Factura" : 
+                            vista.jRadioButtonBoleta.isSelected() ? "Boleta" : "";
+
+        if (medioPago.isEmpty() || comprobante.isEmpty()) {
+            JOptionPane.showMessageDialog(vista, "Debe seleccionar medio de pago y comprobante.");
+            return;
         }
 
-        // Obtener comprobante seleccionado
-        String comprobante = "";
-        if (vista.jRadioButtonFactura.isSelected()) {
-            comprobante = "Factura";
-        } else if (vista.jRadioButtonBoleta.isSelected()) {
-            comprobante = "Boleta";
-        }
+        try {
+            con.setAutoCommit(false);
 
-        // Validar que se haya seleccionado un medio de pago y un comprobante
-        if (medioPago.isEmpty()) {
-            JOptionPane.showMessageDialog(vista, "Debe seleccionar un medio de pago.");
-            return; // Salir si no se selecciona medio de pago
-        }
+            // Reducción de stock y limpieza de carrito
+            String consultaCarrito = "SELECT producto_id, cantidad FROM carrito WHERE cliente_id = ?";
+            try (PreparedStatement psCarrito = con.prepareStatement(consultaCarrito)) {
+                psCarrito.setInt(1, IDCliente);
+                ResultSet rs = psCarrito.executeQuery();
 
-        if (comprobante.isEmpty()) {
-            JOptionPane.showMessageDialog(vista, "Debe seleccionar un comprobante.");
-            return; // Salir si no se selecciona comprobante
-        }
+                while (rs.next()) {
+                    int idProducto = rs.getInt("producto_id");
+                    int cantidad = rs.getInt("cantidad");
 
-        // Si todo está correcto, procesamos la venta
-        System.out.println("Venta confirmada con medio de pago: " + medioPago + " y comprobante: " + comprobante);
-        JOptionPane.showMessageDialog(vista, "Venta confirmada con medio de pago: " + medioPago + " y comprobante: " + comprobante);
+                    String actualizarStock = "UPDATE producto SET stock = stock - ? WHERE id_producto = ?";
+                    try (PreparedStatement psStock = con.prepareStatement(actualizarStock)) {
+                        psStock.setInt(1, cantidad);
+                        psStock.setInt(2, idProducto);
+                        psStock.executeUpdate();
+                    }
+                }
+            }
+
+            String limpiarCarrito = "DELETE FROM carrito WHERE cliente_id = ?";
+            try (PreparedStatement psLimpiar = con.prepareStatement(limpiarCarrito)) {
+                psLimpiar.setInt(1, IDCliente);
+                psLimpiar.executeUpdate();
+            }
+
+            con.commit();
+            JOptionPane.showMessageDialog(vista, "Venta confirmada exitosamente.");
+            actualizarCarrito();
+        } catch (SQLException e) {
+            try {
+                con.rollback();
+                JOptionPane.showMessageDialog(vista, "Error al procesar la venta. Se han revertido los cambios.");
+            } catch (SQLException rollbackEx) {
+                rollbackEx.printStackTrace();
+            }
+            e.printStackTrace();
+        } finally {
+            try {
+                con.setAutoCommit(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
-    private void actualizarTotal() {
-        // Aquí agregamos la lógica para actualizar el total
-        // Por ejemplo, obtenemos el total de la venta (esto es solo un ejemplo)
-        String total = vista.txtTotal.getText();
-        System.out.println("Total de la venta: " + total);
-        // Si el total no es válido o está vacío, podemos mostrar un mensaje de error
-        if (total.isEmpty()) {
-            JOptionPane.showMessageDialog(vista, "El total de la venta no puede estar vacío.");
+ private void actualizarTotal() { 
+    try {
+        // Calculamos el total sumando los subtotales del carrito
+        float total = 0;
+        String query = "SELECT (carrito.cantidad * producto.precio) AS subtotal "
+                     + "FROM carrito "
+                     + "JOIN producto ON producto.id_producto = carrito.producto_id "
+                     + "WHERE carrito.cliente_id = ?";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, IDCliente);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                total += rs.getFloat("subtotal");
+            }
         }
+
+        // Actualizamos el campo de texto con el total calculado
+        vista.txtTotal.setText(String.format("%.2f", total));
+        System.out.println("Total actualizado: " + total);
+
+        // Validamos si el total es válido o está vacío (en este caso, debería ser 0.0 si no hay productos)
+        if (total <= 0) {
+            JOptionPane.showMessageDialog(vista, "El carrito está vacío. No hay productos para calcular el total.");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(vista, "Error al actualizar el total. Verifique la base de datos.");
     }
+}
+
 
     // Método que habilita o deshabilita el botón de confirmar dependiendo de si se aceptan los términos
     private void actualizarBotonConfirmar() {
-        if (vista.jCheckBoxTerminosCondiciones.isSelected()) {
+        if (vista.jCheckBoxTerminosCondiciones.isSelected() && vista.jCheckBoxUsarMiCuenta.isSelected()) {
             vista.botonConfirmar.setEnabled(true);
         } else {
             vista.botonConfirmar.setEnabled(false);
