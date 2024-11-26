@@ -30,7 +30,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="txtFiltro" min="-2" pref="180" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btnBuscar" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="btnBuscar" min="-2" pref="142" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
@@ -58,7 +58,7 @@
               <Component id="scroll" min="-2" pref="449" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnVer" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
