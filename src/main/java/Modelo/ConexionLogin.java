@@ -71,8 +71,8 @@ public class ConexionLogin {
             pstmt.setString(1, nombres);
             pstmt.setString(2, apellidos);
             pstmt.setString(3, correo);
-            pstmt.setString(4, telefono);
-            pstmt.setString(5, direccion);
+            pstmt.setString(4, direccion);
+            pstmt.setString(5, telefono);
             pstmt.setString(6, password);
             pstmt.executeUpdate();
             return true;
