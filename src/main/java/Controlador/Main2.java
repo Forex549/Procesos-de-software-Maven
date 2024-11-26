@@ -35,7 +35,7 @@ public class Main2 {
 
     private void inicializarComponentes() {
         
-        // Establecer conexión a la base de datos
+        //establecer conexión a la base de datos
         Connection con = conectar();
         
         //se crean los cardlayout
@@ -43,11 +43,11 @@ public class Main2 {
         CardLayout cardLayout2 = new CardLayout();// el de aca para cambiar los paneles de la parte d abajo de la vista usuario
         
         
-        //Se crea el frame que contendra TODOS los paneles
+        //se crea el frame que contendra TODOS los paneles
         principal = new Principal();
         
 
-        // Inicializar las vistas 
+        //Inicializa las vistas
         panelTienda tienda = new panelTienda();
         VistaInfo pd1 = new VistaInfo();
         TablaCliente tablaCliente = new TablaCliente();
@@ -76,9 +76,6 @@ public class Main2 {
         controladorLogin contLog = new controladorLogin(login, cardLayout, con,principal,conCarr,contInfo,tablaCliente,conVent);
         
         
-        System.out.println("wasaaa: "+login.ID);//lo de aca es solo pa verificar si se setea el ID
-        
-        
 
         
         //Se añaden los paneles al contenedor principal
@@ -94,12 +91,12 @@ public class Main2 {
         tienda.panelInicio.add(ventas,"ventas");
         
 
-        // Mostrar el panel de login inicialmente
+        //muestra el panel de login al inicio
         cardLayout.show(principal.background, "login");
     }
 
     public void mostrarMenu() {
-        // Mostrar la ventana principal
+        //muestra la ventana principal
         principal.setVisible(true);
     }
 

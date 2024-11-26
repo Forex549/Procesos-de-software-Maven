@@ -35,15 +35,15 @@ public class ControladorPanelCarrito {
         
         this.panelCarrito.tblProdCarrito.setAutoCreateRowSorter(true);
         
-            // Listener para eliminar producto
+            
         this.panelCarrito.btnEliminar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 eliminarProducto();
             }
         });
-        //panelCarrito.txtTotal.setText(String.valueOf(ControladorPanelCarrito.cargarDatos(con, panelCarrito.tblProdCarrito,this.IDCliente)));
-            // Listener para botón Pagar
+        
+            
          this.panelCarrito.btnPagar.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -54,21 +54,6 @@ public class ControladorPanelCarrito {
     });
     }
     
-    private void abrirVentas() {
-// Crear una nueva instancia de la ventana de ventas
-    //Ventas ventanaVentas = new Ventas(IDCliente, con);
-
-     // Crear el controlador asociado a la ventana de ventas
-   //ControladorVentas controladorVentas = new ControladorVentas(ventanaVentas, IDCliente, con);
-
-    // Crear un JFrame para mostrar la ventana de ventas
-    /*JFrame frameVentas = new JFrame("Ventas");
-    frameVentas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    frameVentas.setContentPane(ventanaVentas);
-    frameVentas.pack();
-    frameVentas.setLocationRelativeTo(null); // Centrar la ventana
-    frameVentas.setVisible(true);*/
-}
 
 private void mostrarMensaje(String mensaje, String titulo, int tipoMensaje) {
     JOptionPane.showMessageDialog(panelCarrito, mensaje, titulo, tipoMensaje);

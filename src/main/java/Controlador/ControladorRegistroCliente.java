@@ -9,9 +9,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
-/**
- * Controlador para manejar los eventos de la vista RegistrarCliente.
- */
+
 public class ControladorRegistroCliente {
 
     private RegistrarCliente vista;
@@ -25,7 +23,7 @@ public class ControladorRegistroCliente {
         this.principal = principal;
         this.con = con;
 
-        // Configurar los listeners
+        
         this.vista.btnRegistrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -34,9 +32,8 @@ public class ControladorRegistroCliente {
         });
     }
 
-    /**
-     * Método para registrar un cliente en la base de datos.
-     */
+    
+      //Método para registrar un cliente en la bd
     private void registrarCliente() {
         // Obtener los valores ingresados por el usuario
         String nombres = vista.jTextFieldNombres.getText().trim();
@@ -46,29 +43,28 @@ public class ControladorRegistroCliente {
         String direccion = vista.jTextFieldDireccion.getText().trim();
         String password = new String(vista.jTextFieldPassword.getPassword()).trim();
 
-        // Validar que todos los campos estén llenos
+        //Validar que todos los campos estén llenos
         if (nombres.isEmpty() || apellidos.isEmpty() || correo.isEmpty() ||
             telefono.isEmpty() || direccion.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(vista, "Todos los campos deben ser completados.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Registrar al cliente en la base de datos
+        //Registrar al cliente en la base de datos
         boolean registroExitoso = ConexionLogin.registrarCliente(nombres, apellidos, correo, telefono, direccion, password, con);
 
         if (registroExitoso) {
             JOptionPane.showMessageDialog(vista, "Registro exitoso.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             limpiarCampos();
-            // Cambiar a la vista de login (opcional)
+            //cambiar a la vista de login 
             cardLayout.show(principal.background, "login");
         } else {
             JOptionPane.showMessageDialog(vista, "Error al registrar el cliente. Intente nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    /**
-     * Método para limpiar los campos después del registro.
-     */
+    
+     //Método para limpiar los campos después del registro.
     private void limpiarCampos() {
         vista.jTextFieldNombres.setText("");
         vista.jTextFieldApellidos.setText("");

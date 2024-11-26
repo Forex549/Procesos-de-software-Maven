@@ -44,7 +44,7 @@ public class controladorLogin {
         this.login.btnIngresar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 
-                // Obtener los valores ingresados
+                //obtener los valores ingresados
                 String username = login.jTextFieldUsuario.getText().trim();
                 String password = new String(login.jTextFieldPassword.getPassword()).trim(); // Convertir el char[] a String
                 
@@ -53,22 +53,19 @@ public class controladorLogin {
                 ID = idCliente;
  
                 if(ConexionLogin.esAdmin(username, password,con)){
-                    //Si es admin te mostrar el almacen, falta decorar el almacen
+                    //Si es admin te mostrar el almacen
                     cardLayout.show(principal.background, "almacen");
                 }
 
                 else if (idCliente != -1) {
-                    System.out.println("codigo: "+idCliente);
+                    
                     contInfo.setIDUsuario(idCliente);
                     conCarr.setID(idCliente);
                     conVent.setIDCliente(idCliente);
                     
-                    //ControladorPanelCarrito carrito = new ControladorPanelCarrito(controladorLogin.this.carrito,ID,con);
                     ControladorTablaCliente.cargarDatos(con, tablaCliente.table);
                     cardLayout.show(principal.background, "tienda");
 
-                    //javax.swing.JOptionPane.showMessageDialog(this, "Ingreso exitoso!");
-                    // Lógica para avanzar en la aplicación o cambiar de pantalla
                 }
 
                 else {
@@ -78,7 +75,7 @@ public class controladorLogin {
    
         });
         
-        // Configurar el clic en el panel de registro
+        //Configurar el clic en el panel de registro
         this.login.jPanelRegistro.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -87,9 +84,9 @@ public class controladorLogin {
         });
     }
     
-    // Método para mostrar la vista de registro
+    // método para mostrar la vista de registro
     private void abrirRegistro() {
-        // Cambiar a la vista de registro usando CardLayout
+        // Cambiar a la vista de registro 
         cardLayout.show(principal.background, "registro");
     }
     

@@ -10,7 +10,7 @@ import java.sql.SQLClientInfoException;
 
 public class ConexionLogin {
     
-    // Método para verificar el usuario y la contraseña
+    //verifica el user y contraseña
     public static int verificarUsuario(String username, String password,Connection con) {
         int idCliente = -1;
         
@@ -23,14 +23,14 @@ public class ConexionLogin {
             consulta.setString(2,password);
            
             // Registra el parámetro de salida (OUT)
-            consulta.registerOutParameter(3, java.sql.Types.BOOLEAN); // El tercer parámetro es el OUT (resultado)
-            consulta.registerOutParameter(4, java.sql.Types.INTEGER); // ID del cliente
+            consulta.registerOutParameter(3, java.sql.Types.BOOLEAN); //El tercer parámetro es el out (resultado)
+            consulta.registerOutParameter(4, java.sql.Types.INTEGER); //ID del cliente
             
             consulta.execute();
             boolean isAuthenticated = consulta.getBoolean(3);
             
            if (isAuthenticated) {
-            idCliente = consulta.getInt(4); // Obtenemos el ID solo si la autenticación fue exitosa
+            idCliente = consulta.getInt(4); //Obtenemos el ID solo si la autenticación fue exitosa
             } 
 
         } catch (Exception e) {

@@ -166,38 +166,33 @@ public class ControladorAlmacen{
     JFileChooser fileChooser = new JFileChooser();
     fileChooser.setDialogTitle("Selecciona una imagen");
 
-    // Filtrar solo archivos de imagen
+    //filtrar solo archivos de imagen
     FileNameExtensionFilter imageFilter = new FileNameExtensionFilter("Imágenes", ImageIO.getReaderFileSuffixes());
     fileChooser.setFileFilter(imageFilter);
 
-    int result = fileChooser.showOpenDialog(vista); // 'vista' es tu componente padre
+    int result = fileChooser.showOpenDialog(vista); //'vista' es tu componente padre
     if (result == JFileChooser.APPROVE_OPTION) {
         File selectedFile = fileChooser.getSelectedFile();
 
-        // Definir la carpeta de destino (no puede ser 'src/main/resources' en tiempo de ejecución)
+        //Definir la carpeta de destino
         File destinationFolder = new File("productos_imagenes");
         if (!destinationFolder.exists()) {
             destinationFolder.mkdir(); // Crear la carpeta si no existe
         }
         File destinationFile = new File(destinationFolder, selectedFile.getName());
-        /*if (destinationFile.exists()) {
-            JOptionPane.showMessageDialog(vista, "El archivo ya existe en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }*/
+       
         
         try {
-            // Copiar el archivo seleccionado a la carpeta de destino
+            //Copiar el archivo seleccionado a la carpeta de destino
             Files.copy(selectedFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
-            // Mostrar la imagen en la vista
-            /*ImageIcon icon = new ImageIcon(destinationFile.getAbsolutePath());
-            this.vista.ImagenProduct1.setIcon(icon);*/
 
-            // Almacenar el nombre de la imagen para su uso posterior (por ejemplo, guardar en la base de datos)
+            // Almacenar el nombre de la imagen para su uso posterior 
             String nombreImagenSeleccionada = selectedFile.getName();
             this.vista.txtImagen.setText(nombreImagenSeleccionada);
             this.vista.txtImagen.setEnabled(false);
-            // Notificar al usuario que la imagen se cargó correctamente
+            
+            //Notificar al usuario que la imagen se cargó correctamente
             JOptionPane.showMessageDialog(vista, "Imagen cargada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IOException ex) {
@@ -259,7 +254,7 @@ public class ControladorAlmacen{
         modelo.addColumn("Fecha de actualización");
         modelo.addColumn("Nombre Imagen");
         
-        String consulta = "SELECT * FROM producto"; // Cambia "productos" al nombre de tu tabla
+        String consulta = "SELECT * FROM producto"; 
 
         try  {
             Statement stmt = con.createStatement();
@@ -267,10 +262,10 @@ public class ControladorAlmacen{
             
                  while (rs.next()) {
                 Object[] fila = new Object[9];
-                fila[0] = rs.getInt("id_producto"); // Cambia "id" al nombre de tu columna
-                fila[1] = rs.getString("Nombre"); // Cambia "nombre" al nombre de tu columna
-                fila[2] = rs.getFloat("Precio"); // Cambia "precio" al nombre de tu columna
-                fila[3] = rs.getInt("Stock"); // Cambia "stock" al nombre de tu columna
+                fila[0] = rs.getInt("id_producto");
+                fila[1] = rs.getString("Nombre"); 
+                fila[2] = rs.getFloat("Precio"); 
+                fila[3] = rs.getInt("Stock"); 
                 fila[4] = rs.getString("Marca");
                 fila[5] = rs.getString("Categoria");
                 fila[6] = rs.getString("descripción");

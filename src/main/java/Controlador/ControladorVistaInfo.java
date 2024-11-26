@@ -61,12 +61,7 @@ public class ControladorVistaInfo {
         });
            
      }
-    
-    /*public void mostrarDetallesProducto(Product product) {
-        VistaInfo.mostrarProduct(product);
-        cardLayout.show(vistaInfo.getParent(), "detalles"); // Cambia al panel de detalles
-    }*/
-    
+
     public void configurarInfo(int ID,VistaInfo vista){
     
         String sql = "{CALL obtenerInfo(?,?,?,?,?,?)}";
@@ -109,10 +104,6 @@ public class ControladorVistaInfo {
         this.vista.comboCantidad.setModel(modelo2);
         }
         
-            System.out.println("pfecio: "+precio);
-            System.out.println("cantidad: "+cantidad);
-            System.out.println("descr: "+descripcion);
-            System.out.println("nombre: "+nombre);
         }
         catch(SQLException e){
             e.printStackTrace();
