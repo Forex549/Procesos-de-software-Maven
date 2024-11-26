@@ -108,6 +108,13 @@ public void confirmarVenta() {
     }
 
     try {
+        // Mostrar la boleta antes de actualizar la base de datos
+        abrirVistaBoleta(con);
+
+
+        // Agregar un retraso de 2 segundos
+        Thread.sleep(2000);
+
         con.setAutoCommit(false);
 
         // Reducción de stock y limpieza de carrito
@@ -137,11 +144,12 @@ public void confirmarVenta() {
 
         con.commit();
         
-        // Aquí se llama a la función para abrir la ventana de la boleta
-        //abrirVistaBoleta();
-        
+        // Actualizar la vista del carrito después de los cambios
         conCarr.setID(IDCliente);
         actualizarCarrito();
+    } catch (InterruptedException e) {
+        JOptionPane.showMessageDialog(vista, "Error al procesar la dilación.");
+        e.printStackTrace();
     } catch (SQLException e) {
         try {
             con.rollback();
@@ -158,28 +166,37 @@ public void confirmarVenta() {
         }
     }
 }
-/*
-private void abrirVistaBoleta() {
-    // Crear una nueva instancia de la vista de la boleta
-    Boleta ventanaBoleta = new Boleta();
 
-    // Asegúrate de tener la conexión y el IDCliente disponibles
-    Connection con = // Tu conexión a la base de datos;
-    int IDCliente = // El ID del cliente que deseas pasar;
 
-    // Crear el controlador asociado a la ventana de la boleta
-    ControladorBoleta controladorBoleta = new ControladorBoleta(ventanaBoleta, con, IDCliente);
+private void abrirVistaBoleta(Connection con) {
+    // Crear la instancia de Boleta
+    Boleta boleta = new Boleta();
 
-    // Crear un JFrame para mostrar la ventana de la boleta
-    JFrame frameBoleta = new JFrame("Boleta de Venta");
-    frameBoleta.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    frameBoleta.setContentPane(ventanaBoleta);
+    // Crear el controlador usando la conexión existente
+    ControladorBoleta controladorBoleta = new ControladorBoleta(boleta, con);
+
+    // Pasar los datos desde la tabla tblProdCarrito
+    DefaultTableModel modeloTabla = (DefaultTableModel) vista.tblProdCarrito.getModel();
+    controladorBoleta.cargarDatosDesdeTabla(modeloTabla, vista.txtTotal.getText());
+
+    // Asegúrate de que el IDCliente esté disponible en el contexto
+    int idCliente = obtenerIDCliente(); // Método para obtener el IDCliente dinámicamente
+
+    // Establecer el IDCliente en el controlador
+    controladorBoleta.setIDCliente(idCliente);  // Establece el IDCliente en el controlador
+
+    // Cargar los datos del usuario con el IDCliente
+    controladorBoleta.cargarDatosUsuario();  // Ahora carga los datos usando el IDCliente desde el controlador
+
+    // Mostrar la ventana de la boleta
+    javax.swing.JFrame frameBoleta = new javax.swing.JFrame("Boleta de Venta");
+    frameBoleta.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+    frameBoleta.setContentPane(boleta);
     frameBoleta.pack();
-    frameBoleta.setLocationRelativeTo(null); // Centrar la ventana
+    frameBoleta.setLocationRelativeTo(null);
     frameBoleta.setVisible(true);
 }
 
-*/
 
 
  private void actualizarTotal() { 
@@ -223,6 +240,9 @@ private void abrirVistaBoleta() {
         } else {
             vista.botonConfirmar.setEnabled(false);
         }
+    }
+    private int obtenerIDCliente() {
+    return this.IDCliente;
     }
 
     public void setIDCliente(int IDCliente) {

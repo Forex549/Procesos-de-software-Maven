@@ -5,20 +5,54 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- * Controlador para la vista Boleta. Gestiona la carga de detalles de boleta
- * y la acción de imprimir.
- *
- * @author Ronnie Herrera
- */
 public class ControladorBoleta {
     private Boleta vista;
     private Connection con;
-    private int IDCliente;
+    private int IDCliente;  // Variable para almacenar el ID del cliente
 
+    public ControladorBoleta(Boleta vista, Connection con) {
+        this.vista = vista;
+        this.con = con;
+    }
+
+    // Método para establecer el ID del cliente
+    public void setIDCliente(int IDCliente) {
+        this.IDCliente = IDCliente;  // Establece el ID dinámicamente
+    }
+
+    // Método para cargar los datos desde la tabla
+    public void cargarDatosDesdeTabla(DefaultTableModel modeloTabla, String total) {
+        vista.tblProdPedido.setModel(modeloTabla); // Asigna el modelo de tabla directamente
+        vista.txtTotal.setText(total); // Muestra el total recibido
+    }
+
+public void cargarDatosUsuario() {
+    // Consulta para obtener los datos del cliente usando el IDCliente
+    String consulta = "SELECT nombres, apellidos, correo, direccion, telefono FROM cliente WHERE id_cliente = ?";
+    try (PreparedStatement ps = con.prepareStatement(consulta)) {
+        ps.setInt(1, IDCliente);  // Usa el IDCliente asignado
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                // Asignación de datos a las etiquetas ya existentes
+                vista.jLabelNombreCliente.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
+                vista.jLabelCorreo.setText("Correo: " + rs.getString("correo"));
+                vista.jLabelDireccion.setText(rs.getString("direccion"));
+                vista.jLabelNumero.setText("Teléfono: " + rs.getString("telefono")); 
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
+
+
+}
+
+/*
     public ControladorBoleta(Boleta vista, Connection con, int IDCliente) {
         this.vista = vista;
         this.con = con;
@@ -29,7 +63,6 @@ public class ControladorBoleta {
         // Acción del botón de imprimir
         vista.jButtonDescargar.addActionListener(e -> imprimirBoleta());
     }
-
     private void cargarDetalleBoleta() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID Producto");
@@ -91,4 +124,6 @@ public class ControladorBoleta {
         // Aquí agregamos la lógica para imprimir la boleta
         JOptionPane.showMessageDialog(vista, "Boleta lista para imprimir.");
     }
-}
+
+*/
+
