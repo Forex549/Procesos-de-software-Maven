@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
- * @author Giancarlo
+ * @author Giancarlo yy
  */
 public class ControladorAlmacen{
     
