@@ -104,7 +104,7 @@ public class Main2 {
         Connection con = null;
         try {
             con = DriverManager.getConnection(url, user, pass);
-            System.out.println("Conexión exitosa");
+            System.out.println("Conexión exitosa"); 
         } catch (Exception e) {
             e.printStackTrace();
         }

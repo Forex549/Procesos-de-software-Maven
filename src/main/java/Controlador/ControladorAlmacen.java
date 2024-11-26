@@ -41,6 +41,9 @@ public class ControladorAlmacen{
         this.vista.btnAgregar.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
         
+            try{
+            
+            
             if(camposLlenos()){
             
                 String nombre = vista.txtNombre.getText();
@@ -60,7 +63,10 @@ public class ControladorAlmacen{
                 JOptionPane.showMessageDialog(vista, "Debe llenar todos los campos" , "Error al agregar producto" , JOptionPane.ERROR_MESSAGE);
             }
             
-        
+            }catch(NumberFormatException ex){
+            
+                JOptionPane.showMessageDialog(vista, "Por favor, ingrese valores numéricos válidos en los campos de precio, cantidad o especificaciones.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+            }
         }
         });
         
